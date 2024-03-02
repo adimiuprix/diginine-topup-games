@@ -7,7 +7,7 @@
                     <div class="tf-card-box style-2">
                         <div class="card-media">
                             <a href="#">
-                            <img src="public/assets/images/box-item/banner-14.jpg" alt="">
+                            <img src="<?= base_url('public/assets/images/box-carousel/image-1.jpg')?>" alt="">
                             </a>
                             <span class="wishlist-button icon-heart"></span>
                         </div>
@@ -18,7 +18,7 @@
                     <div class="tf-card-box style-2">
                         <div class="card-media">
                             <a href="#">
-                            <img src="public/assets/images/box-item/banner-15.jpg" alt="">
+                            <img src="<?= base_url('public/assets/images/box-carousel/image-2.jpg')?>" alt="">
                             </a>
                             <span class="wishlist-button icon-heart"></span>
                         </div>
@@ -29,7 +29,18 @@
                     <div class="tf-card-box style-2">
                         <div class="card-media">
                             <a href="#">
-                            <img src="public/assets/images/box-item/banner-14.jpg" alt="">
+                            <img src="<?= base_url('public/assets/images/box-carousel/image-3.jpg')?>" alt="">
+                            </a>
+                            <span class="wishlist-button icon-heart"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="tf-card-box style-2">
+                        <div class="card-media">
+                            <a href="#">
+                            <img src="<?= base_url('public/assets/images/box-carousel/image-4.jpg')?>" alt="">
                             </a>
                             <span class="wishlist-button icon-heart"></span>
                         </div>
