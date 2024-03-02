@@ -23,7 +23,10 @@ class Home extends BaseController
         $setting = $this->setting;
         $itemModel = new ItemModel();
 
-        $items = $itemModel->join('categories', 'categories.id = items.id_cats')->findAll();
+        $items = $itemModel
+            ->join('categories', 'categories.id = items.id_cats')
+            ->findAll();
+
         $dataItems = [];
 
         foreach ($items as $item) {
@@ -31,6 +34,7 @@ class Home extends BaseController
                 'name' => $item['item_name'],
                 'slug' => $item['slug'],
                 'category' => $item['category'],
+                'image' => $item['image'],
             ];
         }
 

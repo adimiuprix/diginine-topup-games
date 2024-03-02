@@ -212,7 +212,7 @@ class ItemSeeder extends Seeder
                 'item_name' => 'Indosat Ooredoo',
                 'status' => 'enable',
                 'slug' => 'indosat-ooredoo',
-                'image' => 'indosat-ooredoo.png',
+                'image' => 'indosat.png',
                 'description' => 'Indosat Ooredoo adalah salah satu penyedia layanan telekomunikasi terkemuka di Indonesia. Dengan berbagai paket dan layanan yang inovatif, serta cakupan jaringan yang luas, Indosat Ooredoo membantu memenuhi kebutuhan komunikasi pelanggan di seluruh negeri. Komitmen mereka terhadap pelayanan berkualitas menjadikan mereka pilihan utama dalam dunia telekomunikasi.',
                 'vendor' => 'Indosat Ooredoo',
             ],

@@ -32,7 +32,7 @@
                                     <div class="tf-card-box style-1">
                                         <div class="card-media">
                                             <a href="<?= base_url('order/' . $item['category'] . '/' . $item['slug']) ?>">
-                                                <img src="public/assets/images/box-item/card-item-53.jpg" alt="">
+                                                <img src="<?= base_url('public/assets/images/box-item/' . $item['image']); ?>" alt="">
                                             </a>
                                             <span class="wishlist-button icon-heart"></span>
                                             <div class="button-place-bid">
