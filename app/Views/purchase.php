@@ -4,7 +4,7 @@
 <div class="flat-title-page">
     <div class="themesflat-container">
         <div class="col-12">
-            <h3 class="heading text-center">Detail pembayaran pembayaran</h3>
+            <h3 class="heading text-center">Detail pembayaran</h3>
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@ class ItemModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_cats', 'item_name', 'status', 'slug', 'image', 'description', 'vendor'];
+    protected $allowedFields    = ['id_cats', 'item_name', 'status', 'slug', 'image', 'description', 'vendor', 'coloum'];
 
     protected bool $allowEmptyInserts = false;
 

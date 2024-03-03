@@ -16,17 +16,36 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-12">
                     <form action="<?= base_url('confirm-order'); ?>" method="post">
                         <input type="hidden" name="category" value="<?= $detailProduct['id_cats']; ?>">
                         <input type="hidden" name="service" value="<?= $detailProduct['id']; ?>">
                         <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
                             <h6><i class="icon-clock"></i> Masukkan Player ID</h6>
+
+                            <?php if($detailProduct['coloum'] == 1): ?>
                             <div class="content">
                                 <fieldset>
                                     <input type="text" placeholder="Enter ID anda" name="player" required />
                                 </fieldset>
                             </div>
+
+                            <?php else: ?> 
+
+                            <div class="content">
+                                <fieldset>
+                                    <input type="text" placeholder="Enter ID anda" name="player" required />
+                                </fieldset>
+                            </div>
+                            <div class="content">
+                                <fieldset>
+                                    <input type="text" placeholder="Enter Server ID" name="server" required />
+                                </fieldset>
+                            </div>
+
+                            <?php endif; ?>
+                            
                         </div>
                         <div data-wow-delay="0s" class="wow fadeInRight product-item traits animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
                             <h6><i class="icon-description"></i>Pilih nominal</h6>

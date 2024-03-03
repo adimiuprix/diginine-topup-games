@@ -60,18 +60,32 @@ class Home extends BaseController
         $categoryProduct = $this->request->getPost('category');
         $serviceName = $this->request->getPost('service');
         $IdSendTo = $this->request->getPost('player');
+        $servID = $this->request->getPost('server');
         $payMethod = $this->request->getPost('payment');
         $price = $this->request->getPost('pricing');
 
-        $dataPost = [
-            'hash_transaction'  => $random,
-            'category'  => $categoryProduct,
-            'service'   => $serviceName,
-            'id_player' => $IdSendTo,
-            'methods_pay'   => $payMethod,
-            'price'  => $price,
-            'status'  => "0",
-        ];
+        if ($servID === null) {
+            $dataPost = [
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'status'  => "0",
+            ];
+        } else {
+            $dataPost = [
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'server' => $servID,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'status'  => "0",
+            ];
+        }
 
         $invoiceModel = new InvoiceModel();
         $invoiceModel->insert($dataPost);
