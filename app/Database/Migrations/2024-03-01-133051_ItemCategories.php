@@ -42,6 +42,10 @@ class ItemCategories extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => 255
             ],
+            'coloum' => [
+                'type'       => 'ENUM("1", "2")',
+                'default' => '1',
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('items'); 
