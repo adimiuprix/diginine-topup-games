@@ -24,6 +24,7 @@ class PaymentMethods extends Migration
         $this->forge->createTable('payment_methods');
         
         $initialData = [
+            ['method_name'     => 'Saldo Akun'],
             ['method_name'     => 'Qris'],
             ['method_name'     => 'Dana'],
             ['method_name'     => 'Gopay'],
