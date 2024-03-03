@@ -108,4 +108,116 @@ class Home extends BaseController
         return view('purchase', compact('setting', 'invoiceResult'));
     }
 
+    public function runPayment(){
+        $apiKey = 'DEV-ZxAk4Ak5l8Y6EboltfYD4MoHS9bktTI8G0ULms8I';
+        $privateKey   = 'Rs6R6-T8HIk-2Er37-r0mY8-uvH5w';
+        $merchantCode = 'T15728';
+        $merchantRef  = 'INV55567';
+        $amount       = 500000;
+        
+        $data = [
+            'method'         => 'BRIVA',
+            'merchant_ref'   => $merchantRef,
+            'amount'         => $amount,
+            'customer_name'  => 'Nama Pelanggan',
+            'customer_email' => 'emailpelanggan@domain.com',
+            'customer_phone' => '081234567890',
+            'order_items'    => [
+                [
+                    'sku'         => 'FB-06',
+                    'name'        => 'Nama Produk 1',
+                    'price'       => 500000,
+                    'quantity'    => 1,
+                    'product_url' => 'https://tokokamu.com/product/nama-produk-1',
+                    'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
+                ],
+            ],
+            'return_url'   => 'https://domainanda.com/redirect',
+            'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
+            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
+        ];
+        
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, [
+            CURLOPT_FRESH_CONNECT  => true,
+            CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
+            CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
+            CURLOPT_FAILONERROR    => false,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => http_build_query($data),
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
+        ]);
+        
+        $response = curl_exec($curl);        
+        curl_close($curl);
+        
+        dd($response);
+    }
+
+    public function callback(){
+        /* privatekey Tripay **/
+        $privateKey = 'Rs6R6-T8HIk-2Er37-r0mY8-uvH5w';
+                
+        /* membaca seluruh data JSON yang diterima melalui input PHP dan menyimpannya dalam variabel $json. **/
+        $json = file_get_contents('php://input');
+    
+        /* mengambil tanda tangan yang dikirim oleh payment gateway dari header HTTP HTTP_X_CALLBACK_SIGNATURE. **/
+        $callbackSignature = $this->request->getServer('HTTP_X_CALLBACK_SIGNATURE');
+    
+        /*  Tanda tangan HMAC (Hash-based Message Authentication Code) dihasilkan menggunakan algoritma SHA-256
+            dengan menggunakan data JSON yang diterima dan kunci rahasia sebagai kunci.
+            Ini adalah langkah penting dalam verifikasi callback.
+        **/
+        $signature = hash_hmac('sha256', $json, $privateKey);
+    
+        /*  Pada blok ini, tanda tangan yang diterima dibandingkan dengan tanda tangan yang dihasilkan.
+            Jika tanda tangan tidak cocok, maka respon dengan pesan "Invalid signature" dikirim ke gateway.
+        **/
+        if ($callbackSignature !== $signature) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid signature'
+            ]);
+        }
+    
+        // Data JSON yang diterima di-decode menjadi bentuk objek PHP.
+        $data = json_decode($json);
+    
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid data sent by payment gateway'
+            ]);
+        }
+    
+        /*  Kode ini memeriksa jenis callback event yang diterima.
+            Jika bukan 'payment_status', maka respon dengan pesan "Unrecognized callback event" dikirim.
+        */
+        if ('payment_status' !== $this->request->getServer('HTTP_X_CALLBACK_EVENT')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Unrecognized callback event: ' . $this->request->getServer('HTTP_X_CALLBACK_EVENT')
+            ]);
+        }
+    
+        // Tentukan nama file untuk menyimpan data JSON
+        $file_name = 'callback.json';
+        
+        // Simpan data JSON ke file
+        if (file_put_contents($file_name, $json) !== false) {
+            // Kembalikan responnya ke payment gateway bahwa callback berhasil
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Callback received and processed successfully'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Failed to save callback data to JSON file'
+            ]);
+        }
+    }
 }
