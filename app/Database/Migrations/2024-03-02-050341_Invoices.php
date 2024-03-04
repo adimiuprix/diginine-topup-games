@@ -51,6 +51,10 @@ class Invoices extends Migration
                 'type'       => 'ENUM("0", "1")',
                 'default' => '0',
             ],
+            'sku_code' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('invoices');
