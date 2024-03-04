@@ -59,6 +59,7 @@
                                 <?php foreach ($products as $product): ?>
                                 <div class="trait-item">
                                     <label class="title"><?= $product['name_product']; ?></label>
+                                    <input type="hidden" name="skucode" value="<?= $product['code_product']; ?>">
                                     <input type="radio" class="radio-nominale" name="pricing" value="<?= $product['price']; ?>">
                                     <div class="title"><?= $product['item']; ?></div>
                                     <p>Rp. <?= $product['price']; ?></p>

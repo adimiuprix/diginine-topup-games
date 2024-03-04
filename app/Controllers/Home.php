@@ -63,6 +63,7 @@ class Home extends BaseController
         $servID = $this->request->getPost('server');
         $payMethod = $this->request->getPost('payment');
         $price = $this->request->getPost('pricing');
+        $skuCode = $this->request->getPost('skucode');
 
         if ($servID === null) {
             $dataPost = [
@@ -73,6 +74,7 @@ class Home extends BaseController
                 'methods_pay'   => $payMethod,
                 'price'  => $price,
                 'status'  => "0",
+                'sku_code'   => $skuCode,
             ];
         } else {
             $dataPost = [
@@ -84,6 +86,7 @@ class Home extends BaseController
                 'methods_pay'   => $payMethod,
                 'price'  => $price,
                 'status'  => "0",
+                'sku_code'   => $skuCode,
             ];
         }
 
@@ -97,7 +100,6 @@ class Home extends BaseController
     {
         $setting = $this->setting;
         $invoiceModel = new InvoiceModel();
-        $random;    // String CIS77PMVG1I3A5F
         $invoiceResult = $invoiceModel
             ->join('categories', 'categories.id = invoices.category')
             ->join('items', 'items.id = invoices.service')
@@ -109,14 +111,16 @@ class Home extends BaseController
     }
 
     public function runPayment(){
-        $apiKey = 'DEV-ZxAk4Ak5l8Y6EboltfYD4MoHS9bktTI8G0ULms8I';
-        $privateKey   = 'Rs6R6-T8HIk-2Er37-r0mY8-uvH5w';
+        $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
+        $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
         $merchantCode = 'T15728';
-        $merchantRef  = 'INV55567';
-        $amount       = 500000;
         
+        $merchantRef  = $this->request->getPost('reffcode');
+        $methodPay = $this->request->getPost('method');
+        $amount       = 4800;
+
         $data = [
-            'method'         => 'BRIVA',
+            'method'         => $methodPay,
             'merchant_ref'   => $merchantRef,
             'amount'         => $amount,
             'customer_name'  => 'Nama Pelanggan',
@@ -124,15 +128,13 @@ class Home extends BaseController
             'customer_phone' => '081234567890',
             'order_items'    => [
                 [
-                    'sku'         => 'FB-06',
-                    'name'        => 'Nama Produk 1',
-                    'price'       => 500000,
+                    'sku'         => $this->request->getPost('skucode'),
+                    'name'        => 'Mobile Legend',
+                    'price'       => $amount,
                     'quantity'    => 1,
-                    'product_url' => 'https://tokokamu.com/product/nama-produk-1',
-                    'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
                 ],
             ],
-            'return_url'   => 'https://domainanda.com/redirect',
+            'return_url'   => base_url('/'),
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
             'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
         ];
@@ -150,74 +152,13 @@ class Home extends BaseController
             CURLOPT_POSTFIELDS     => http_build_query($data),
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
         ]);
-        
+
         $response = curl_exec($curl);        
         curl_close($curl);
         
-        dd($response);
-    }
+        $decodeData = json_decode($response, true);
+        $checkoutUrl = $decodeData['data']['checkout_url'];
 
-    public function callback(){
-        /* privatekey Tripay **/
-        $privateKey = 'Rs6R6-T8HIk-2Er37-r0mY8-uvH5w';
-                
-        /* membaca seluruh data JSON yang diterima melalui input PHP dan menyimpannya dalam variabel $json. **/
-        $json = file_get_contents('php://input');
-    
-        /* mengambil tanda tangan yang dikirim oleh payment gateway dari header HTTP HTTP_X_CALLBACK_SIGNATURE. **/
-        $callbackSignature = $this->request->getServer('HTTP_X_CALLBACK_SIGNATURE');
-    
-        /*  Tanda tangan HMAC (Hash-based Message Authentication Code) dihasilkan menggunakan algoritma SHA-256
-            dengan menggunakan data JSON yang diterima dan kunci rahasia sebagai kunci.
-            Ini adalah langkah penting dalam verifikasi callback.
-        **/
-        $signature = hash_hmac('sha256', $json, $privateKey);
-    
-        /*  Pada blok ini, tanda tangan yang diterima dibandingkan dengan tanda tangan yang dihasilkan.
-            Jika tanda tangan tidak cocok, maka respon dengan pesan "Invalid signature" dikirim ke gateway.
-        **/
-        if ($callbackSignature !== $signature) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Invalid signature'
-            ]);
-        }
-    
-        // Data JSON yang diterima di-decode menjadi bentuk objek PHP.
-        $data = json_decode($json);
-    
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Invalid data sent by payment gateway'
-            ]);
-        }
-    
-        /*  Kode ini memeriksa jenis callback event yang diterima.
-            Jika bukan 'payment_status', maka respon dengan pesan "Unrecognized callback event" dikirim.
-        */
-        if ('payment_status' !== $this->request->getServer('HTTP_X_CALLBACK_EVENT')) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Unrecognized callback event: ' . $this->request->getServer('HTTP_X_CALLBACK_EVENT')
-            ]);
-        }
-    
-        // Tentukan nama file untuk menyimpan data JSON
-        $file_name = 'callback.json';
-        
-        // Simpan data JSON ke file
-        if (file_put_contents($file_name, $json) !== false) {
-            // Kembalikan responnya ke payment gateway bahwa callback berhasil
-            return $this->response->setJSON([
-                'success' => true,
-                'message' => 'Callback received and processed successfully'
-            ]);
-        } else {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Failed to save callback data to JSON file'
-            ]);
-        }
+        return redirect()->to($checkoutUrl);
     }
 }
