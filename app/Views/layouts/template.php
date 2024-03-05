@@ -265,8 +265,6 @@
         <script src="<?= base_url('')?>public/assets/js/popper.min.js"></script>
         <script src="<?= base_url('')?>public/assets/js/bootstrap.bundle.min.js"></script>
         <script src="<?= base_url('')?>public/assets/js/bootstrap.min.js"></script>
-        <script src="<?= base_url('')?>public/assets/js/swiper-bundle.min.js"></script>
-        <script src="<?= base_url('')?>public/assets/js/swiper.js"></script>
         <script src="<?= base_url('')?>public/assets/js/count-down.js"></script>
         <script src="<?= base_url('')?>public/assets/js/simpleParallax.min.js"></script>
         <script src="<?= base_url('')?>public/assets/js/gsap.js"></script>

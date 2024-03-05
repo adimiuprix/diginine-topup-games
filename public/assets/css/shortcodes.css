@@ -2356,9 +2356,9 @@
 
 /* action__body */
 .action__body {
-    padding: 50px 40px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 30px 40px;
+    margin-left: 0px;
+    margin-right: 0px;
     background-color: rgba(221, 242, 71, 1);
     border-radius: 30px;
     overflow: hidden;
