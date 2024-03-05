@@ -23,12 +23,19 @@
                         </li>
                         <?php endforeach; ?>
                     </ul>
-                    <div class="widget-content-tab pt-10">
+                    <div class="container widget-content-tab pt-10">
                         <?php foreach ($dataItems as $category => $items): ?>
                         <div class="widget-content-inner" id="item-list">
+                            <style>
+                            @media (max-width: 768px) {
+                                .col-sm-3 {
+                                    width: 50%;
+                                }
+                            }
+                            </style>
                             <div class="row">
                                 <?php foreach ($items as $item): ?>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
                                     <div class="tf-card-box style-1">
                                         <div class="card-media">
                                             <a href="<?= base_url('order/' . $item['category'] . '/' . $item['slug']) ?>">
@@ -39,7 +46,7 @@
                                                 <a href="<?= base_url('order/' . $item['category'] . '/' . $item['slug']) ?>" class="tf-button"><span>Beli</span></a>
                                             </div>
                                         </div>
-                                        <h5 class="name"><a href="<?= base_url('order/' . $item['category'] . '/' . $item['slug']) ?>"><?= $item['name'] ?></a></h5>
+                                        <h5 class="name tf-font-name text-center"><a href="<?= base_url('order/' . $item['category'] . '/' . $item['slug']) ?>"><?= $item['name'] ?></a></h5>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>

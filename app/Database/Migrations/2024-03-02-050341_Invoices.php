@@ -47,9 +47,9 @@ class Invoices extends Migration
                 'type'       => 'VARCHAR',
                 'constraint'     => 255
             ],
-            'status' => [
-                'type'       => 'ENUM("0", "1")',
-                'default' => '0',
+            'order_status' => [
+                'type'       => 'ENUM("pending", "success", "failed")',
+                'default' => 'pending',
             ],
             'sku_code' => [
                 'type'       => 'VARCHAR',

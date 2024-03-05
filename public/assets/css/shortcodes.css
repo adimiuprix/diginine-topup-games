@@ -514,7 +514,7 @@
 
 /* style-1 */
 .tf-card-box.style-1 {
-    padding: 10px 10px 14px 10px;
+    padding: 10px 10px 8px 10px;
 }
 
 .tf-card-box.style-1 .card-media {
@@ -526,9 +526,13 @@
     height: 244px;
 }
 
+.tf-font-name{
+    font-size: 15px;
+}
+
 .tf-card-box.style-1 .name {
     margin-bottom: 10px;
-    line-height: 25px;
+    /* line-height: 25px; */
     font-weight: 800;
     padding-left: 2px;
     padding-right: 2px;
@@ -1620,7 +1624,7 @@
 }
 
 .tf-button.w320 {
-    width: 320px;
+    width: auto;
 }
 
 .tf-button.w216 {
@@ -6157,8 +6161,9 @@ fieldset.password > i::before {
 }
 
 .slider-3d-page .tf-card-box {
-    width: 350px;
-    height: 430px;
+    width: 150px;
+    height: 200px;
+    border: 3px solid #e2fe26;
 }
 
 .slider-3d-page .swiper-pagination {

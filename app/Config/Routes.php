@@ -16,6 +16,8 @@ $routes->post('process', 'Home::runPayment');
 
 $routes->post('callback', 'Home::callback');
 
+$routes->get('tracking', 'Home::trackInvoice');
+$routes->post('tracking-invoice', 'Home::trackInv');
 // $routes->get('form', 'TripayController::index');
 
 // $routes->post('running', 'TripayController::run');

@@ -56,6 +56,12 @@
                                     <span class="tf-color">Rp <?= $invoiceResult['price']; ?></span>
                                 </div>
                             </li>
+                            <li>
+                                <div class="cate-item"><a href="#">Status</a></div>
+                                <div class="number">
+                                    <span class="tf-color"><?= $invoiceResult['order_status']; ?></span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 

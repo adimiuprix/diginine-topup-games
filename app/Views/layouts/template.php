@@ -5,7 +5,7 @@
         <title><?= $setting['site_name']; ?></title>
         <meta name="author" content="themesflat.com">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="<?= base_url('')?>public/assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?= base_url('public/assets/css/style.css')?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('')?>public/assets/css/responsive.css">
         <link rel="shortcut icon" href="<?= base_url('')?>public/assets/icon/Favicon.png">
         <link rel="apple-touch-icon-precomposed" href="<?= base_url('')?>public/assets/icon/Favicon.png">
@@ -36,7 +36,7 @@
                                         <div id="site-logo">
                                             <div id="site-logo-inner">
                                                 <a href="<?= base_url('/'); ?>" rel="home" class="main-logo">
-                                                <img id="logo_header" src="<?= base_url('')?>public/assets/images/logo/logo.png" data-retina="public/assets/images/logo/logo.png" >
+                                                <img id="logo_header" src="<?= base_url('public/assets/images/logo/logo.png')?>" data-retina="<?= base_url('public/assets/images/logo/logo.png')?>" >
                                                 </a>
                                             </div>
                                         </div>
@@ -51,13 +51,16 @@
                                                     <a href="<?= base_url('/'); ?>">Beranda</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Daftar harga (belum ada)</a>
+                                                    <a>Daftar harga</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Tentang  (belum ada)</a>
+                                                    <a>Tentang</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Kontak  (belum ada) juga</a>
+                                                    <a>Faq</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a>Kontak</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -99,9 +102,17 @@
                                     <h5 class="title-widget">Menu</h5>
                                     <ul>
                                         <li>
-                                            <div class="cate-item"><a href="#">Beranda</a></div>
+                                            <div class="cate-item"><a href="<?= base_url('/')?>">Beranda</a></div>
                                         </li>
-
+                                        <li>
+                                            <div class="cate-item"><a href="<?= base_url('tracking')?>">Lacak Pesanan</a></div>
+                                        </li>
+                                        <li>
+                                            <div class="cate-item"><a href="<?= base_url('price-list')?>">Daftar Harga</a></div>
+                                        </li>
+                                        <li>
+                                            <div class="cate-item"><a href="<?= base_url('winrate-calc')?>">Kalkulator WR</a></div>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -138,8 +149,14 @@
                             </div>
                             <nav id="mobile-main-nav" class="mobile-main-nav">
                                 <ul id="menu-mobile-menu" class="menu">
-                                    <li class="menu-item menu-item-has-children-mobile current-menu-item">
+                                    <li class="menu-item menu-item-has-children-mobile">
                                         <a class="item-menu-mobile" href="<?= base_url('/'); ?>">Beranda</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children-mobile">
+                                        <a class="item-menu-mobile" href="<?= base_url('tracking'); ?>">Lacak Pesanan</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children-mobile">
+                                        <a class="item-menu-mobile" href="<?= base_url('price-list'); ?>">Daftar Harga</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -179,7 +196,71 @@
 
         <footer id="footer">
             <div class="themesflat-container">
-
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer-content flex flex-grow">
+                            <div class="widget-logo flex-grow">
+                                <div class="logo-footer" id="logo-footer">
+                                    <a href="">
+                                        <img id="logo_footer" src="assets/images/logo/logo.png" data-retina="assets/images/logo/logo@2x.png">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget widget-menu style-1">
+                                <h5 class="title-widget">Marketplace</h5>
+                                <ul>
+                                    <li><a href="#">All NFTs</a></li>
+                                    <li><a href="#">Virtual worlds</a></li>
+                                    <li><a href="#">Domain names</a></li>
+                                    <li><a href="#">Photography</a></li>
+                                    <li><a href="#">Digital art</a></li>
+                                    <li><a href="#">Music</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-menu style-2">
+                                <h5 class="title-widget">Resource</h5>
+                                <ul>
+                                    <li><a href="#">Help center</a></li>
+                                    <li><a href="#">Platform status</a></li>
+                                    <li><a href="#">Partners</a></li>
+                                    <li><a href="#">Discount community</a></li>
+                                    <li><a href="#">Live auctions</a></li>
+                                    <li><a href="#">Discover</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-menu style-3">
+                                <h5 class="title-widget">Account</h5>
+                                <ul>
+                                    <li><a href="#">Authors</a></li>
+                                    <li><a href="#">My Collection</a></li>
+                                    <li><a href="#">Author Profile</a></li>
+                                    <li><a href="#">Go to dashboard</a></li>
+                                    <li><a href="#">Collection</a></li>
+                                    <li><a href="#">Create Collection</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget-last">
+                                <div class="widget-menu style-4">
+                                    <h5 class="title-widget">Company</h5>
+                                    <ul>
+                                        <li><a href="#">Help center</a></li>
+                                        <li><a href="#">Platform status</a></li>
+                                    </ul>
+                                </div>
+                                <h5 class="title-widget mt-30">Join the community</h5>
+                                <div class="widget-social">
+                                    <ul class="flex">
+                                        <li><a href="#" class="icon-facebook"></a></li>
+                                        <li><a href="#" class="icon-twitter"></a></li>
+                                        <li><a href="#" class="icon-vt"></a></li>
+                                        <li><a href="#" class="icon-tiktok"></a></li>
+                                        <li><a href="#" class="icon-youtube"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="footer-bottom">
                     <p>© 2023 OpeN9 - Made By Adi miuprix</p>
                     <ul class="flex">

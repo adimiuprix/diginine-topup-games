@@ -73,7 +73,7 @@ class Home extends BaseController
                 'id_player' => $IdSendTo,
                 'methods_pay'   => $payMethod,
                 'price'  => $price,
-                'status'  => "0",
+                'order_status'  => "pending",
                 'sku_code'   => $skuCode,
             ];
         } else {
@@ -85,7 +85,7 @@ class Home extends BaseController
                 'server' => $servID,
                 'methods_pay'   => $payMethod,
                 'price'  => $price,
-                'status'  => "0",
+                'order_status'  => "pending",
                 'sku_code'   => $skuCode,
             ];
         }
@@ -107,7 +107,14 @@ class Home extends BaseController
             ->where('hash_transaction', $random)
             ->first();
 
-        return view('purchase', compact('setting', 'invoiceResult'));
+        // Periksa nilai methods_pay
+        if ($invoiceResult && $invoiceResult['methods_pay'] == 6) {
+            // Jika methods_pay == 6,
+            return view('manual-purchase', compact('setting', 'invoiceResult'));
+        } else {
+            // Jika methods_pay bukan 6,
+            return view('purchase', compact('setting', 'invoiceResult'));
+        }
     }
 
     public function runPayment(){
@@ -160,5 +167,26 @@ class Home extends BaseController
         $checkoutUrl = $decodeData['data']['checkout_url'];
 
         return redirect()->to($checkoutUrl);
+    }
+
+    public function trackInvoice(){
+        $setting = $this->setting;
+        
+        return view('tracking', compact('setting'));
+    }
+
+    public function trackInv(){
+        $invoiceCode = $this->request->getPost('invoice');
+
+        $invoiceModel = new InvoiceModel();
+        $invoice = $invoiceModel->where('hash_transaction', $invoiceCode)->first();
+
+        if ($invoice) {
+            // Jika invoice ditemukan, tampilkan informasinya
+            return redirect()->to('invoice/' . $invoiceCode)->with('invoice', $invoice);
+        } else {
+            // Jika tidak ditemukan, tampilkan pesan error
+            return view('invoice_not_found');
+        }
     }
 }
