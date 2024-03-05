@@ -62,6 +62,12 @@
                                                 <li class="menu-item">
                                                     <a href="<?= base_url('contact'); ?>">Kontak</a>
                                                 </li>
+                                                <li class="menu-item">
+                                                    <a href="<?= base_url('register'); ?>">Daftar</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="<?= base_url('login'); ?>">Masuk</a>
+                                                </li>
                                             </ul>
                                         </nav>
                                         <!-- /#main-nav -->
@@ -159,6 +165,13 @@
                                     <li class="menu-item menu-item-has-children-mobile">
                                         <a class="item-menu-mobile" href="<?= base_url('price-list'); ?>">Daftar Harga</a>
                                     </li>
+                                    <li class="menu-item menu-item-has-children-mobile">
+                                        <a class="item-menu-mobile" href="<?= base_url('register'); ?>">Daftar</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children-mobile">
+                                        <a class="item-menu-mobile" href="<?= base_url('login'); ?>">Login</a>
+                                    </li>
+
                                 </ul>
                             </nav>
 

@@ -10,6 +10,14 @@ $routes->get('price-list', 'Home::priceList');
 $routes->get('faqs', 'Home::faqs');
 $routes->get('contact', 'Home::contact');
 
+$routes->get('register', 'Auth\Register::index');
+$routes->post('save-user', 'Auth\Register::registUser');
+
+$routes->get('login', 'Auth\Login::index');
+$routes->post('check-user', 'Auth\Login::userAuthorization');
+
+$routes->get('dashboard', 'UserService::index');
+
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 
 $routes->post('confirm-order', 'Home::confirmInvoice');

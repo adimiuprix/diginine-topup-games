@@ -52,7 +52,7 @@
             <?php foreach($sliders as $slider): ?>
             <div class="swiper-slide">
                 <div class="card-media">
-                    <img class="slider-image" src="https://via.placeholder.com/1000x400" alt="Slider 1 Image">
+                    <img class="slider-image" src="<?= base_url('public/assets/images/box-carousel/' . $slider->image)?>" alt="Slider 1 Image">
                 </div>
             </div>
             <?php endforeach; ?>
