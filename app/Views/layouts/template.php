@@ -33,6 +33,7 @@
                             <div class="col-md-12">
                                 <div id="site-header-inner">
                                     <div class="wrap-box flex">
+
                                         <div id="site-logo">
                                             <div id="site-logo-inner">
                                                 <a href="<?= base_url('/'); ?>" rel="home" class="main-logo">
@@ -40,10 +41,12 @@
                                                 </a>
                                             </div>
                                         </div>
+                                        
                                         <!-- logo -->
                                         <div class="mobile-button">
                                             <span></span>
                                         </div>
+
                                         <!-- /.mobile-button -->
                                         <nav id="main-nav" class="main-nav">
                                             <ul id="menu-primary-menu" class="menu">
@@ -51,16 +54,13 @@
                                                     <a href="<?= base_url('/'); ?>">Beranda</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Daftar harga</a>
+                                                    <a href="<?= base_url('price-list'); ?>">Daftar harga</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Tentang</a>
+                                                    <a href="<?= base_url('faqs'); ?>">Faq</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a>Faq</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a>Kontak</a>
+                                                    <a href="<?= base_url('contact'); ?>">Kontak</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -76,12 +76,13 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="canvas-nav-wrap">
                         <div class="overlay-canvas-nav"></div>
                         <div class="inner-canvas-nav">
                             <div class="side-bar">
                                 <a href="<?= base_url('/'); ?>" rel="home" class="main-logo">
-                                <img id="logo_header" src="<?= base_url('')?>public/assets/images/logo/logo.png" data-retina="<?= base_url('')?>public/assets/images/logo/logo.png">
+                                <img id="logo_header" src="<?= base_url('public/assets/images/logo/logo.png')?>" data-retina="<?= base_url('public/assets/images/logo/logo.png')?>">
                                 </a>
                                 <div class="canvas-nav-close">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
@@ -176,10 +177,7 @@
 
                 </header>
 
-
                 <?= $this->renderSection('content') ?>
-
-
 
             </div>
             <!-- /#page -->
@@ -202,49 +200,44 @@
                             <div class="widget-logo flex-grow">
                                 <div class="logo-footer" id="logo-footer">
                                     <a href="">
-                                        <img id="logo_footer" src="assets/images/logo/logo.png" data-retina="assets/images/logo/logo@2x.png">
+                                        <img id="logo_footer" src="<?= base_url('public/assets/images/logo/logo.png'); ?>" data-retina="assets/images/logo/logo@2x.png">
                                     </a>
                                 </div>
                             </div>
                             <div class="widget widget-menu style-1">
-                                <h5 class="title-widget">Marketplace</h5>
+                                <h5 class="title-widget">Sosial Media</h5>
                                 <ul>
-                                    <li><a href="#">All NFTs</a></li>
-                                    <li><a href="#">Virtual worlds</a></li>
-                                    <li><a href="#">Domain names</a></li>
-                                    <li><a href="#">Photography</a></li>
-                                    <li><a href="#">Digital art</a></li>
-                                    <li><a href="#">Music</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
                                 </ul>
                             </div>
                             <div class="widget widget-menu style-2">
-                                <h5 class="title-widget">Resource</h5>
+                                <h5 class="title-widget">Peta Situs</h5>
                                 <ul>
-                                    <li><a href="#">Help center</a></li>
-                                    <li><a href="#">Platform status</a></li>
-                                    <li><a href="#">Partners</a></li>
-                                    <li><a href="#">Discount community</a></li>
-                                    <li><a href="#">Live auctions</a></li>
-                                    <li><a href="#">Discover</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
                                 </ul>
                             </div>
                             <div class="widget widget-menu style-3">
-                                <h5 class="title-widget">Account</h5>
+                                <h5 class="title-widget">Dukungan</h5>
                                 <ul>
-                                    <li><a href="#">Authors</a></li>
-                                    <li><a href="#">My Collection</a></li>
-                                    <li><a href="#">Author Profile</a></li>
-                                    <li><a href="#">Go to dashboard</a></li>
-                                    <li><a href="#">Collection</a></li>
-                                    <li><a href="#">Create Collection</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Item Object</a></li>
                                 </ul>
                             </div>
                             <div class="widget-last">
                                 <div class="widget-menu style-4">
-                                    <h5 class="title-widget">Company</h5>
+                                    <h5 class="title-widget">Legalitas</h5>
                                     <ul>
-                                        <li><a href="#">Help center</a></li>
-                                        <li><a href="#">Platform status</a></li>
+                                        <li><a href="#">Item Object</a></li>
+                                        <li><a href="#">Item Object</a></li>
                                     </ul>
                                 </div>
                                 <h5 class="title-widget mt-30">Join the community</h5>
@@ -262,15 +255,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2023 OpeN9 - Made By Adi miuprix</p>
-                    <ul class="flex">
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms of Service</a>
-                        </li>
-                    </ul>
+                    <p>© 2023 Made By Adi miuprix</p>
                 </div>
             </div>
         </footer>

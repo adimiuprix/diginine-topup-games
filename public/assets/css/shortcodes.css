@@ -1709,6 +1709,10 @@
     box-shadow: 0px 30px 70px 0px #0A0A0A;
 }
 
+.flat-pages-title .swiper-slide-active .tf-card-box-slider {
+    box-shadow: 0px 30px 70px 0px #0A0A0A;
+}
+
 .swiper-pagination.pagination-number .swiper-pagination-bullet {
     color: #FFF;
     opacity: 1;
@@ -6161,6 +6165,11 @@ fieldset.password > i::before {
 }
 
 .slider-3d-page .tf-card-box {
+    width: 150px;
+    height: 200px;
+    border: 3px solid #e2fe26;
+}
+.slider-3d-page .tf-card-box-slider {
     width: 150px;
     height: 200px;
     border: 3px solid #e2fe26;

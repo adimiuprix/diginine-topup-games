@@ -189,4 +189,26 @@ class Home extends BaseController
             return view('invoice_not_found');
         }
     }
+
+    public function priceList(){
+
+    }
+
+    public function about(){
+        
+    }
+
+    public function faqs(){
+        $setting = $this->setting;
+
+        return view('faqs', compact('setting'));
+    }
+
+    public function contact(){
+        $setting = $this->setting;
+
+        return view('contact', compact('setting'));
+
+    }
+
 }

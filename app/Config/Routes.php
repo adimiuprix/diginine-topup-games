@@ -6,6 +6,9 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('price-list', 'Home::priceList');
+$routes->get('faqs', 'Home::faqs');
+$routes->get('contact', 'Home::contact');
 
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 

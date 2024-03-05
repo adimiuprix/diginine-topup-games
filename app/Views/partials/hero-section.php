@@ -4,7 +4,7 @@
             <div class="swiper-wrapper">
                 
                 <div class="swiper-slide">
-                    <div class="tf-card-box style-2">
+                    <div class="tf-card-box-slider style-2">
                         <div class="card-media">
                             <a href="#">
                             <img src="<?= base_url('public/assets/images/box-carousel/image-1.jpg')?>" alt="">
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="tf-card-box style-2">
+                    <div class="tf-card-box-slider style-2">
                         <div class="card-media">
                             <a href="#">
                             <img src="<?= base_url('public/assets/images/box-carousel/image-2.jpg')?>" alt="">
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="tf-card-box style-2">
+                    <div class="tf-card-box-slider style-2">
                         <div class="card-media">
                             <a href="#">
                             <img src="<?= base_url('public/assets/images/box-carousel/image-3.jpg')?>" alt="">
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="tf-card-box style-2">
+                    <div class="tf-card-box-slider style-2">
                         <div class="card-media">
                             <a href="#">
                             <img src="<?= base_url('public/assets/images/box-carousel/image-4.jpg')?>" alt="">
