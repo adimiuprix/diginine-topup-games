@@ -29,8 +29,6 @@ $routes->post('callback', 'Home::callback');
 
 $routes->get('tracking', 'Home::trackInvoice');
 $routes->post('tracking-invoice', 'Home::trackInv');
-// $routes->get('form', 'TripayController::index');
 
-// $routes->post('running', 'TripayController::run');
-// $routes->post('zero', 'TripayController::zerodev');
-// $routes->post('hexagek', 'TripayController::hexagek');
+$routes->get('winrate', 'WinrateController::index');
+$routes->post('check-winrate', 'WinrateController::checkWR');

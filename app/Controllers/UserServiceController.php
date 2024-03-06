@@ -10,9 +10,7 @@ class UserServiceController extends BaseController
     public function index()
     {   
         $session = session();
-        $userData = [
-            'id' => $session->get('user_id'),
-        ];
+        $userData = $session->get('user_id');
 
         dd($userData);
     }

@@ -118,7 +118,7 @@
                                             <div class="cate-item"><a href="<?= base_url('price-list')?>">Daftar Harga</a></div>
                                         </li>
                                         <li>
-                                            <div class="cate-item"><a href="<?= base_url('winrate-calc')?>">Kalkulator WR</a></div>
+                                            <div class="cate-item"><a href="<?= base_url('winrate')?>">Kalkulator WR</a></div>
                                         </li>
                                     </ul>
                                 </div>

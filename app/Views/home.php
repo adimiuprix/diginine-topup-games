@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/template') ?>
 <?= $this->section('content') ?>
+
 <div class="flat-pages-title">
     <div class="bg-grid-line">
         <div class="bg-line"></div>
@@ -8,6 +9,9 @@
     <?php include('partials/hero-section.php'); ?>
     </div>
 </div>
+
+<?php include('partials/favourite.php'); ?>
+
 <div class="flat-title-page">
     <div class="themesflat-container">
         <div class="row">
