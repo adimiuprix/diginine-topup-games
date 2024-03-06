@@ -47,6 +47,6 @@ class Register extends BaseController
         $userModel->insert($data);
 
         session()->setFlashdata('success', 'Berhasil Daftar, silahkan masuk member');
-        return redirect()->to('/');
+        return redirect()->to('login');
     }
 }

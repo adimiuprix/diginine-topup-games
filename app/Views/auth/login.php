@@ -16,7 +16,7 @@
 
                         <fieldset class="name">
                             <label>Nama *</label>
-                            <input type="text" placeholder="Masukkan Username atau Whatsapp anda*" name="username" value="" required>
+                            <input type="text" placeholder="Masukkan Username atau Whatsapp anda*" name="userlogin" value="" required>
                         </fieldset>
 
                         <fieldset class="password">

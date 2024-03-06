@@ -16,7 +16,7 @@ $routes->post('save-user', 'Auth\Register::registUser');
 $routes->get('login', 'Auth\Login::index');
 $routes->post('check-user', 'Auth\Login::userAuthorization');
 
-$routes->get('dashboard', 'UserService::index');
+$routes->get('dashboard', 'UserServiceController::index');
 
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 

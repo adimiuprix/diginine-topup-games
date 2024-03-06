@@ -23,47 +23,30 @@ class Login extends BaseController
     }
 
     public function userAuthorization(){
-        // Mendapatkan input dari form login
-        $email = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+        $request = service('request');
+        $UserLogin = $request->getPost('userlogin');
+        $password = $request->getPost('password');
 
-        // Melakukan validasi pada input
-        $validation = $this->validate([
-            'username' => 'required',
-            'password' => 'required|min_length[8]'
-        ]);
-
-        if (!$validation) {
-            // Jika validasi gagal, kembali ke halaman login dengan error
-            session()->setFlashdata('error', 'Invalid email or password');
-            return redirect()->to('login')->withInput();
-        }
-
-        // Mencari user dengan email yang diberikan
         $userModel = new UsersModel();
-        $user = $userModel->where('username', $email)->first();
 
-        if (!$user) {
-            // Jika data validasi tidak ditemukan, kembali ke halaman login dengan error
-            session()->setFlashdata('error', 'Invalid email or password');
-            return redirect()->back()->withInput();
+        // Cek apakah pengguna menggunakan email atau username untuk login
+        $user = $userModel->where('email', $UserLogin)->orWhere('username', $UserLogin)->orWhere('whatsapp_number', $UserLogin)->first();
+        if ($user && password_verify($password, $user['password'])) {
+            // Login berhasil
+            // Simpan data sesi
+            $session = session();
+            $userData = [
+                'user_id' => $user['id'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'logged_in' => true
+            ];
+            $session->set($userData);
+            return redirect()->to('/dashboard');
+        } else {
+            // Login gagal
+            // Tampilkan pesan error atau redirect kembali ke halaman login
+            return redirect()->back()->with('error', 'Login gagal. Periksa kembali email/username dan password Anda.');
         }
-
-        // Memeriksa apakah password yang diberikan sesuai dengan yang tersimpan di database
-        if (!password_verify($password, $user['password'])) {
-            // Jika password tidak sesuai, kembali ke halaman login dengan error
-            session()->setFlashdata('error', 'Invalid email or password');
-            return redirect()->back()->withInput();
-        }
-
-        // Jika user ditemukan dan password sesuai, buat session dan redirect ke halaman dashboard
-        session()->set([
-            'iduser' => $user['id'],
-            'username' => $user['username'],
-            'email' => $user['email'],
-            'logged_in' => true
-        ]);
-
-        return redirect()->to('dashboard');
     }
 }
