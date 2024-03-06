@@ -144,8 +144,8 @@
                     <div class="mobile-nav-wrap">
                         <div class="overlay-mobile-nav"></div>
                         <div class="inner-mobile-nav">
-                            <a href="" rel="home" class="main-logo">
-                            <img id="mobile-logo_header" src="<?= base_url('')?>public/assets/images/logo/logo.png" data-retina="<?= base_url('')?>public/assets/images/logo/logo.png">
+                            <a href="<?= base_url('/'); ?>" rel="home" class="main-logo">
+                                <img id="mobile-logo_header" src="<?= base_url('public/assets/images/logo/logo.png')?>" data-retina="<?= base_url('public/assets/images/logo/logo.png')?>">
                             </a>
                             <div class="mobile-nav-close">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
@@ -213,7 +213,7 @@
                             <div class="widget-logo flex-grow">
                                 <div class="logo-footer" id="logo-footer">
                                     <a href="">
-                                        <img id="logo_footer" src="<?= base_url('public/assets/images/logo/logo.png'); ?>" data-retina="assets/images/logo/logo@2x.png">
+                                        <img id="logo_footer" src="<?= base_url('public/assets/images/logo/logo.png'); ?>" data-retina="<?= base_url('public/assets/images/logo/logo.png'); ?>">
                                     </a>
                                 </div>
                             </div>
