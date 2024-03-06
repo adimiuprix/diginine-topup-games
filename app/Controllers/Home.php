@@ -202,17 +202,4 @@ class Home extends BaseController
         
     }
 
-    public function faqs(){
-        $setting = $this->setting;
-
-        return view('faqs', compact('setting'));
-    }
-
-    public function contact(){
-        $setting = $this->setting;
-
-        return view('contact', compact('setting'));
-
-    }
-
 }
