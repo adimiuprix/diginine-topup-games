@@ -25,8 +25,11 @@ class Categories extends Migration
         
         $initialData = [
             ['category'     => 'Game'],
+            ['category'     => 'Voucher'],
+            ['category'     => 'Joki'],
             ['category'     => 'Pulsa'],
             ['category'     => 'E-wallet'],
+            ['category'     => 'Entertaiment'],
         ];
 
         // insert to tables

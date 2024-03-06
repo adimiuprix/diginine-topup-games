@@ -211,6 +211,26 @@ class ItemSeeder extends Seeder
             ],
             [
                 'id_cats' => '2',
+                'item_name' => 'Netflix',
+                'status' => 'enable',
+                'slug' => 'netflix',
+                'image' => 'netflix.png',
+                'description' => 'Netflix adalah platform streaming yang populer menyajikan berbagai film, acara TV, dokumenter, dan konten asli on-demand dengan langganan bulanan, menawarkan pengalaman menonton yang mudah dan personalisasi.',
+                'vendor' => 'Netflix',
+                'coloum'     => '1',
+            ],
+            [
+                'id_cats' => '3',
+                'item_name' => 'Jasa Mabar Mobile Legends',
+                'status' => 'enable',
+                'slug' => 'jasa-mabar-mobile-legends',
+                'image' => 'mobile-legends.png',
+                'description' => 'Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.',
+                'vendor' => 'Moonton',
+                'coloum'     => '1',
+            ],
+            [
+                'id_cats' => '4',
                 'item_name' => 'Telkomsel',
                 'status' => 'enable',
                 'slug' => 'telkomsel',
@@ -220,7 +240,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '2',
+                'id_cats' => '4',
                 'item_name' => 'Three',
                 'status' => 'enable',
                 'slug' => 'three',
@@ -230,7 +250,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '2',
+                'id_cats' => '4',
                 'item_name' => 'Indosat Ooredoo',
                 'status' => 'enable',
                 'slug' => 'indosat-ooredoo',
@@ -240,7 +260,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '2',
+                'id_cats' => '4',
                 'item_name' => 'XL Axiata',
                 'status' => 'enable',
                 'slug' => 'xl-axiata',
@@ -250,7 +270,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '2',
+                'id_cats' => '4',
                 'item_name' => 'Smartfren',
                 'status' => 'enable',
                 'slug' => 'smartfren',
@@ -260,7 +280,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],   
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'GoPay',
                 'status' => 'enable',
                 'slug' => 'gopay',
@@ -270,7 +290,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'OVO',
                 'status' => 'enable',
                 'slug' => 'ovo',
@@ -280,7 +300,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'Dana',
                 'status' => 'enable',
                 'slug' => 'dana',
@@ -290,7 +310,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'LinkAja',
                 'status' => 'enable',
                 'slug' => 'linkaja',
@@ -300,7 +320,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'ShopeePay',
                 'status' => 'enable',
                 'slug' => 'shopee-pay',
@@ -310,7 +330,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'Jenius',
                 'status' => 'enable',
                 'slug' => 'jenius',
@@ -320,7 +340,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'Sakuku',
                 'status' => 'enable',
                 'slug' => 'sakuku',
@@ -330,7 +350,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'TCash',
                 'status' => 'enable',
                 'slug' => 'tcash',
@@ -340,7 +360,7 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'Kredivo',
                 'status' => 'enable',
                 'slug' => 'kredivo',
@@ -350,13 +370,23 @@ class ItemSeeder extends Seeder
                 'coloum'     => '1',
             ],
             [
-                'id_cats' => '3',
+                'id_cats' => '5',
                 'item_name' => 'Paytren',
                 'status' => 'enable',
                 'slug' => 'paytren',
                 'image' => 'paytren.png',
                 'description' => 'Paytren adalah platform pembayaran digital yang menggabungkan teknologi dengan nilai-nilai keislaman. Paytren memungkinkan penggunanya untuk melakukan berbagai transaksi, seperti pembayaran tagihan, pembelian pulsa, pembayaran zakat, dan transaksi lainnya sesuai dengan prinsip-prinsip syariah.',
                 'vendor' => 'Paytren',
+                'coloum'     => '1',
+            ],
+            [
+                'id_cats' => '6',
+                'item_name' => 'Lita',
+                'status' => 'enable',
+                'slug' => 'lita',
+                'image' => 'lita.png',
+                'description' => 'Lita adalah aplikasi yang membantu pengguna menemukan teman bermain game online (mabar) dengan mudah dan cepat.',
+                'vendor' => 'BATTUTA TECHNOLOGY PTE. LTD',
                 'coloum'     => '1',
             ],
         ];

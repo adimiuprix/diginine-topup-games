@@ -36,10 +36,21 @@ use CodeIgniter\Filters\CSRF;
 
                         <fieldset class="password">
                             <label>Password *</label>
-                            <input class="password-input" type="password" placeholder="Min. 8 character" name="password" value="" required>
+                            <input class="password-input" type="password" name="password" value="" id="password" placeholder="Min. 8 character"  required>
                             <i class="icon-show password-addon" id="password-addon"></i>
                         </fieldset>
+                        <script>
+                            const passwordField = document.querySelector('.password-input');
+                            const passwordAddon = document.getElementById('password-addon');
 
+                            passwordAddon.addEventListener('click', function() {
+                                if (passwordField.type === 'password') {
+                                    passwordField.type = 'text';
+                                } else {
+                                    passwordField.type = 'password';
+                                }
+                            });
+                        </script>
                         <div class="btn-submit mb-30">
                             <button class="tf-button style-1 h50 w-100" type="submit">Daftar</button>
                         </div>
