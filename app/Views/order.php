@@ -22,6 +22,8 @@
             <?php endif; ?>
         </div>
 
+        
+
         <div class="themesflat-container">
             <div class="row flex flex-wrap">
                 <div class="side-bar col-md-6 col-12 mb-4">

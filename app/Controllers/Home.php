@@ -60,6 +60,11 @@ class Home extends BaseController
     }
 
     public function confirmInvoice(){
+        helper('checkidgame');
+
+        $merchantId = 'M230524EBVF8936LF';
+        $signature = '49322dbcc6c21bebe68786c268e62672';
+
         $random = Random::get(15, Code::FORMAT_ALNUM_CAPITAL);
         $categoryProduct = $this->request->getPost('category');
         $serviceName = $this->request->getPost('service');
@@ -69,6 +74,10 @@ class Home extends BaseController
         $price = $this->request->getPost('pricing');
         $skuCode = $this->request->getPost('skucode');
 
+        // https://v1.apigames.id/merchant/M230524EBVF8936LF/cek-username/mobilelegend?user_id=364225622&signature=49322dbcc6c21bebe68786c268e62672
+        // $result = checkidgame($merchantId, $serviceName, $IdSendTo, $signature);
+        // dd($result);
+        
         if ($servID === null) {
             $dataPost = [
                 'hash_transaction'  => $random,
