@@ -166,6 +166,9 @@
                                         <a class="item-menu-mobile" href="<?= base_url('price-list'); ?>">Daftar Harga</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children-mobile">
+                                        <a class="item-menu-mobile" href="<?= base_url('winrate'); ?>">Kalkulator Winrate</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children-mobile">
                                         <a class="item-menu-mobile" href="<?= base_url('register'); ?>">Daftar</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children-mobile">
@@ -190,8 +193,10 @@
 
                 </header>
 
-                <?= $this->renderSection('content') ?>
+                <?= $this->renderSection('content'); ?>
 
+                <?= $this->include('partials/about-section'); ?>
+                
             </div>
             <!-- /#page -->
 
@@ -220,37 +225,35 @@
                             <div class="widget widget-menu style-1">
                                 <h5 class="title-widget">Sosial Media</h5>
                                 <ul>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Tiktok SwgGameStore</a></li>
+                                    <li><a href="#">Youtube SwgGameStore</a></li>
+                                    <li><a href="#">Instagram SwgGameStore</a></li>
                                 </ul>
                             </div>
                             <div class="widget widget-menu style-2">
                                 <h5 class="title-widget">Peta Situs</h5>
                                 <ul>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">Beranda</a></li>
+                                    <li><a href="#">Cek Transaksi</a></li>
+                                    <li><a href="#">Hubungi Kami</a></li>
+                                    <li><a href="#">Ulasan</a></li>
+                                    <li><a href="#">Dashboard</a></li>
                                 </ul>
                             </div>
                             <div class="widget widget-menu style-3">
                                 <h5 class="title-widget">Dukungan</h5>
                                 <ul>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
-                                    <li><a href="#">Item Object</a></li>
+                                    <li><a href="#">WhastApp</a></li>
+                                    <li><a href="#">Email</a></li>
+                                    <li><a href="#">Instagram</a></li>
                                 </ul>
                             </div>
                             <div class="widget-last">
                                 <div class="widget-menu style-4">
                                     <h5 class="title-widget">Legalitas</h5>
                                     <ul>
-                                        <li><a href="#">Item Object</a></li>
-                                        <li><a href="#">Item Object</a></li>
+                                        <li><a href="#">Kebijakan Pribadi</a></li>
+                                        <li><a href="#">Syaratr & Ketentuan</a></li>
                                     </ul>
                                 </div>
                                 <h5 class="title-widget mt-30">Join the community</h5>

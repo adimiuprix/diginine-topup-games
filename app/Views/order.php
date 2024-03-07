@@ -2,15 +2,45 @@
 <?= $this->section('content') ?>
 <div class="tf-section-2 product-detail">
     <div class="themesflat-container">
+        <style>
+        .action-point {
+            padding: 0px 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            position: static;
+        }
+        .image-fill{
+            border-radius: 15px;
+        }
+        </style>
+
+        <div class="action-point w-full mb-40">
+            <?php if (!$detailProduct['breadcrumb'] == null): ?>
+            <img src="<?= base_url('public/uploads/breadcrumb/' . $detailProduct['breadcrumb']); ?>" alt="image-blogs">
+            <?php else: ?>
+            <img class="image-fill" src="<?= base_url('public/assets/images/blogs/breadcrumb-none.webp')?>">
+            <?php endif; ?>
+        </div>
+
         <div class="themesflat-container">
             <div class="row flex flex-wrap">
                 <div class="side-bar col-md-6 col-12 mb-4">
                     <div class="widget widget-related-posts">
-                        <h5 class="title-widget"><?= $detailProduct['item_name']; ?></h5>
+                        <h5 class="title-widget">
+                            <?= $detailProduct['item_name']; ?>
+                        </h5>
                         <div class="related-posts-item main">
+
+                            <?php if(!$detailProduct['blog_image'] == null):?>
                             <div class="card-media">
-                                <img src="<?= base_url('public/assets/images/blog/sidebar-01.jpg'); ?>" alt="">
+                                <img src="<?= base_url('public/uploads/blogs/' . $detailProduct['blog_image']); ?>" alt="image-blogs">
                             </div>
+                            <?php else: ?>
+                            <div class="card-media">
+                                <img src="<?= base_url('public/assets/images/blogs/blogs-none.png'); ?>" alt="image-blogs">
+                            </div>
+                            <?php endif; ?>
+
                             <h5><a href="">Deskripsi tentang <?= $detailProduct['item_name']; ?></a></h5>
                             <p><?= $detailProduct['description']; ?></p>
                         </div>

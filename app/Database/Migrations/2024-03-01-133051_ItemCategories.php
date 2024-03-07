@@ -35,6 +35,14 @@ class ItemCategories extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => 255
             ],
+            'blog_image' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 255
+            ],
+            'breadcrumb' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 255
+            ],
             'description' => [
                 'type'          => 'TEXT',
             ],
