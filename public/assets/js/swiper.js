@@ -89,7 +89,7 @@ var swiper = new Swiper(".slider-3d", {
         depth: 0,
         modifier: 1,
         scale: 0.9,
-        slideShadows: false,
+        slideShadows: true,
     },
     navigation: {
       nextEl: ".next-3d",

@@ -194,16 +194,18 @@
                 </header>
 
                 <?= $this->renderSection('content'); ?>
-
+                <?= $this->include('partials/reviews'); ?>
                 <?= $this->include('partials/about-section'); ?>
                 
             </div>
             <!-- /#page -->
 
         </div>
+        
         <!-- /#wrapper -->
         <div class="tf-mouse tf-mouse-outer"></div>
         <div class="tf-mouse tf-mouse-inner"></div>
+        
         <div class="progress-wrap active-progress">
             <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>

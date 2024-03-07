@@ -46,7 +46,7 @@
     }
 </style>
 <div class="relative">
-    <div class="swiper-container slider-3d">
+    <div class="swiper-container slider-go">
         <div class="swiper-wrapper">
 
             <?php foreach($sliders as $slider): ?>
@@ -69,40 +69,3 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.slider-3d', {
-        // Konfigurasi Swiper
-        pagination: {
-            el: '.pagination-number',
-            type: 'bullets',
-            clickable: true,
-        },
-        on: {
-            slideChange: function () {
-                updatePagination();
-            },
-        },
-    });
-
-    function updatePagination() {
-        const bullets = document.querySelectorAll('.pagination-item');
-        bullets.forEach((bullet, index) => {
-            if (index === swiper.realIndex) {
-                bullet.classList.add('active');
-            } else {
-                bullet.classList.remove('active');
-            }
-        });
-    }
-
-    // Memuat pagination awal
-    updatePagination();
-
-    // Menambahkan event listener untuk pagination
-    const paginationItems = document.querySelectorAll('.pagination-item');
-    paginationItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            swiper.slideTo(index);
-        });
-    });
-</script>
