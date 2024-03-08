@@ -454,6 +454,7 @@
     .tf-card-article.style-1 {
         flex-wrap: wrap;
         gap: 30px;
+        width: -webkit-fill-available;
     }
     .tf-card-article.style-1 .card-media {
         min-width: 100%;

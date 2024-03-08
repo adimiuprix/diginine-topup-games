@@ -220,7 +220,7 @@ class Home extends BaseController
             return redirect()->to('invoice/' . $invoiceCode)->with('invoice', $invoice);
         } else {
             // Jika tidak ditemukan, tampilkan pesan error
-            return view('invoice_not_found');
+            return redirect()->to('tracking')->back()->with('notif', 'Invoice tidak di temukan.');
         }
     }
 

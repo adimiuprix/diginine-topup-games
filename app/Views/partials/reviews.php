@@ -1,12 +1,36 @@
+<style>
+    .title-revs{
+        color: #FFF;
+        font-size: 18px;
+        font-family: "Azeret Mono";
+        font-weight: 700;
+        line-height: 22px;
+    }
+    p.text-revs-fill.text-white {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .item.art.active {
+        font-size: 14px;
+        line-height: 16px;
+        font-family: Manrope;
+        font-weight: 500;
+        position: relative;
+        margin-bottom: 5px;
+    }
+</style>
+
 <div class="tf-section-2 featured-item style-bottom">
     <div class="themesflat-container">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading-section pb-20">
-                    <h2 class="tf-title " style="perspective: 400px;"><div style="display: block; text-align: start; position: relative; transform-origin: 64.8224px 21.9957px; transform: translate3d(0px, 0px, 0px); opacity: 1;"><div style="display: block; text-align: start; position: relative; transform-origin: 135.445px 22px; transform: translate3d(0px, 0px, 0px); opacity: 1;">Reviews</div></div></h2>
+                    <h2 class="tf-title">
+                        <div>Reviews</div>
+                    </h2>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div class="featured pt-10 swiper-container swiper-container-pointer-events swiper-initialized swiper-horizontal swiper-backface-hidden" data-swiper="{
                     &quot;loop&quot;:true,
                     &quot;slidesPerView&quot;: 1,
@@ -37,199 +61,152 @@
                     }
                     }
                     }">
-                    <div class="swiper-wrapper" style="transform: translate3d(-285px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;" id="swiper-wrapper-7ab66c734913475b" aria-live="polite"><div class="swiper-slide swiper-slide-prev" aria-label="7 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="6">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">29</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="">Orang ke 7</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div class="swiper-wrapper" style="transform: translate3d(-285px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;" id="swiper-wrapper-7ab66c734913475b" aria-live="polite">
                         
-                        <div class="swiper-slide swiper-slide-active" aria-label="1 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="0">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">30</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
+                        <div class="swiper-slide swiper-slide-prev" aria-label="1 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="6">
+                            
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Yesus</div>
+                                    <p class="text-revs-fill text-white">Text review nya agak panjang. Wahh, cepet banget anjay...</p>
+                                    <span class="time">18 Feb 2024</span>
                                 </div>
+                            </article>
 
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 1</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
+                            <div class="text-center">
+                                <div class="item art active">0895*****48</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
                             </div>
+
                         </div>
 
-                        <div class="swiper-slide swiper-slide-next" aria-label="2 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="1">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">29</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 2</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="swiper-slide swiper-slide-active" aria-label="2 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="0">
 
-                        <div class="swiper-slide" aria-label="3 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="2">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">29</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Tong Samcong</div>
+                                    <p class="text-revs-fill text-white">Wkwkwk, murah itu seru pay.....</p>
+                                    <span class="time">28 Mar 2024</span>
                                 </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 3</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
-                            </div>
-                        </div>
+                            </article>
 
-                        <div class="swiper-slide" aria-label="4 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="3">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 4</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
+                            <div class="text-center">
+                                <div class="item art active">08912*********34</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
                             </div>
-                        </div>
 
-                        <div class="swiper-slide" aria-label="5 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="4">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">29</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" aria-label="3 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="1">
+
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Bunda maria</div>
+                                    <p class="text-revs-fill text-white">Murah njirr. kudu jadi langganan nih,......</p>
+                                    <span class="time">4 Mar 2024</span>
                                 </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 5</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
+                            </article>
+
+                            <div class="text-center">
+                                <div class="item art active">0896**********66</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
                             </div>
-                        </div>
 
-                        <div class="swiper-slide" aria-label="6 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="5">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"><div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">02</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">03</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">55</span><span class="countdown__label">s</span></span></div>
-                                            <div aria-hidden="true" class="countdown__timer"><span class="countdown__item" style="display: none;"><span class="countdown__value countdown__value--0 js-countdown__value--0">0</span><span class="countdown__label">d</span></span><span class="countdown__item"><span class="countdown__value countdown__value--1 js-countdown__value--1">01</span><span class="countdown__label">h</span></span><span class="countdown__item"><span class="countdown__value countdown__value--2 js-countdown__value--2">54</span><span class="countdown__label">m</span></span><span class="countdown__item"><span class="countdown__value countdown__value--3 js-countdown__value--3">29</span><span class="countdown__label">s</span></span></div>
-                                        </span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                    </div>
+                        </div>
+                        <div class="swiper-slide" aria-label="4 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="2">
+
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Roma irama</div>
+                                    <p class="text-revs-fill text-white">Enyahlah kau setan alas!!...</p>
+                                    <span class="time">3 Mar 2024</span>
                                 </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Orang ke 6</a></h5>
-                                <div class="author flex items-center">
-                                    <div class="info">
-                                        <span>Posted by:</span>
-                                        <h6><a href="author-2.html">Cody Fisher</a> </h6>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="text-bid">Current Bid</span>
-                                    <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                </div>
+                            </article>
+
+                            <div class="text-center">
+                                <div class="item art active">0892*******2799</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
                             </div>
-                        </div>
 
+
+                        </div>
+                        <div class="swiper-slide" aria-label="5 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="3">
+
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Miaw aug</div>
+                                    <p class="text-revs-fill text-white">Aku hanya menunggu mu, dan terus menunggu</p>
+                                    <span class="time">5 Jan 2024</span>
+                                </div>
+                            </article>
+
+                            <div class="text-center">
+                                <div class="item art active">089*********6006</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide" aria-label="6 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="4">
+
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Babi ngepet</div>
+                                    <p class="text-revs-fill text-white">Jika kau adalah pengembara, maka aku akan mengejarmu sampai ke ujung dinia.</p>
+                                    <span class="time">24 Feb 2024</span>
+                                </div>
+                            </article>
+
+                            <div class="text-center">
+                                <div class="item art active">08928*******266</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
+                            </div>
+
+
+                        </div>
+                        <div class="swiper-slide" aria-label="7 / 7" style="width: 255px; margin-right: 30px;" role="group" data-swiper-slide-index="5">
+
+                            <article class="tf-card-article tf-blog-detail style-1">
+                                <div class="inner-content">
+                                    <div class="title-revs mb-3">Naruto</div>
+                                    <p class="text-revs-fill text-white">Entah apa yang merasukimu...</p>
+                                    <span class="time">2 Mar 2024</span>
+                                </div>
+                            </article>
+
+                            <div class="text-center">
+                                <div class="item art active">0891*********377</div>
+                                <form>
+                                    <label>
+                                        <i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i><i class="icon-star active"></i>
+                                    </label>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="slider-next swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="true" aria-controls="swiper-wrapper-7ab66c734913475b"></div>
