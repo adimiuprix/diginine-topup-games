@@ -9,30 +9,37 @@
  * @return array Hasil dari API
  */
 
-function checkidgame($merchantId, $serviceName, $IdSendTo, $signature)
-{
-    // Ganti `YOUR-MERCHANT-ID` dan `YOUR-SIGNATURE-HERE` dengan nilai Anda
-    $url = "https://v1.apigames.id/merchant/$merchantId/cek-username/$serviceName?user_id=$IdSendTo&signature=$signature";
+function checkidgame($apiKey, $apiId, $requestData, $url)
+ {
+     // Set data yang diperlukan
+     $data = array(
+         'key' => $apiKey,
+         'sign' => md5($apiId . $apiKey),
+         'type' => $requestData['type'],
+         'code' => $requestData['code'],
+         'target' => $requestData['target'],
+         'additional_target' => $requestData['additional_target']
+     );
 
-    $ch = curl_init($url);
+     // Pengaturan cURL
+     $ch = curl_init($url);
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+     curl_setopt($ch, CURLOPT_POST, true);
+     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+     // Eksekusi request
+     $response = curl_exec($ch);
 
-    $response = curl_exec($ch);
+     // Cek jika terjadi kesalahan
+     if ($response === false) {
+         return ['success' => false, 'message' => 'Error: ' . curl_error($ch)];
+     } else {
+         // Parsing response JSON
+         $responseData = json_decode($response, true);
 
-    if (curl_errno($ch)) {
-        throw new Exception('Error saat melakukan pemanggilan API: ' . curl_error($ch));
-    }
+         // Tutup koneksi cURL
+         curl_close($ch);
 
-    curl_close($ch);
-
-    $result = json_decode($response, true);
-
-    if (!$result) {
-        throw new Exception('Error saat parsing JSON: ' . json_last_error_msg());
-    }
-
-    return $result;
-}
+         return $responseData;
+     }
+ }

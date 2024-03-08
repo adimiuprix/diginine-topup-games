@@ -22,8 +22,6 @@
             <?php endif; ?>
         </div>
 
-        
-
         <div class="themesflat-container">
             <div class="row flex flex-wrap">
                 <div class="side-bar col-md-6 col-12 mb-4">
@@ -50,6 +48,11 @@
                 </div>
 
                 <div class="col-md-6 col-12">
+                    <?php if(session()->has('notif')): ?>
+                        <?= session('notif') ?>
+                    <?php endif; ?>
+
+
                     <form action="<?= base_url('confirm-order'); ?>" method="post">
                         <input type="hidden" name="category" value="<?= $detailProduct['id_cats']; ?>">
                         <input type="hidden" name="service" value="<?= $detailProduct['id']; ?>">
