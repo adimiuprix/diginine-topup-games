@@ -33,6 +33,17 @@ class Admins extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('admins');
+
+        $initialData = [
+            [
+                'username'      => 'Admin',
+                'email'         => 'admin@gmail.com',
+                'password'      => '$2a$12$BorsC1kTMVVtA37Q901Z.Omc4/Fyng90bcbuIOpo9.6uX1OImMe6y',  // this password is "admin"
+            ],
+        ];
+
+        // insert to tables
+        $this->db->table('admins')->insertBatch($initialData);
     }
 
     public function down()
