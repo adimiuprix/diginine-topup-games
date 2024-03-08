@@ -1,7 +1,7 @@
 <?= $this->extend('adminpage/layouts/template') ?>
 <?= $this->section('content') ?>
 
-<?php include('admin-partials/header.php'); ?>
+<?= $this->include('adminpage/partials/header'); ?>
 
 <!-- ========== section start ========== -->
 <section class="section">

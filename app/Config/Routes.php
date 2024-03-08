@@ -37,3 +37,11 @@ $routes->get('admin/login', 'Admin\AuthController::index');
 $routes->post('admin/admincheck', 'Admin\AuthController::validation');
 
 $routes->get('admin/dashboard', 'Admin\DashboardController::dashboard');
+
+$routes->get('admin/category', 'Admin\CategoryController::index');
+
+$routes->get('admin/items', 'Admin\ItemsController::index');
+
+$routes->get('admin/products', 'Admin\ProductController::index');
+
+$routes->get('admin/transaction-all', 'Admin\TransactionController::index');
