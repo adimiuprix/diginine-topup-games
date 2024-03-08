@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\AdminModel;
+use App\Models\Admin\AdminModel;
 
 class AuthController extends BaseController
 {
