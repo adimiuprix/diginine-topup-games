@@ -35,3 +35,5 @@ $routes->post('check-winrate', 'WinrateController::checkWR');
 
 $routes->get('admin/login', 'Admin\AuthController::index');
 $routes->post('admin/admincheck', 'Admin\AuthController::validation');
+
+$routes->get('admin/dashboard', 'Admin\AdminController::dashboard');

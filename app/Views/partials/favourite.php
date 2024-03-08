@@ -15,7 +15,6 @@
     }
 </style>
 
-
 <div class="flat-title-page">
     <div class="themesflat-container">
         <div class="col-12">
