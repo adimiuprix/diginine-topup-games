@@ -139,7 +139,7 @@
                                                 </svg>
                                                 <span>Wallet</span>
                                             </a>
-                                            <a class="block" href="login.html" id="logout">
+                                            <a class="block" href="<?= base_url('logout'); ?>" id="logout">
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M9.9668 18.3057H2.49168C2.0332 18.3057 1.66113 17.9335 1.66113 17.4751V2.52492C1.66113 2.06644 2.03324 1.69437 2.49168 1.69437H9.9668C10.4261 1.69437 10.7973 1.32312 10.7973 0.863828C10.7973 0.404531 10.4261 0.0332031 9.9668 0.0332031H2.49168C1.11793 0.0332031 0 1.15117 0 2.52492V17.4751C0 18.8488 1.11793 19.9668 2.49168 19.9668H9.9668C10.4261 19.9668 10.7973 19.5955 10.7973 19.1362C10.7973 18.6769 10.4261 18.3057 9.9668 18.3057Z"
@@ -172,29 +172,60 @@
             <!-- /#page -->
 
             <!-- Modal Popup Bid -->
-            <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade popup" id="topupModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div class="modal-body">
-                            <div class="image">
-                                <img src="public/assets/images/backgroup-section/popup.png" alt="" />
-                            </div>
-                            <div class="logo-rotate">
-                                <img class="" src="public/assets/images/item-background/item6-img.png" alt="" />
-                            </div>
-                            <h2>Subscribe to our newsletter</h2>
-                            <p>Subscribe for our newsletter to stay in the loop</p>
-                            <fieldset class="email">
-                                <input type="email" class="style-1" id="email" placeholder="Email address*" name="email" tabindex="2" value="" aria-required="true" required="" />
+                            <h2>Topup Saldo</h2>
+                            <p>Atur jumlah dan tentukan metode pembayaran.</p>
+                            <fieldset class="balance">
+                                <input type="number" class="style-1" id="balance" placeholder="Masukkan jumlah topup*" name="topup" required />
                             </fieldset>
-                            <a href class="tf-button style-1 h50">Subscribe<i class="icon-arrow-up-right2"></i></a>
+
+                            <div class="widget-category-checkbox p-5 mb-5">
+                                <h5 class="name">Metode pembayaran</h5>
+                                <div class="content-wg-category-checkbox">
+
+                                    <form action="#">
+                                        <label>Dana
+                                            <input type="radio" name="rating">
+                                            <span class="btn-checkbox"></span>
+                                        </label><br>
+
+                                        <label>QRIS
+                                            <input type="radio" name="rating">
+                                            <span class="btn-checkbox"></span>
+                                        </label><br>
+
+                                        <label>BCA
+                                            <input type="radio" name="rating">
+                                            <span class="btn-checkbox"></span>
+                                        </label><br>
+
+                                        <label>Doa
+                                            <input type="radio" name="rating">
+                                            <span class="btn-checkbox"></span>
+                                        </label><br>
+
+                                        <label>Lempar
+                                            <input type="radio" name="rating">
+                                            <span class="btn-checkbox"></span>
+                                        </label><br>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <a href="#" class="tf-button style-1 h20">Topup</a>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- /#wrapper -->
 

@@ -15,6 +15,7 @@ $routes->post('save-user', 'Auth\Register::registUser');
 
 $routes->get('login', 'Auth\Login::index');
 $routes->post('check-user', 'Auth\Login::userAuthorization');
+$routes->get('logout', 'Auth\Login::logout');
 
 $routes->get('dashboard', 'UserServiceController::index');
 

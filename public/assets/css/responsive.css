@@ -82,7 +82,7 @@
         width: 350px;
     }
     .content-tabs .wrapper-content .inner-content {
-        max-width: fit-content;
+        max-width: none;
     }
     #page.market-page.full #market-header {
         left: 15px;

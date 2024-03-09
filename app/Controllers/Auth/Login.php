@@ -19,7 +19,11 @@ class Login extends BaseController
     public function index()
     {
         $setting = $this->setting;
-        return view('auth/login', compact('setting'));
+
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('auth/login', compact('setting', 'user_id'));
     }
 
     public function userAuthorization(){
@@ -48,5 +52,15 @@ class Login extends BaseController
             // Tampilkan pesan error atau redirect kembali ke halaman login
             return redirect()->back()->with('error', 'Login gagal. Periksa kembali email/username dan password Anda.');
         }
+    }
+
+    public function logout()
+    {
+        // Menghapus data sesi pengguna
+        $session = session();
+        $session->destroy();
+    
+        // Redirect pengguna ke halaman login
+        return redirect()->to('login');
     }
 }

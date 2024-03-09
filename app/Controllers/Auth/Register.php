@@ -19,7 +19,11 @@ class Register extends BaseController
     public function index()
     {
         $setting = $this->setting;
-        return view('auth/register', compact('setting'));
+
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('auth/register', compact('setting', 'user_id'));
     }
 
     public function registUser(){
