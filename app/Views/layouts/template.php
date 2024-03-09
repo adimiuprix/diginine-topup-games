@@ -194,7 +194,9 @@
                 </header>
 
                 <?= $this->renderSection('content'); ?>
+
                 <?= $this->include('partials/reviews'); ?>
+                
                 <?= $this->include('partials/about-section'); ?>
                 
             </div>
