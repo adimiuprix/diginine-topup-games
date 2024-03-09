@@ -218,5 +218,3 @@
         </div>
     </div>
 </div>
-
-<script src="<?= base_url('public/assets/js/swiper.js')?>"></script>

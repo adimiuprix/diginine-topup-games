@@ -16,7 +16,10 @@ class ContactController extends BaseController
     public function index(){
         $setting = $this->setting;
 
-        return view('contact', compact('setting'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('contact', compact('setting', 'user_id'));
 
     }
 }

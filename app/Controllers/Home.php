@@ -42,7 +42,10 @@ class Home extends BaseController
             ];
         }
 
-        return view('home', compact('setting', 'sliders', 'dataItems'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('home', compact('setting', 'user_id', 'sliders', 'dataItems'));
     }
 
     public function orderProduct($category, $slug): string
@@ -56,7 +59,10 @@ class Home extends BaseController
         $products = $productModel->join('items', 'items.id = products.id_item')->where('slug', $slug)->findAll();
         $methods = $payMethods->findAll();
 
-        return view('order', compact('setting', 'detailProduct', 'products', 'methods'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('order', compact('setting', 'user_id', 'detailProduct', 'products', 'methods'));
     }
 
     public function confirmInvoice(){
@@ -141,14 +147,18 @@ class Home extends BaseController
             ->where('hash_transaction', $random)
             ->first();
 
+        $session = session();
+        $user_id = $session->get('user_id');
+    
         // Periksa nilai methods_pay
         if ($invoiceResult && $invoiceResult['methods_pay'] == 6) {
             // Jika methods_pay == 6,
-            return view('manual-purchase', compact('setting', 'invoiceResult'));
+            return view('manual-purchase', compact('setting', 'user_id', 'invoiceResult'));
         } else {
             // Jika methods_pay bukan 6,
-            return view('purchase', compact('setting', 'invoiceResult'));
+            return view('purchase', compact('setting', 'user_id', 'invoiceResult'));
         }
+
     }
 
     public function runPayment(){
@@ -206,7 +216,10 @@ class Home extends BaseController
     public function trackInvoice(){
         $setting = $this->setting;
         
-        return view('tracking', compact('setting'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('tracking', compact('setting', 'user_id'));
     }
 
     public function trackInv(){

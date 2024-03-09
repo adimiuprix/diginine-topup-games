@@ -17,6 +17,9 @@ class FaqsController extends BaseController
     public function index(){
         $setting = $this->setting;
 
-        return view('faqs', compact('setting'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('faqs', compact('setting', 'user_id'));
     }
 }

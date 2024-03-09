@@ -62,12 +62,18 @@
                                                 <li class="menu-item">
                                                     <a href="<?= base_url('contact'); ?>">Kontak</a>
                                                 </li>
+                                                <?php if($user_id == !null): ?>
+                                                <li class="menu-item">
+                                                    <a href="<?= base_url('dashboard'); ?>">Akun</a>
+                                                </li>
+                                                <?php else: ?>
                                                 <li class="menu-item">
                                                     <a href="<?= base_url('register'); ?>">Daftar</a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="<?= base_url('login'); ?>">Masuk</a>
                                                 </li>
+                                                <?php endif; ?>
                                             </ul>
                                         </nav>
                                         <!-- /#main-nav -->
@@ -294,6 +300,8 @@
         <script src="<?= base_url('')?>public/assets/js/gsap-animation.js"></script>
         <script src="<?= base_url('')?>public/assets/js/tsparticles.min.js"></script>
         <script src="<?= base_url('')?>public/assets/js/tsparticles.js"></script>
+        <script src="<?= base_url('public/assets/js/swiper.js')?>"></script>
+        <script src="<?= base_url('public/assets/js/swiper-bundle.min.js')?>"></script>
         <script src="<?= base_url('')?>public/assets/js/main.js"></script>
     </body>
 </html>
