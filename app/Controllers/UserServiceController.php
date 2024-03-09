@@ -21,6 +21,6 @@ class UserServiceController extends BaseController
         $session = session();
         $userData = $session->get('user_id');
 
-        return view('userpage/dashboard', compact('setting'));
+        return view('userpage/user-area', compact('setting'));
     }
 }

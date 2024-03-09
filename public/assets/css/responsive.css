@@ -82,13 +82,13 @@
         width: 350px;
     }
     .content-tabs .wrapper-content .inner-content {
-        max-width: calc(100vw - 595px );
+        max-width: fit-content;
     }
     #page.market-page.full #market-header {
         left: 15px;
     }
     #page.market-page.full .content-tabs .wrapper-content .inner-content {
-        max-width: calc(100vw - 395px );
+        max-width: fit-content;
     }
     .tf-card-box .card-media img {
         width: 100% !important;
