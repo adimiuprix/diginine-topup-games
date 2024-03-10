@@ -44,5 +44,10 @@ $routes->get('admin/category', 'Admin\CategoryController::index');
 $routes->get('admin/items', 'Admin\ItemsController::index');
 
 $routes->get('admin/products', 'Admin\ProductController::index');
+$routes->get('admin/products/add', 'Admin\ProductController::addNew');
+$routes->post('admin/products/store', 'Admin\ProductController::store');
+$routes->get('admin/products/edit/(:num)', 'Admin\ProductController::edit/$1');
+$routes->post('admin/products/update/(:num)', 'Admin\ProductController::update/$1');
+$routes->get('admin/products/delete/(:num)', 'Admin\ProductController::remove/$1');
 
 $routes->get('admin/transaction-all', 'Admin\TransactionController::index');
