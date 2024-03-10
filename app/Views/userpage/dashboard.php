@@ -47,12 +47,12 @@
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="box-user-item">
-                        <h5 class="name mb-3">Mugiwara Lufy</h5>
+                        <h5 class="name mb-3"><?= $username; ?></h5>
                         <div class="title">
                             <div class="divider"></div>
                             <div class="flex items-center justify-between pt-4">
                                 <span class="text-bid">Nomor Whatsapp</span>
-                                <h6 class="price gem">+62895359738286</h6>
+                                <h6 class="price gem"><?= $wa_number[0]['whatsapp_number'];?></h6>
                             </div>
                         </div>
                     </div>
@@ -75,9 +75,7 @@
             </div>
 
             <div class="heading-section">
-                <h2 class="tf-title style-1 pb-20">
-                    <div style="display: block; text-align: start; position: relative;">My collection</div>
-                </h2>
+                <h2 class="title-post mb-3">Jumlah Transaksi Hari Ini</h2>
             </div>
 
             <div id="connect-wallet-grid">
@@ -117,6 +115,33 @@
                 </div>
             </div>
 
+            <div class="heading-section">
+                <h2 class="title-post mb-5">Riwayat Transaksi Terbaru Hari Ini</h2>
+            </div>
+
+            <div class="product-item" style="visibility: visible;">
+                <h6><i class="icon-description"></i>Offers</h6>
+                <i class="icon-keyboard_arrow_down"></i>
+                <div class="content">
+                    <div class="table-heading">
+                        <div class="column">Nomor Invoice</div>
+                        <div class="column">Item</div>
+                        <div class="column">Inputan/ID</div>
+                        <div class="column">Harga</div>
+                        <div class="column">Status</div>
+                    </div>
+
+                    <?php foreach($invoices as $invoice):?>
+                    <div class="table-item">
+                        <div class="column"><?= $invoice['hash_transaction'];?></div>
+                        <div class="column"><?= $invoice['item_name'];?></div>
+                        <div class="column"><?= $invoice['id_player'];?></div>
+                        <div class="column"><?= $invoice['price'];?></div>
+                        <div class="column"><span class="tf-color"><?= $invoice['order_status'];?></span></div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>

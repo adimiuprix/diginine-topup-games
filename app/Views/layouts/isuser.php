@@ -200,7 +200,7 @@
                                             <span class="btn-checkbox"></span>
                                         </label><br>
 
-                                        <label>BCA
+                                        <label>Daun
                                             <input type="radio" name="rating">
                                             <span class="btn-checkbox"></span>
                                         </label><br>
