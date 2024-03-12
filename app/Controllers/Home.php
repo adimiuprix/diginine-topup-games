@@ -100,7 +100,7 @@ class Home extends BaseController
         if ($response['result'] == null) {
 
             $session = session();
-            $session->setFlashdata('notif', $response['message']);
+            $session->setFlashdata('notif', $response['message']); // respond dari check id game
 
             return redirect()->back();
         } else {
