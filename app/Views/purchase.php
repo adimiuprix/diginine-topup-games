@@ -15,6 +15,8 @@
                 <form action="<?= base_url('process'); ?>" method="post">
 
                     <input type="hidden" name="reffcode" value="<?= $invoiceResult['hash_transaction']; ?>">
+                    <input type="hidden" name="service" value="<?= $invoiceResult['item_name']; ?>">
+                    <input type="hidden" name="price" value="<?= $invoiceResult['price']; ?>">
                     <input type="hidden" name="method" value="<?= $invoiceResult['method_name']; ?>">
                     <input type="hidden" name="skucode" value="<?= $invoiceResult['sku_code']; ?>">
 

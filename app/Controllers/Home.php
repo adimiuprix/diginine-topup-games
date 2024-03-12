@@ -55,10 +55,10 @@ class Home extends BaseController
         $productModel = new ProductModel();
         $payMethods = new PaymentMethodModel();
 
-        $detailProduct = $itemModel->join('categories', 'categories.id = items.id_cats')->where('slug', $slug)->first();
         $products = $productModel->join('items', 'items.id = products.id_item')->where('slug', $slug)->findAll();
+        $detailProduct = $itemModel->where('slug', $slug)->first();
         $methods = $payMethods->findAll();
-
+        
         $session = session();
         $user_id = $session->get('user_id');
 
@@ -75,6 +75,9 @@ class Home extends BaseController
         $payMethod = $this->request->getPost('payment');
         $price = $this->request->getPost('pricing');
         $skuCode = $this->request->getPost('skucode');
+
+        $session = session();
+        $user_id = $session->get('user_id');
 
         if($categoryProduct == 1){
             helper('checkidgame');
@@ -105,10 +108,11 @@ class Home extends BaseController
             } else {
                 if ($servID === null) {
                     $dataPost = [
+                        'id_buyer' => $user_id,
+                        'id_player' => $IdSendTo,
                         'hash_transaction'  => $random,
                         'category'  => $categoryProduct,
                         'service'   => $serviceName,
-                        'id_player' => $IdSendTo,
                         'methods_pay'   => $payMethod,
                         'price'  => $price,
                         'order_status'  => "pending",
@@ -116,11 +120,12 @@ class Home extends BaseController
                     ];
                 } else {
                     $dataPost = [
+                        'id_buyer' => $user_id,
+                        'id_player' => $IdSendTo,
+                        'server' => $servID,
                         'hash_transaction'  => $random,
                         'category'  => $categoryProduct,
                         'service'   => $serviceName,
-                        'id_player' => $IdSendTo,
-                        'server' => $servID,
                         'methods_pay'   => $payMethod,
                         'price'  => $price,
                         'order_status'  => "pending",
@@ -128,10 +133,31 @@ class Home extends BaseController
                     ];
                     $invoiceModel = new InvoiceModel();
                     $invoiceModel->insert($dataPost);
-            
                 }
             }
             
+        }elseif($categoryProduct == 2){
+
+        }elseif($categoryProduct == 3){
+
+        }elseif($categoryProduct == 4){
+            $dataPost = [
+                'id_buyer' => $user_id,
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'order_status'  => "pending",
+                'sku_code'   => $skuCode,
+            ];
+            $invoiceModel = new InvoiceModel();
+            $invoiceModel->insert($dataPost);
+        }elseif($categoryProduct == 5){
+
+        }elseif($categoryProduct == 6){
+
         }
 
         // Setelah mejalankan pengkondisian sesuai $categoryProduct
@@ -148,7 +174,6 @@ class Home extends BaseController
             ->join('payment_methods', 'payment_methods.id = invoices.methods_pay')
             ->where('hash_transaction', $random)
             ->first();
-
         $session = session();
         $user_id = $session->get('user_id');
     
@@ -167,10 +192,11 @@ class Home extends BaseController
         $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
         $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
         $merchantCode = 'T15728';
-        
+
         $merchantRef  = $this->request->getPost('reffcode');
         $methodPay = $this->request->getPost('method');
-        $amount       = 4800;
+        $amountfloat       = $this->request->getPost('price');
+        $amount = intval($amountfloat);
 
         $data = [
             'method'         => $methodPay,
@@ -182,7 +208,7 @@ class Home extends BaseController
             'order_items'    => [
                 [
                     'sku'         => $this->request->getPost('skucode'),
-                    'name'        => 'Mobile Legend',
+                    'name'        => $this->request->getPost('service'),
                     'price'       => $amount,
                     'quantity'    => 1,
                 ],
@@ -211,7 +237,6 @@ class Home extends BaseController
         
         $decodeData = json_decode($response, true);
         $checkoutUrl = $decodeData['data']['checkout_url'];
-
         return redirect()->to($checkoutUrl);
     }
 
