@@ -60,7 +60,7 @@ class ItemCategories extends Migration
                 'null' => true,
             ],
             'coloum' => [
-                'type'       => 'ENUM("1", "2")',
+                'type'       => 'ENUM("1", "2", "3", "4", "5", "6")',
                 'default' => '1',
                 'null' => true,
             ],

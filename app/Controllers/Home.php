@@ -66,7 +66,6 @@ class Home extends BaseController
     }
 
     public function confirmInvoice(){
-        helper('checkidgame');
 
         $random = Random::get(15, Code::FORMAT_ALNUM_CAPITAL);
         $categoryProduct = $this->request->getPost('category');
@@ -77,62 +76,65 @@ class Home extends BaseController
         $price = $this->request->getPost('pricing');
         $skuCode = $this->request->getPost('skucode');
 
-        // Masukkan API Key Anda
-        $apiKey = 'KaZTT2Hn6fEXDLTy1Lm3E48kcsiA2esT4V1tRDH0QOeaZsDbB6t4UaUuCVMpD5JE';
-
-        // Masukkan API ID Anda
-        $apiId = '7iZkyT0X';
-
-        // Masukkan data yang diperlukan
-        $requestData = [
-            'type' => 'get-nickname',
-            'code' => 'mobile-legends',
-            'target' => $IdSendTo,
-            'additional_target' => $servID
-        ];
-
-        // URL Endpoint
-        $url = 'https://vip-reseller.co.id/api/game-feature';
-
-        // Panggil helper untuk melakukan request API
-        $response = checkidgame($apiKey, $apiId, $requestData, $url);
-dd($response);
-        if ($response['result'] == null) {
-
-            $session = session();
-            $session->setFlashdata('notif', $response['message']); // respond dari check id game
-
-            return redirect()->back();
-        } else {
-            if ($servID === null) {
-                $dataPost = [
-                    'hash_transaction'  => $random,
-                    'category'  => $categoryProduct,
-                    'service'   => $serviceName,
-                    'id_player' => $IdSendTo,
-                    'methods_pay'   => $payMethod,
-                    'price'  => $price,
-                    'order_status'  => "pending",
-                    'sku_code'   => $skuCode,
-                ];
+        if($categoryProduct == 1){
+            helper('checkidgame');
+    
+            // Masukkan API Key Anda
+            $apiKey = 'KaZTT2Hn6fEXDLTy1Lm3E48kcsiA2esT4V1tRDH0QOeaZsDbB6t4UaUuCVMpD5JE';
+            // Masukkan API ID Anda
+            $apiId = '7iZkyT0X';
+            // URL Endpoint
+            $url = 'https://vip-reseller.co.id/api/game-feature';
+            // Masukkan data yang diperlukan
+            $requestData = [
+                'type' => 'get-nickname',
+                'code' => $this->request->getPost('forgame'),
+                'target' => $IdSendTo,
+                'additional_target' => $servID
+            ];
+    
+            // Panggil helper untuk melakukan request API
+            $response = checkidgame($apiKey, $apiId, $requestData, $url);
+    
+            if ($response['result'] == null) {
+    
+                $session = session();
+                $session->setFlashdata('notif', $response['message']); // respond dari check id game
+    
+                return redirect()->back();
             } else {
-                $dataPost = [
-                    'hash_transaction'  => $random,
-                    'category'  => $categoryProduct,
-                    'service'   => $serviceName,
-                    'id_player' => $IdSendTo,
-                    'server' => $servID,
-                    'methods_pay'   => $payMethod,
-                    'price'  => $price,
-                    'order_status'  => "pending",
-                    'sku_code'   => $skuCode,
-                ];
+                if ($servID === null) {
+                    $dataPost = [
+                        'hash_transaction'  => $random,
+                        'category'  => $categoryProduct,
+                        'service'   => $serviceName,
+                        'id_player' => $IdSendTo,
+                        'methods_pay'   => $payMethod,
+                        'price'  => $price,
+                        'order_status'  => "pending",
+                        'sku_code'   => $skuCode,
+                    ];
+                } else {
+                    $dataPost = [
+                        'hash_transaction'  => $random,
+                        'category'  => $categoryProduct,
+                        'service'   => $serviceName,
+                        'id_player' => $IdSendTo,
+                        'server' => $servID,
+                        'methods_pay'   => $payMethod,
+                        'price'  => $price,
+                        'order_status'  => "pending",
+                        'sku_code'   => $skuCode,
+                    ];
+                    $invoiceModel = new InvoiceModel();
+                    $invoiceModel->insert($dataPost);
+            
+                }
             }
+            
         }
 
-        $invoiceModel = new InvoiceModel();
-        $invoiceModel->insert($dataPost);
-
+        // Setelah mejalankan pengkondisian sesuai $categoryProduct
         return redirect()->to('invoice/' . $random);
     }
 
