@@ -40,19 +40,19 @@
                         </div>
                         <div class="input-style-1">
                             <label>Nama Produk</label>
-                            <input type="text" name="product" placeholder="Masukkan nama produk">
+                            <input type="text" name="product" placeholder="Masukkan nama produk" required />
                         </div>
                         <div class="input-style-1">
                             <label>Kode Produk</label>
-                            <input type="text" name="code" placeholder="Masukkan kode produk">
+                            <input type="text" name="code" placeholder="Masukkan kode produk" required />
                         </div>
                         <div class="input-style-1">
                             <label>Tetapkan Harga</label>
-                            <input type="number" name="price" placeholder="Atur harganya">
+                            <input type="number" name="price" placeholder="Atur harganya" required />
                         </div>
                         <div class="input-style-1">
                             <label>Item</label>
-                            <input type="text" name="item" placeholder="Nama item pembelian">
+                            <input type="text" name="item" placeholder="Nama item pembelian" required />
                         </div>
                         <div class="text-center">
                             <button class="main-btn primary-btn rounded-full btn-hover">

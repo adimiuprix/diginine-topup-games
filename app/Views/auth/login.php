@@ -29,8 +29,6 @@
                         </div>
                     </form>
                     <div class="no-account mb-5">Belum punya akun?  <a href="<?= base_url('register')?>" class="tf-color">daftar</a> sekarang</div>
-                    <h6>Dengan mendaftar otomatis anda telah menyetujui Ketentuan Layanan kami Sudah memiliki akun? Masuk Sekarang</h6>
-
                 </div>
             </div>
         </div>

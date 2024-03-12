@@ -57,7 +57,7 @@ use CodeIgniter\Filters\CSRF;
 
                     </form>
                     <div class="no-account mb-5">Sudah punya akun?  <a href="<?= base_url('login')?>" class="tf-color">masuk</a> sekarang</div>
-                    <h6>Dengan mendaftar otomatis anda telah menyetujui Ketentuan Layanan kami Sudah memiliki akun? Masuk Sekarang</h6>
+                    <h6 class="text-center">Dengan mendaftar otomatis anda telah menyetujui Ketentuan Layanan kami.</h6>
 
                 </div>
             </div>
