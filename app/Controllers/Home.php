@@ -96,7 +96,7 @@ class Home extends BaseController
 
         // Panggil helper untuk melakukan request API
         $response = checkidgame($apiKey, $apiId, $requestData, $url);
-
+dd($response);
         if ($response['result'] == null) {
 
             $session = session();

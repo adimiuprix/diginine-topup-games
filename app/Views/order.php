@@ -80,7 +80,7 @@
                             </div>
 
                             <?php endif; ?>
-                            
+
                         </div>
                         <div data-wow-delay="0s" class="wow fadeInRight product-item traits animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
                             <h6><i class="icon-description"></i>Pilih nominal</h6>
@@ -89,7 +89,7 @@
                                 display: none;
                                 }
                             </style>
-                            
+
                             <div class="content">
                                 <?php foreach ($products as $product): ?>
                                 <div class="trait-item">
@@ -101,11 +101,11 @@
                                 </div>
                                 <?php endforeach; ?>
                             </div>
-    
+
                         </div>
 
                         <?php include('partials/payment-select.php'); ?>
-                        
+
                         <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
                             <h6><i class="icon-clock"></i> Beli</h6>
                             <div class="content">
@@ -127,32 +127,32 @@
 <script>
     // Mengambil semua elemen dengan kelas 'trait-item'
     const traitItems = document.querySelectorAll('.trait-item');
-                            
+
     // Menambahkan event listener untuk setiap elemen dengan kelas 'trait-item'
     traitItems.forEach(item => {
         // Mengambil elemen input radio di dalam elemen yang diklik
         const radioInput = item.querySelector('input[type="radio"]');
-    
+
         item.addEventListener('click', () => {
             // Menghapus kelas 'active' dari semua elemen
             traitItems.forEach(traitItem => {
                 traitItem.classList.remove('active');
                 traitItem.removeAttribute('selected');
-    
+
                 // Memeriksa apakah elemen input radio ditemukan
                 if (radioInput) {
                     // Memilih input radio
                     radioInput.checked = true;
                 }
             });
-    
+
             // Menambahkan kelas 'active' ke elemen yang diklik
             item.classList.add('active');
-    
+
             // Menetapkan atribut selected ke elemen yang diklik
             item.setAttribute('selected', 'selected');
         });
-    });                         
+    });
 </script>
 
 <?= $this->endSection() ?>
