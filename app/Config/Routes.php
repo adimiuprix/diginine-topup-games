@@ -60,5 +60,11 @@ $routes->get('admin/products/edit/(:num)', 'Admin\ProductController::edit/$1');
 $routes->post('admin/products/update/(:num)', 'Admin\ProductController::update/$1');
 $routes->get('admin/products/delete/(:num)', 'Admin\ProductController::remove/$1');
 
+$routes->get('admin/favourite', 'Admin\FavouriteController::index');
+$routes->get('admin/favourite/add', 'Admin\FavouriteController::addNew');
+$routes->post('admin/favourite/store', 'Admin\FavouriteController::store');
+$routes->get('admin/favourite/edit/(:num)', 'Admin\FavouriteController::edit/$1');
+$routes->post('admin/favourite/update/(:num)', 'Admin\FavouriteController::update/$1');
+$routes->get('admin/favourite/delete/(:num)', 'Admin\FavouriteController::remove/$1');
 
 $routes->get('admin/transaction-all', 'Admin\TransactionController::index');

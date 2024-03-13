@@ -52,7 +52,9 @@
             <?php foreach($sliders as $slider): ?>
             <div class="swiper-slide">
                 <div class="card-media">
-                    <img class="slider-image" src="<?= base_url('public/assets/images/box-carousel/' . $slider->image)?>" alt="Slider 1 Image">
+                    <a href="<?= $slider->link; ?>">
+                        <img class="slider-image" src="<?= base_url('public/assets/images/box-carousel/' . $slider->image)?>" alt="Slider 1 Image">
+                    </a>
                 </div>
             </div>
             <?php endforeach; ?>

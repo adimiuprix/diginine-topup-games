@@ -7,6 +7,7 @@ use App\Models\ProductModel;
 use App\Models\PaymentMethodModel;
 use App\Models\InvoiceModel;
 use App\Models\SliderModel;
+use App\Models\FavouriteModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -24,9 +25,12 @@ class Home extends BaseController
         $setting = $this->setting;
         $itemModel = new ItemModel();
         $sliderModel = new SliderModel();
+        $favouriteModel = new FavouriteModel();
 
         $sliders = $sliderModel->get()->getResult();
 
+        $favourites = $favouriteModel->join('items', 'items.id = favourites.section')->join('categories', 'categories.id = items.id_cats')->get()->getResult();
+// dd($favourites);
         $items = $itemModel
             ->join('categories', 'categories.id = items.id_cats')
             ->findAll();
@@ -45,7 +49,7 @@ class Home extends BaseController
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('home', compact('setting', 'user_id', 'sliders', 'dataItems'));
+        return view('home', compact('setting', 'user_id', 'sliders', 'favourites', 'dataItems'));
     }
 
     public function orderProduct($category, $slug): string

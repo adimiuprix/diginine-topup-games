@@ -18,20 +18,21 @@
 <div class="flat-title-page">
     <div class="themesflat-container">
         <div class="col-12">
-            <h1 class="heading text-center mb-5">Paling Favorit</h1>
+            <h1 class="heading text-center mb-5">Populer</h1>
         </div>
         <div class="row">
+            <?php foreach($favourites as $favs): ?>
             <div class="col-6">
                 <div class="widget-tabs relative">
                     <div class="top-collections style-bottom mb-40">
                         <div class="featured carousel3-type1">
                             <div class="tf-card-collection card-back">
-                                <a href="">
+                                <a href="<?= base_url('order/'. $favs->category. "/" . $favs->slug); ?>">
                                     <div class="author-poster">
-                                        <img src="public/uploads/favourite/favo1.jpg" alt="" class="w-full">
+                                        <img src="<?= base_url('public/uploads/favourite/' . $favs->image_fav); ?>" alt="" class="w-full">
                                     </div>
                                     <div class="author-infor ">
-                                        <h4 class="heading"><a href="">Object bagian 1</a></h4>
+                                        <h4 class="heading"><a href=""><?= $favs->item_name; ?></a></h4>
                                     </div>
                                 </a>
                             </div>
@@ -39,26 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="widget-tabs relative">
-                    <div class="top-collections mb-40">
-                        <div class="featured">
-                            <div class="tf-card-collection">
-                                <a href="">
-                                    <div class="card-media">
-                                        <div class="author-poster">
-                                            <img src="public/uploads/favourite/favo1.jpg" alt="" class="w-full">
-                                        </div>
-                                    </div>
-                                    <div class="author-infor ">
-                                        <h4 class="heading"><a href="">Object bagian 2</a></h4>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
