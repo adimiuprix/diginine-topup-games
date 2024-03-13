@@ -35,6 +35,11 @@ class ItemCategories extends Migration
                 'constraint'    => 255,
                 'null' => true,
             ],
+            'code_game' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 255,
+                'null' => true,
+            ],
             'image' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 255,

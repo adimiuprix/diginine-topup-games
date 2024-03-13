@@ -2,7 +2,6 @@
     <h6><i class="icon-description"></i>Pilih pembayaran</h6>
     <div class="widget-category-checkbox style-1">
         <div class="content-wg-category-checkbox">
-                                    
             <?php foreach ($methods as $method): ?>
             <label>
                 <input type="radio" name="payment" value="<?= $method['id']; ?>">
@@ -11,8 +10,6 @@
             </label>
             <br>
             <?php endforeach; ?>
-
         </div>
     </div>
-    
 </div>
