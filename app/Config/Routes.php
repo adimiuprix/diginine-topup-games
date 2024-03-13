@@ -40,8 +40,18 @@ $routes->post('admin/admincheck', 'Admin\AuthController::validation');
 $routes->get('admin/dashboard', 'Admin\DashboardController::dashboard');
 
 $routes->get('admin/category', 'Admin\CategoryController::index');
+$routes->get('admin/category/add', 'Admin\CategoryController::addNew');
+$routes->post('admin/category/store', 'Admin\CategoryController::store');
+$routes->get('admin/category/edit/(:num)', 'Admin\CategoryController::edit/$1');
+$routes->post('admin/category/update/(:num)', 'Admin\CategoryController::update/$1');
+$routes->get('admin/category/delete/(:num)', 'Admin\CategoryController::remove/$1');
 
 $routes->get('admin/items', 'Admin\ItemsController::index');
+$routes->get('admin/items/add', 'Admin\ItemsController::addNew');
+$routes->post('admin/items/store', 'Admin\ItemsController::store');
+$routes->get('admin/items/edit/(:num)', 'Admin\ItemsController::edit/$1');
+$routes->post('admin/items/update/(:num)', 'Admin\ItemsController::update/$1');
+$routes->get('admin/items/delete/(:num)', 'Admin\ItemsController::remove/$1');
 
 $routes->get('admin/products', 'Admin\ProductController::index');
 $routes->get('admin/products/add', 'Admin\ProductController::addNew');
@@ -50,11 +60,5 @@ $routes->get('admin/products/edit/(:num)', 'Admin\ProductController::edit/$1');
 $routes->post('admin/products/update/(:num)', 'Admin\ProductController::update/$1');
 $routes->get('admin/products/delete/(:num)', 'Admin\ProductController::remove/$1');
 
-$routes->get('admin/items', 'Admin\ItemsController::index');
-$routes->get('admin/items/add', 'Admin\ItemsController::addNew');
-$routes->post('admin/items/store', 'Admin\ItemsController::store');
-$routes->get('admin/items/edit/(:num)', 'Admin\ItemsController::edit/$1');
-$routes->post('admin/items/update/(:num)', 'Admin\ItemsController::update/$1');
-$routes->get('admin/items/delete/(:num)', 'Admin\ItemsController::remove/$1');
 
 $routes->get('admin/transaction-all', 'Admin\TransactionController::index');

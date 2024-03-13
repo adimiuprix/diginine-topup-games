@@ -8,8 +8,10 @@
         <div class="title-wrapper pt-30">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <div class="title">
+                    <div class="title d-flex align-items-center flex-wrap">
                         <h2>Daftar kategori</h2>
+                        <a href="<?= base_url('admin/category/add')?>" class="main-btn primary-btn btn-hover btn-sm">
+                        <i class="lni lni-plus mr-5"></i> Tambah Kategory</a>
                     </div>
                 </div>
             </div>
@@ -31,23 +33,36 @@
                                     <tr>
                                         <th><h6>#</h6></th>
                                         <th><h6>Nama</h6></th>
+                                        <th><h6>Aksi</h6></th>
                                     </tr>
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
+                                    <?php $counter = 1; ?>
                                     <?php foreach($catsdata as $cats): ?>
                                     <tr>
                                         <td class="min-width">
-                                            <p>1</p>
+                                            <p><?= $counter++; ?></p>
                                         </td>
                                         <td class="min-width">
                                             <p><?= $cats['category']; ?></p>
                                         </td>
                                         <td>
-                                            <div class="action">
-                                                <button class="text-danger">
-                                                <i class="lni lni-trash-can"></i>
+                                            <div class="action justify-content-end">
+
+                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="lni lni-more-alt"></i>
                                                 </button>
+
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1" style="">
+                                                    <li class="dropdown-item">
+                                                        <a href="<?= base_url('admin/category/edit/' . $cats['id']); ?>" class="text-gray">Edit</a>
+                                                    </li>
+                                                    <li class="dropdown-item">
+                                                        <a href="<?= base_url('admin/category/delete/' . $cats['id']); ?>" class="text-gray">Hapus</a>
+                                                    </li>
+                                                </ul>
+
                                             </div>
                                         </td>
                                     </tr>
