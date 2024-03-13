@@ -29,10 +29,14 @@ class Home extends BaseController
 
         $sliders = $sliderModel->get()->getResult();
 
-        $favourites = $favouriteModel->join('items', 'items.id = favourites.section')->join('categories', 'categories.id = items.id_cats')->get()->getResult();
-// dd($favourites);
+        $favourites = $favouriteModel
+            ->join('items', 'items.id = favourites.section')
+            ->join('categories', 'categories.id = items.id_cats')
+            ->get()->getResult();
+
         $items = $itemModel
             ->join('categories', 'categories.id = items.id_cats')
+            ->where('status', 'enable')
             ->findAll();
 
         $dataItems = [];
@@ -62,7 +66,7 @@ class Home extends BaseController
         $products = $productModel->join('items', 'items.id = products.id_item')->where('slug', $slug)->findAll();
         $detailProduct = $itemModel->where('slug', $slug)->first();
         $methods = $payMethods->findAll();
-        
+
         $session = session();
         $user_id = $session->get('user_id');
 
@@ -70,7 +74,6 @@ class Home extends BaseController
     }
 
     public function confirmInvoice(){
-
         $random = Random::get(15, Code::FORMAT_ALNUM_CAPITAL);
         $categoryProduct = $this->request->getPost('category');
         $serviceName = $this->request->getPost('service');
@@ -85,7 +88,7 @@ class Home extends BaseController
 
         if($categoryProduct == 1){
             helper('checkidgame');
-    
+
             // Masukkan API Key Anda
             $apiKey = 'KaZTT2Hn6fEXDLTy1Lm3E48kcsiA2esT4V1tRDH0QOeaZsDbB6t4UaUuCVMpD5JE';
             // Masukkan API ID Anda
@@ -99,15 +102,15 @@ class Home extends BaseController
                 'target' => $IdSendTo,
                 'additional_target' => $servID
             ];
-    
+
             // Panggil helper untuk melakukan request API
             $response = checkidgame($apiKey, $apiId, $requestData, $url);
-    
+
             if ($response['result'] == null) {
-    
+
                 $session = session();
                 $session->setFlashdata('notif', $response['message']); // respond dari check id game
-    
+
                 return redirect()->back();
             } else {
                 if ($servID === null) {
@@ -139,7 +142,7 @@ class Home extends BaseController
                     $invoiceModel->insert($dataPost);
                 }
             }
-            
+
         }elseif($categoryProduct == 2){
 
         }elseif($categoryProduct == 3){
@@ -180,10 +183,10 @@ class Home extends BaseController
             ->first();
         $session = session();
         $user_id = $session->get('user_id');
-    
+
         // Periksa nilai methods_pay
-        if ($invoiceResult && $invoiceResult['methods_pay'] == 6) {
-            // Jika methods_pay == 6,
+        if ($invoiceResult && $invoiceResult['methods_pay'] == 7) {
+            // Jika methods_pay == 7,
             return view('manual-purchase', compact('setting', 'user_id', 'invoiceResult'));
         } else {
             // Jika methods_pay bukan 6,
@@ -193,14 +196,14 @@ class Home extends BaseController
     }
 
     public function runPayment(){
-        $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
-        $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
-        $merchantCode = 'T15728';
-
         $merchantRef  = $this->request->getPost('reffcode');
         $methodPay = $this->request->getPost('method');
         $amountfloat       = $this->request->getPost('price');
         $amount = intval($amountfloat);
+
+        $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
+        $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
+        $merchantCode = 'T15728';
 
         $data = [
             'method'         => $methodPay,
@@ -221,9 +224,9 @@ class Home extends BaseController
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
             'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
         ];
-        
+
         $curl = curl_init();
-        
+
         curl_setopt_array($curl, [
             CURLOPT_FRESH_CONNECT  => true,
             CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
@@ -236,9 +239,9 @@ class Home extends BaseController
             CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
         ]);
 
-        $response = curl_exec($curl);        
+        $response = curl_exec($curl);
         curl_close($curl);
-        
+        // dd($response);
         $decodeData = json_decode($response, true);
         $checkoutUrl = $decodeData['data']['checkout_url'];
         return redirect()->to($checkoutUrl);
@@ -246,7 +249,7 @@ class Home extends BaseController
 
     public function trackInvoice(){
         $setting = $this->setting;
-        
+
         $session = session();
         $user_id = $session->get('user_id');
 
@@ -273,7 +276,7 @@ class Home extends BaseController
     }
 
     public function about(){
-        
+
     }
 
 }
