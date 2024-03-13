@@ -50,4 +50,11 @@ $routes->get('admin/products/edit/(:num)', 'Admin\ProductController::edit/$1');
 $routes->post('admin/products/update/(:num)', 'Admin\ProductController::update/$1');
 $routes->get('admin/products/delete/(:num)', 'Admin\ProductController::remove/$1');
 
+$routes->get('admin/items', 'Admin\ItemsController::index');
+$routes->get('admin/items/add', 'Admin\ItemsController::addNew');
+$routes->post('admin/items/store', 'Admin\ItemsController::store');
+$routes->get('admin/items/edit/(:num)', 'Admin\ItemsController::edit/$1');
+$routes->post('admin/items/update/(:num)', 'Admin\ItemsController::update/$1');
+$routes->get('admin/items/delete/(:num)', 'Admin\ItemsController::remove/$1');
+
 $routes->get('admin/transaction-all', 'Admin\TransactionController::index');

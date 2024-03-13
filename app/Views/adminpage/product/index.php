@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <div class="title d-flex align-items-center flex-wrap">
                         <h2 class="mr-40">Table Produk</h2>
-                        <a href="<?= base_url('admin/products/add')?>" class="main-btn primary-btn btn-hover btn-sm">
+                        <a href="<?= base_url('admin/items/add')?>" class="main-btn primary-btn btn-hover btn-sm">
                         <i class="lni lni-plus mr-5"></i> Tambah Produk</a>
                     </div>
                 </div>
