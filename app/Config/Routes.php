@@ -22,10 +22,10 @@ $routes->get('dashboard', 'UserServiceController::index');
 
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 
-$routes->post('confirm-order', 'Home::confirmInvoice');
+$routes->post('confirm-order', 'OrderController::confirmInvoice');
 
-$routes->get('invoice/(:any)', 'Home::purchase/$1');
-$routes->post('process', 'Home::runPayment');
+$routes->get('invoice/(:any)', 'OrderController::purchase/$1');
+$routes->post('process', 'OrderController::runPayment');
 
 $routes->post('callback', 'Home::callback');
 
