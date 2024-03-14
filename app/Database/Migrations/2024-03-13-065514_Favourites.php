@@ -16,8 +16,8 @@ class Favourites extends Migration
                 'auto_increment' => true,
             ],
             'section' => [
-                'type'          => 'VARCHAR',
-                'INT'    => 100,
+                'type'  => 'INT',
+                'constraint'    => 100,
                 'null' => true,
             ],
             'image' => [
