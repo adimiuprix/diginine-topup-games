@@ -17,7 +17,10 @@ class WinrateController extends BaseController
     {
         $setting = $this->setting;
 
-        return view('winrate', compact('setting'));
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('winrate', compact('setting', 'user_id'));
     }
 
     public function checkWR(){
