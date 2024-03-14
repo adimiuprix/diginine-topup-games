@@ -20,7 +20,7 @@ class ItemSeeder extends Seeder
                 'breadcrumb'     => '',
                 'description' => 'Mobile Legends: Bang Bang (MLBB) adalah game pertarungan tim bergenre MOBA (Multiplayer Online Battle Arena) khusus ponsel. Game besutan Moonton ini, dirilis pada tahun 2016 dan terkenal di Asia Tenggara.',
                 'vendor'     => 'Moonton',
-                'coloum'     => '1',
+                'coloum'     => '2',
             ],
             [
                 'id_cats'     => '1',
@@ -46,7 +46,7 @@ class ItemSeeder extends Seeder
                 'breadcrumb'     => '',
                 'description' => 'Genshin Impact adalah game open world RPG (Role-Playing Game) yang dikembangkan oleh miHoYo. Game ini dirilis pada tahun 2020 dan tersedia di berbagai platform, termasuk PC, mobile, dan PlayStation. Genshin Impact terkenal dengan grafis yang indah, gameplay yang seru, dan cerita yang menarik. Pemain dapat menjelajahi dunia Teyvat yang luas, menyelesaikan berbagai quest, dan bertemu dengan karakter-karakter yang unik.',
                 'vendor' => 'miHoYo',
-                'coloum'     => '1',
+                'coloum'     => '2',
             ],
             [
                 'id_cats' => '1',
