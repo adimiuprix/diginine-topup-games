@@ -82,37 +82,23 @@ class Home extends BaseController
         $payMethod = $this->request->getPost('payment');
         $price = $this->request->getPost('pricing');
         $skuCode = $this->request->getPost('skucode');
+        $gameCode = $this->request->getPost('forgame');
 
         $session = session();
         $user_id = $session->get('user_id');
 
         if($categoryProduct == 1){
             helper('checkidgame');
+            // Panggil fungsi untuk melakukan pengecekan akun game
+            $merchant_id = 'M230429AERK1567DJ';
+            $game_code = $gameCode;
+            $user_id = $IdSendTo;
+            $server_id = $servID;
+            $secret_key = '1728ed0671737c37834f555ba154a025fa9294d76d945d76efd278ddc84483bd';
 
-            // Masukkan API Key Anda
-            $apiKey = 'KaZTT2Hn6fEXDLTy1Lm3E48kcsiA2esT4V1tRDH0QOeaZsDbB6t4UaUuCVMpD5JE';
-            // Masukkan API ID Anda
-            $apiId = '7iZkyT0X';
-            // URL Endpoint
-            $url = 'https://vip-reseller.co.id/api/game-feature';
-            // Masukkan data yang diperlukan
-            $requestData = [
-                'type' => 'get-nickname',
-                'code' => $this->request->getPost('forgame'),
-                'target' => $IdSendTo,
-                'additional_target' => $servID
-            ];
+            $response = checkidgame($merchant_id, $game_code, $user_id, $server_id, $secret_key);
 
-            // Panggil helper untuk melakukan request API
-            $response = checkidgame($apiKey, $apiId, $requestData, $url);
-
-            if ($response['result'] == null) {
-
-                $session = session();
-                $session->setFlashdata('notif', $response['message']); // respond dari check id game
-
-                return redirect()->back();
-            } else {
+            if ($response['data']['is_valid'] == true) {
                 if ($servID === null) {
                     $dataPost = [
                         'id_buyer' => $user_id,
@@ -141,6 +127,10 @@ class Home extends BaseController
                     $invoiceModel = new InvoiceModel();
                     $invoiceModel->insert($dataPost);
                 }
+            } else {
+                $session = session();
+                $session->setFlashdata('notif', $response['message']); // respond dari check id game
+                return redirect()->back();
             }
 
         }elseif($categoryProduct == 2){

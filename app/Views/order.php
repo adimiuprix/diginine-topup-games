@@ -57,7 +57,7 @@
                     <form action="<?= base_url('confirm-order'); ?>" method="post">
                         <input type="hidden" name="category" value="<?= $detailProduct['id_cats']; ?>">
                         <input type="hidden" name="service" value="<?= $detailProduct['id']; ?>">
-                        <input type="hidden" name="forgame" value="<?= $detailProduct['slug']; ?>">
+                        <input type="hidden" name="forgame" value="<?= $detailProduct['code_game']; ?>">
                         <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
                             <h6><i class="icon-clock"></i> Masukkan Player ID</h6>
 
