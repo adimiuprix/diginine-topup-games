@@ -269,4 +269,7 @@ class Home extends BaseController
 
     }
 
+    public function privpol(){
+        return view('privacyandpolicy');
+    }
 }

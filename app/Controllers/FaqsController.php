@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\SettingModel;
-use CodeIgniter\HTTP\ResponseInterface;
-
+use App\Models\FaqModel;
 class FaqsController extends BaseController
 {
     private $setting;
@@ -20,6 +19,9 @@ class FaqsController extends BaseController
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('faqs', compact('setting', 'user_id'));
+        $faqsModel = new FaqModel();
+        $faqsSection = $faqsModel->get()->getResult();
+
+        return view('faqs', compact('setting', 'user_id', 'faqsSection'));
     }
 }

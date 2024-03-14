@@ -57,7 +57,7 @@
                                                     <a href="<?= base_url('price-list'); ?>">Daftar harga</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="<?= base_url('faqs'); ?>">Faq</a>
+                                                    <a href="<?= base_url('faqs'); ?>">QnA</a>
                                                 </li>
                                                 <li class="menu-item">
                                                     <a href="<?= base_url('contact'); ?>">Kontak</a>
@@ -262,7 +262,7 @@
                                 <div class="widget-menu style-4">
                                     <h5 class="title-widget">Legalitas</h5>
                                     <ul>
-                                        <li><a href="#">Kebijakan Pribadi</a></li>
+                                        <li><a href="<?= base_url('privation')?>">Kebijakan Pribadi</a></li>
                                         <li><a href="#">Syaratr & Ketentuan</a></li>
                                     </ul>
                                 </div>
