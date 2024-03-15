@@ -37,6 +37,16 @@ class Users extends Migration
                 'constraint'    => 255,
                 'null' => true,
             ],
+            'saldo' => [
+                'type' => 'DECIMAL',
+                'constraint' => '10,2',
+                'default' => '0.00',
+            ],
+            'remember_token' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+                'null' => true,
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('users');
