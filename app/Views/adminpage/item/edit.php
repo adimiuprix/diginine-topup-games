@@ -32,7 +32,7 @@
                                     <option>Pilih salah satu</option>
                                     <?php foreach ($categories as $category) : ?>
                                     <?php $selected = ($items['id_cats'] == $category['id']) ? 'selected' : ''; ?>
-                                    <option value="<?= var_dump($category['id']);?>" <?= $selected ?>><?= $category['category'];?></option>
+                                    <option value="<?= $category['id'];?>" <?= $selected ?>><?= $category['category'];?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="input-style-1">
                             <label>Tetapkan Kolom</label>
-                            <input type="number" name="coloum" <?= $items['coloum']; ?> placeholder="Atur jumlah kolom" required />
+                            <input type="number" name="coloum" value="<?= $items['coloum']; ?>" placeholder="Atur jumlah kolom" required />
                         </div>
                         <div class="input-style-1">
                             <label>Gambar item</label>
@@ -72,12 +72,24 @@
                             </div>
                         </div>
 
+                        <div class="select-style-1">
+                            <label>Enable/Disable</label>
+                            <div class="select-position">
+                                <select name="status">
+                                    <option>Pilih salah satu</option>
+                                    <option value="enable">Enable</option>
+                                    <option value="disable">Disable</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="text-center">
                             <button class="main-btn primary-btn rounded-full btn-hover">
                                 <i class="lni lni-heart"></i>
                                 Tambahkan
                             </button>
                         </div>
+
                     </form>
                     <!-- end input -->
                 </div>

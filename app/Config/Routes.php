@@ -68,6 +68,8 @@ $routes->get('admin/favourite/edit/(:num)', 'Admin\FavouriteController::edit/$1'
 $routes->post('admin/favourite/update/(:num)', 'Admin\FavouriteController::update/$1');
 $routes->get('admin/favourite/delete/(:num)', 'Admin\FavouriteController::remove/$1');
 
-$routes->get('admin/transaction-all', 'Admin\TransactionController::index');
+$routes->get('admin/transactions', 'Admin\TransactionController::index');
+$routes->get('admin/transactions/edit/(:num)', 'Admin\TransactionController::edit/$1');
+$routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::update/$1');
 
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');

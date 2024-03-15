@@ -72,7 +72,7 @@
             </a>
             <ul id="ddmenu_2" class="collapse dropdown-nav">
                 <li>
-                    <a href="<?= base_url('admin/transaction-all'); ?>"> Semua transaksi </a>
+                    <a href="<?= base_url('admin/transactions'); ?>"> Semua transaksi </a>
                 </li>
                 <li>
                     <a href="<?= base_url('admin/transaction-pending'); ?>"> Pending </a>

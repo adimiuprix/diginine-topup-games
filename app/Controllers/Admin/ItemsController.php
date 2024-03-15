@@ -47,6 +47,7 @@ class ItemsController extends BaseController
             'image' => $imageItem,
             'blog_image' => '',
             'breadcrumb' => '',
+            'status' => $this->request->getPost('status'),
         ];
         $productModel = new ItemModel();
         $productModel->insert($dataPost);

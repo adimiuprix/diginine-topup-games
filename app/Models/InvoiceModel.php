@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class InvoiceModel extends Model
 {
     protected $table            = 'invoices';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_invoice';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_buyer', 'id_player', 'server', 'hash_transaction', 'category', 'service', 'methods_pay', 'price', 'status', 'sku_code'];
+    protected $allowedFields    = ['id_buyer', 'id_player', 'server', 'hash_transaction', 'category', 'service', 'methods_pay', 'price', 'order_status', 'sku_code'];
 
     protected bool $allowEmptyInserts = false;
 

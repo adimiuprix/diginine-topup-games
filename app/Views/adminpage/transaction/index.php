@@ -49,33 +49,57 @@
                                         <th>
                                             <h6>Status Pesanan</h6>
                                         </th>
+                                        <th>
+                                            <h6>Aksi</h6>
+                                        </th>
                                     </tr>
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    <?php foreach($invoices as $inv): ?>
+                                    <?php $counter = 1; ?>
+                                    <?php foreach($invoices as $transact): ?>
                                     <tr>
                                         <td class="min-width">
-                                            <p>1</p>
+                                            <p><?= $counter++; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['id_buyer']; ?></p>
+                                            <p><?= $transact['username']; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['id_player']; ?></p>
+                                            <p><?= $transact['id_player']; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['server']; ?></p>
+                                            <p><?= $transact['server']; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['hash_transaction']; ?></p>
+                                            <p><?= $transact['hash_transaction']; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['item_name']; ?></p>
+                                            <p><?= $transact['item_name']; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $inv['order_status']; ?></p>
+                                            <p><?= $transact['order_status']; ?></p>
                                         </td>
+
+                                        <td>
+                                            <div class="action justify-content-end">
+
+                                                <button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="lni lni-more-alt"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1" style="">
+                                                    <li class="dropdown-item">
+                                                        <a href="<?= base_url('admin/transactions/edit/' . $transact['id_invoice']); ?>" class="text-gray">Edit</a>
+                                                    </li>
+                                                    <li class="dropdown-item">
+                                                        <a href="<?= base_url('admin/transactions/delete/' . $transact['id_invoice']); ?>" class="text-gray">Hapus</a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     <?php endforeach; ?>
                                     <!-- end table row -->

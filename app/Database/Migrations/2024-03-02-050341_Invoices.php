@@ -9,7 +9,7 @@ class Invoices extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
+            'id_invoice' => [
                 'type'           => 'INT',
                 'constraint'     => 50,
                 'unsigned'       => true,
@@ -63,7 +63,8 @@ class Invoices extends Migration
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
                 'null' => true,
-            ]
+            ],
+            'create_date DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('invoices');
