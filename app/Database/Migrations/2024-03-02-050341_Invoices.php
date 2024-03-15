@@ -64,9 +64,8 @@ class Invoices extends Migration
                 'constraint'     => 255,
                 'null' => true,
             ],
-            'create_date DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_invoice', true);
         $this->forge->createTable('invoices');
     }
 

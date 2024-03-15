@@ -20,7 +20,7 @@ class Favourites extends Migration
                 'constraint'    => 100,
                 'null' => true,
             ],
-            'image' => [
+            'image_fav' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 255,
                 'null' => true,

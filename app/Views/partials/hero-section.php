@@ -53,7 +53,7 @@
             <div class="swiper-slide">
                 <div class="card-media">
                     <a href="<?= $slider->link; ?>">
-                        <img class="slider-image" src="<?= base_url('public/assets/images/box-carousel/' . $slider->image)?>" alt="Slider 1 Image">
+                        <img class="slider-image" src="<?= base_url('public/uploads/banners/' . $slider->image)?>" alt="Slider 1 Image">
                     </a>
                 </div>
             </div>

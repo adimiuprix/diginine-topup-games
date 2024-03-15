@@ -10,11 +10,15 @@ class SliderSeed extends Seeder
     {
         $data = [
             [
-                'image'     => 'banner1.jpg',
+                'image'     => 'banner1.png',
                 'link'     => 'https://google.com/',
             ],
             [
-                'image'     => 'banner2.jpg',
+                'image'     => 'banner2.png',
+                'link'     => 'https://facebook.com/',
+            ],
+            [
+                'image'     => 'banner3.png',
                 'link'     => 'https://facebook.com/',
             ],
         ];
