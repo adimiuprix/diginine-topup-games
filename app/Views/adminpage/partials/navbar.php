@@ -170,13 +170,10 @@
             </a>
             <ul id="ddmenu_4" class="collapse dropdown-nav">
                 <li>
-                    <a href="alerts.html"> Umum </a>
+                    <a href=""> Umum </a>
                 </li>
                 <li>
-                    <a href="buttons.html"> Atur API </a>
-                </li>
-                <li>
-                    <a href="buttons.html"> Atur API </a>
+                    <a href="<?= base_url('admin/apis'); ?>"> Atur API </a>
                 </li>
             </ul>
         </li>

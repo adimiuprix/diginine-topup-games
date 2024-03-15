@@ -69,3 +69,5 @@ $routes->post('admin/favourite/update/(:num)', 'Admin\FavouriteController::updat
 $routes->get('admin/favourite/delete/(:num)', 'Admin\FavouriteController::remove/$1');
 
 $routes->get('admin/transaction-all', 'Admin\TransactionController::index');
+
+$routes->get('admin/apis', 'Admin\ApiKeyController::index');

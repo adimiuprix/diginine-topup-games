@@ -28,6 +28,7 @@ class ItemsController extends BaseController
 
     public function store(){
         $itemName = $this->request->getPost('item_name');
+        $slug = url_title($itemName, '-', true);
 
         $imageItem = $this->request->getFile('image_item');;
 
@@ -39,7 +40,7 @@ class ItemsController extends BaseController
             'id_cats' => $this->request->getPost('items'),
             'item_name' => $itemName,
             'status' => 'enable',
-            'slug' => url_title($itemName, '-', true),
+            'slug' => $slug,
             'description' => $this->request->getPost('description'),
             'vendor' => $this->request->getPost('vendor'),
             'coloum' => $this->request->getPost('coloum'),

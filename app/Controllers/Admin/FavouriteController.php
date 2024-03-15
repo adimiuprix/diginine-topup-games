@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\Admin\FavouriteModel;
 use App\Models\Admin\ItemModel;
-
+use App\Models\CategoryModel;
 class FavouriteController extends BaseController
 {
     public function index()
@@ -43,7 +43,7 @@ class FavouriteController extends BaseController
 
         $favModel = new FavouriteModel();
         $favourites = $favModel->join('items', 'items.id = favourites.section')->find($id);
-        // dd($favourites);
+
         return view('adminpage/favourite/edit', compact('favourites', 'items'));
     }
 
