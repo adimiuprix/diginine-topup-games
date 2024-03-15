@@ -48,44 +48,35 @@ class OrderController extends BaseController
                 $response['status'] = 1;
             };
 
+            // Jika respond nya bernilai 1
             if ($response['status'] == 1) {
-                // Jika respond nya bernilai 1
-                if (is_null($servID)) {
-                    $dataPost = [
-                        'id_buyer' => $buyer,
-                        'id_player' => $IdSendTo,
-                        'hash_transaction'  => $random,
-                        'category'  => $categoryProduct,
-                        'service'   => $serviceName,
-                        'methods_pay'   => $payMethod,
-                        'price'  => $price,
-                        'order_status'  => "pending",
-                        'sku_code'   => $skuCode,
-                    ];
-                    $invoiceModel = new InvoiceModel();
-                    $invoiceModel->insert($dataPost);
-                } else {
-                    $dataPost = [
-                        'id_buyer' => $buyer,
-                        'id_player' => $IdSendTo,
-                        'server' => $servID,
-                        'hash_transaction'  => $random,
-                        'category'  => $categoryProduct,
-                        'service'   => $serviceName,
-                        'methods_pay'   => $payMethod,
-                        'price'  => $price,
-                        'order_status'  => "pending",
-                        'sku_code'   => $skuCode,
-                    ];
-                    $invoiceModel = new InvoiceModel();
-                    $invoiceModel->insert($dataPost);
+
+                // Siapkan data untuk dimasukkan ke dalam database
+                $dataPost = [
+                    'id_buyer' => $buyer,
+                    'id_player' => $IdSendTo,
+                    'hash_transaction'  => $random,
+                    'category'  => $categoryProduct,
+                    'service'   => $serviceName,
+                    'methods_pay'   => $payMethod,
+                    'price'  => $price,
+                    'order_status'  => "pending",
+                    'sku_code'   => $skuCode,
+                ];
+
+                // Jika $servID tidak null, tambahkan informasi server ke data
+                if (!is_null($servID)) {
+                    $dataPost['server'] = $servID;
                 }
+
+                // Buat objek InvoiceModel dan masukkan data ke dalam database
+                $invoiceModel = new InvoiceModel();
+                $invoiceModel->insert($dataPost);
             } else {
                 $session = session();
                 $session->setFlashdata('notif', $response['error_msg']); // respond dari check id game
                 return redirect()->back();
             }
-
         }elseif($categoryProduct == 2){
 
         }elseif($categoryProduct == 3){
