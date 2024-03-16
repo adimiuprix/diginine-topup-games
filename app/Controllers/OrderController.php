@@ -18,16 +18,6 @@ class OrderController extends BaseController
         $this->setting = $GeneralSetting->first();
     }
 
-    function getApiGame() {
-        $apiGameModel = new ApiGameModel();
-        $apiGameData = $apiGameModel->getApiGameData();
-
-        $merchant_id = $apiGameData['merchant_id'];
-        $secret_key = $apiGameData['secret_key'];
-
-        return [$merchant_id, $secret_key];
-    }
-
     public function confirmInvoice(){
         $random = Random::get(15, Code::FORMAT_ALNUM_CAPITAL);
         $categoryProduct = $this->request->getPost('category');
@@ -44,10 +34,12 @@ class OrderController extends BaseController
 
         if($categoryProduct == 1){
             helper('checkidgame');
-
             // Panggil fungsi untuk melakukan pengecekan akun game
-            list($merchant_id, $secret_key) = $this->getApiGame();
+            $apiGameModel = new ApiGameModel();
+            $apiGameData = $apiGameModel->getApiGameData();
 
+            $merchant_id = $apiGameData['merchant_id'];
+            $secret_key = $apiGameData['secret_key'];
             $game_code = $gameCode;
             $user_id = $IdSendTo;
             $server_id = $servID;
@@ -56,7 +48,7 @@ class OrderController extends BaseController
                 $response = mobilelegendvalidate($merchant_id, $game_code, $user_id, $server_id, $secret_key);
             }elseif ($game_code == 'higgs' || $game_code == 'freefire') {
                 $response = normalvalidate($merchant_id, $game_code, $user_id, $secret_key);
-            }elseif (is_null($game_code)) {
+            }elseif ($game_code == '') {
                 $response['status'] = 1;
             };
 

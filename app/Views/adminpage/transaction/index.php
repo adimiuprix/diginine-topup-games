@@ -63,7 +63,7 @@
                                             <p><?= $counter++; ?></p>
                                         </td>
                                         <td class="min-width">
-                                            <p><?= $transact['username']; ?></p>
+                                            <p><?= isset($transact['username']) ? $transact['username'] : 'GUEST'; ?></p>
                                         </td>
                                         <td class="min-width">
                                             <p><?= $transact['id_player']; ?></p>
