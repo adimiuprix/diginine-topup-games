@@ -1,6 +1,6 @@
 {
     "name": "codeigniter4/appstarter",
-    "description": "php spark migrate; php spark db:seed SliderSeeder; php spark db:seed ItemSeeder; php spark db:seed ProductSeeder",
+    "description": "Diginie Top Game",
     "license": "MIT",
     "type": "project",
     "homepage": "https://codeigniter.com",

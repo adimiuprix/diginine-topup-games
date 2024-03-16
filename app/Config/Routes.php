@@ -73,3 +73,4 @@ $routes->get('admin/transactions/edit/(:num)', 'Admin\TransactionController::edi
 $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::update/$1');
 
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
+$routes->post('admin/apis/apigame/update', 'Admin\ApiKeyController::update');
