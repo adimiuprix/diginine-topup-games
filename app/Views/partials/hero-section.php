@@ -44,6 +44,9 @@
     .pagination-item.active {
         background-color: #e2fe26;
     }
+    img.slider-image.windows-flex {
+        width: 1300px;
+    }
 </style>
 <div class="relative">
     <div class="swiper-container slider-go">
@@ -53,7 +56,7 @@
             <div class="swiper-slide">
                 <div class="card-media">
                     <a href="<?= $slider->link; ?>">
-                        <img class="slider-image" src="<?= base_url('public/uploads/banners/' . $slider->image)?>" alt="Slider 1 Image">
+                        <img class="slider-image windows-flex" src="<?= base_url('public/uploads/banners/' . $slider->image)?>" alt="Slider 1 Image">
                     </a>
                 </div>
             </div>
