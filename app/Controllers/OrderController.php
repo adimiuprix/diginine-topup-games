@@ -82,8 +82,34 @@ class OrderController extends BaseController
                 return redirect()->back();
             }
         }elseif($categoryProduct == 2){
+            $dataPost = [
+                'id_buyer' => $buyer,
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'order_status'  => "pending",
+                'sku_code'   => $skuCode,
+            ];
+            $invoiceModel = new InvoiceModel();
+            $invoiceModel->insert($dataPost);
 
         }elseif($categoryProduct == 3){
+            $dataPost = [
+                'id_buyer' => $buyer,
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'order_status'  => "pending",
+                'sku_code'   => $skuCode,
+            ];
+            $invoiceModel = new InvoiceModel();
+            $invoiceModel->insert($dataPost);
 
         }elseif($categoryProduct == 4){
             $dataPost = [
@@ -100,9 +126,34 @@ class OrderController extends BaseController
             $invoiceModel = new InvoiceModel();
             $invoiceModel->insert($dataPost);
         }elseif($categoryProduct == 5){
+            $dataPost = [
+                'id_buyer' => $buyer,
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'order_status'  => "pending",
+                'sku_code'   => $skuCode,
+            ];
+            $invoiceModel = new InvoiceModel();
+            $invoiceModel->insert($dataPost);
 
         }elseif($categoryProduct == 6){
-
+            $dataPost = [
+                'id_buyer' => $buyer,
+                'hash_transaction'  => $random,
+                'category'  => $categoryProduct,
+                'service'   => $serviceName,
+                'id_player' => $IdSendTo,
+                'methods_pay'   => $payMethod,
+                'price'  => $price,
+                'order_status'  => "pending",
+                'sku_code'   => $skuCode,
+            ];
+            $invoiceModel = new InvoiceModel();
+            $invoiceModel->insert($dataPost);
         }
 
         // Setelah mejalankan pengkondisian sesuai $categoryProduct

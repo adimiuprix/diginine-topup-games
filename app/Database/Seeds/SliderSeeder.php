@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class SliderSeed extends Seeder
+class SliderSeeder extends Seeder
 {
     public function run()
     {

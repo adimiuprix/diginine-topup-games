@@ -35,3 +35,6 @@ class ApiGame extends Migration
         $this->forge->dropTable('api_games');
     }
 }
+
+// M230429AERK1567DJ
+// 1728ed0671737c37834f555ba154a025fa9294d76d945d76efd278ddc84483bd

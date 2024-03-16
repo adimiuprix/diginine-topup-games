@@ -1,14 +1,9 @@
 {
     "name": "codeigniter4/appstarter",
-    "description": "CodeIgniter4 starter app",
+    "description": "php spark migrate; php spark db:seed SliderSeeder; php spark db:seed ItemSeeder; php spark db:seed ProductSeeder",
     "license": "MIT",
     "type": "project",
     "homepage": "https://codeigniter.com",
-    "support": {
-        "forum": "https://forum.codeigniter.com/",
-        "source": "https://github.com/codeigniter4/CodeIgniter4",
-        "slack": "https://codeigniterchat.slack.com"
-    },
     "require": {
         "php": "^7.4 || ^8.0",
         "ajaxray/short-code": "^1.1",

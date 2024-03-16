@@ -22,11 +22,11 @@ class Categories extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('categories');
-        
+
         $initialData = [
             ['category'     => 'Game'],
-            ['category'     => 'Voucher'],
             ['category'     => 'Joki'],
+            ['category'     => 'Voucher'],
             ['category'     => 'Pulsa'],
             ['category'     => 'E-wallet'],
             ['category'     => 'Entertaiment'],
