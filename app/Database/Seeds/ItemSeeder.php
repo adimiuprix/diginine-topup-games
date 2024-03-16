@@ -53,7 +53,7 @@ class ItemSeeder extends Seeder
                 'item_name' => 'Higgs Domino',
                 'status' => 'enable',
                 'slug' => 'higgs-domino',
-                'code_game' => '',
+                'code_game' => 'higgs',
                 'image' => 'higgs-domino.png',
                 'blog_image'     => 'higgs-domino.png',
                 'breadcrumb'     => 'higgs-domino.png',
