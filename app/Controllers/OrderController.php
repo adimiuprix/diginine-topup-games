@@ -85,14 +85,23 @@ class OrderController extends BaseController
             $dataPost = [
                 'id_buyer' => $buyer,
                 'hash_transaction'  => $random,
+                'methods_pay'   => $payMethod,
                 'category'  => $categoryProduct,
                 'service'   => $serviceName,
-                'id_player' => $IdSendTo,
-                'methods_pay'   => $payMethod,
+                'login_via' => $this->request->getPost('login_via'),
+                'account_detail' => $this->request->getPost('account_detail'),
+                'password' => $this->request->getPost('password'),
+                'notice' => $this->request->getPost('notice'),
+                'user_id' => $this->request->getPost('user_id'),
+                'server' => $this->request->getPost('server'),
+                'password' => $this->request->getPost('password'),
+                'nickname_&_user_ig'  => $this->request->getPost('nickname_&_user_ig'),
+                'skin'  => $this->request->getPost('skin'),
                 'price'  => $price,
                 'order_status'  => "pending",
                 'sku_code'   => $skuCode,
             ];
+            dd($dataPost);
             $invoiceModel = new InvoiceModel();
             $invoiceModel->insert($dataPost);
 

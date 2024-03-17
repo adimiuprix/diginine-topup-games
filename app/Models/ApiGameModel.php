@@ -13,10 +13,4 @@ class ApiGameModel extends Model
     {
         return $this->first(); // Mengambil satu baris data pertama dari tabel
     }
-
-    public function updateData($data)
-    {
-        // Lakukan update data
-        $this->update($data);
-    }
 }

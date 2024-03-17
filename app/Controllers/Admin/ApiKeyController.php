@@ -16,9 +16,11 @@ class ApiKeyController extends BaseController
         return view('adminpage/apikey/index', compact('apiGameData'));
     }
 
+    // Meng update data tanpa parameter
     public function update()
     {
         $apiGameModel = new ApiGameModel();
+        $id = 1;
 
         // Contoh data yang ingin diupdate
         $data = [
@@ -27,8 +29,8 @@ class ApiKeyController extends BaseController
         ];
 
         // Panggil fungsi updateData tanpa menyertakan parameter ID
-        $apiGameModel->update($data);
+        $apiGameModel->update($id, $data);
 
-        return redirect()->back();
+        return redirect()->to('admin/apis');
     }
 }
