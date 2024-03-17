@@ -64,6 +64,72 @@ class Invoices extends Migration
                 'constraint'     => 255,
                 'null' => true,
             ],
+            'login_via' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'uid_nickname' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'account_detail' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'password' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'req_heroword' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'notice' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'user_id' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'server' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'nick_user_ig' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'comentary' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'gift_skin' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'hour_tournament' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'date_tournament' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+    
             'create_at DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id_invoice', true);

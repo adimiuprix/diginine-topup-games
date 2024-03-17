@@ -13,7 +13,7 @@
         <div class="content">
             <fieldset>
                 <label>User ID & Nick Name</label>
-                <input type="text" placeholder="Ketikkan User ID & Nick Name" name="user_id" required />
+                <input type="text" placeholder="Ketikkan User ID & Nick Name" name="uid_nickname" required />
             </fieldset>
         </div>
         <div class="content">

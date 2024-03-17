@@ -13,13 +13,13 @@
         <div class="content">
             <fieldset>
                 <label>User ID & Nick Name</label>
-                <input type="text" placeholder="Ketikkan User ID & Nick Name" name="user_id" required />
+                <input type="text" placeholder="Ketikkan User ID & Nick Name" name="uid_nickname" required />
             </fieldset>
         </div>
         <div class="content">
             <fieldset>
                 <label>Nama Skin/Item/Kharisma</label>
-                <input type="text" placeholder="Ketikkan Nama Skin/Item/Kharisma" name="skin" required />
+                <input type="text" placeholder="Ketikkan Nama Skin/Item/Kharisma" name="gift_skin" required />
             </fieldset>
         </div>
 

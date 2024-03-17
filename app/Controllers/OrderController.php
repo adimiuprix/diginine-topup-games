@@ -88,20 +88,24 @@ class OrderController extends BaseController
                 'methods_pay'   => $payMethod,
                 'category'  => $categoryProduct,
                 'service'   => $serviceName,
-                'login_via' => $this->request->getPost('login_via'),
-                'account_detail' => $this->request->getPost('account_detail'),
-                'password' => $this->request->getPost('password'),
-                'notice' => $this->request->getPost('notice'),
-                'user_id' => $this->request->getPost('user_id'),
-                'server' => $this->request->getPost('server'),
-                'password' => $this->request->getPost('password'),
-                'nickname_&_user_ig'  => $this->request->getPost('nickname_&_user_ig'),
-                'skin'  => $this->request->getPost('skin'),
+                'login_via' => $this->request->getPost('login_via'),    // Login via
+                'uid_nickname' => $this->request->getPost('uid_nickname'),    // User ID & Nick Name
+                'account_detail' => $this->request->getPost('account_detail'),  // Email/No. Hp/Moonton ID
+                'password' => $this->request->getPost('password'),  // Password
+                'req_hero' => $this->request->getPost('req_heroword'),  // Request Hero
+                'notice' => $this->request->getPost('notice'),  // Catatan Untuk Penjoki
+                'user_id' => $this->request->getPost('user_id'),    // User ID
+                'server' => $this->request->getPost('server'),  // Server Game
+                'nickname_&_user_ig'  => $this->request->getPost('nick_user_ig'),   // Nickname & Instagram
+                'comentary'  => $this->request->getPost('comentary'),  // Contoh Komentar
+                'gift_skin'  => $this->request->getPost('gift_skin'),   // Nama Skin/Item/Kharisma
+                'hour_tournament'  => $this->request->getPost('hour_tournament'),   // Jam (HH:MM)
+                'date_tournament'  => $this->request->getPost('date_tournament'),   // Tanggal (HH-BB-TTTT)
                 'price'  => $price,
                 'order_status'  => "pending",
                 'sku_code'   => $skuCode,
             ];
-            dd($dataPost);
+            // dd($dataPost);
             $invoiceModel = new InvoiceModel();
             $invoiceModel->insert($dataPost);
 

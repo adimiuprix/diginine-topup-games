@@ -12,7 +12,31 @@ class InvoiceModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_buyer', 'id_player', 'server', 'hash_transaction', 'category', 'service', 'methods_pay', 'price', 'order_status', 'sku_code'];
+    protected $allowedFields    = [
+        'id_buyer',
+        'id_player',
+        'server',
+        'hash_transaction',
+        'category',
+        'service',
+        'methods_pay',
+        'price',
+        'order_status',
+        'sku_code',
+        'login_via',
+        'uid_nickname',
+        'account_detail',
+        'password',
+        'req_heroword',
+        'notice',
+        'user_id',
+        'server',
+        'nick_user_ig',
+        'comentary',
+        'gift_skin',
+        'hour_tournament',
+        'date_tournament',
+    ];
 
     protected bool $allowEmptyInserts = false;
 
@@ -28,15 +52,4 @@ class InvoiceModel extends Model
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
 }

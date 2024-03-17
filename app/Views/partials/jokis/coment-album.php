@@ -25,13 +25,13 @@
         <div class="content">
             <fieldset>
                 <label>Nickname & Instagram</label>
-                <input type="text" placeholder="Ketikkan Nickname & Instagram" name="nickname_&_user_ig" required />
+                <input type="text" placeholder="Ketikkan Nickname & Instagram" name="nick_user_ig" required />
             </fieldset>
         </div>
         <div class="content">
             <fieldset>
                 <label>Contoh Komentar</label>
-                <textarea class="style-1" name="notice" rows="4" placeholder="Ketikkan contoh komentar" tabindex="4"></textarea>
+                <textarea class="style-1" name="comentary" rows="4" placeholder="Ketikkan contoh komentar" tabindex="4"></textarea>
             </fieldset>
         </div>
 

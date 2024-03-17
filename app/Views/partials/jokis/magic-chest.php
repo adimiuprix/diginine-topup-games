@@ -1,27 +1,27 @@
-                <style>
-                .menu-dropdown {
-                    background-color: transparent;
-                    padding: 10px 12px;
-                    font-size: 14px;
-                    font-weight: 800;
-                    line-height: 19px;
-                    text-transform: capitalize;
-                    color: #FFF;
-                    display: flex;
-                    align-items: center;
-                    border-radius: 12px;
-                    width: 100%;
-                    height: 40px;
-                    overflow: hidden;
-                    border: 1px solid rgba(255, 255, 255, 0.12);
-                }
-                select.dropdown-toggle {
-                    background: transparent;
-                }
-                textarea.style-1, input.style-1 {
-                    background-color: #161616 !important;
-                }
-                </style>
+<style>
+    .menu-dropdown {
+        background-color: transparent;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 19px;
+        text-transform: capitalize;
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    select.dropdown-toggle {
+        background: transparent;
+    }
+    textarea.style-1, input.style-1 {
+        background-color: #161616 !important;
+    }
+</style>
 <form action="<?= base_url('confirm-order'); ?>" method="post">
     <input type="hidden" name="category" value="<?= $detailProduct['id_cats']; ?>">
     <input type="hidden" name="service" value="<?= $detailProduct['id']; ?>">
@@ -42,7 +42,6 @@
                         </select>
                     </div>
                 </div>
-
             </fieldset>
         </div>
         <div class="content">

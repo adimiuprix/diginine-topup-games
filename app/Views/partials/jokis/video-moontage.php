@@ -1,4 +1,23 @@
 <style>
+    .menu-dropdown {
+        background-color: transparent;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 19px;
+        text-transform: capitalize;
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    select.dropdown-toggle {
+        background: transparent;
+    }
     textarea.style-1, input.style-1 {
         background-color: #161616 !important;
     }
@@ -9,23 +28,64 @@
 
     <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales animated" style="visibility: visible; animation-delay: 0s; animation-name: fadeInRight;">
         <h6><i class="icon-clock"></i> Masukkan Data Akun Kamu</h6>
-
         <div class="content">
             <fieldset>
-                <label>User ID & Nick Name</label>
-                <input type="text" placeholder="Ketikkan User ID & Nick Name" name="user_id" required />
+                <label>Login via</label>
+                <div class="soft-right">
+                    <div class="menu-dropdown">
+                        <select name="login_via" class="dropdown-toggle">
+                            <option>Pilih Salah satu</option>
+                            <option value="moonton">Moonton (Rekomendasi)</option>
+                            <option value="vk">VK (Rekomendasi)</option>
+                            <option value="tiktok">Tiktok</option>
+                            <option value="facebook">Facebook</option>
+                        </select>
+                    </div>
+                </div>
             </fieldset>
         </div>
         <div class="content">
             <fieldset>
-                <label>Jam (HH:MM)</label>
-                <input type="text" placeholder="Ketikkan Jam (HH:MM)" name="hour_tournament" required />
+                <label>Record via</label>
+                <div class="soft-right">
+                    <div class="menu-dropdown">
+                        <select name="login_via" class="dropdown-toggle">
+                            <option>Pilih Salah satu</option>
+                            <option value="moonton">In Game</option>
+                            <option value="vk">Replay</option>
+                        </select>
+                    </div>
+                </div>
             </fieldset>
         </div>
         <div class="content">
             <fieldset>
-                <label>Tanggal (HH-BB-TTTT)</label>
-                <input type="text" placeholder="Ketikkan Tanggal (HH-BB-TTTT)" name="date_tournament" required />
+                <label>User ID(Server) & Nick Name</label>
+                <input type="text" placeholder="Ketikkan User ID(Server) & Nick Name" name="uid_nickname" required />
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <label>Password</label>
+                <input type="text" placeholder="Ketikkan Password" name="password" required />
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <label>Request Hero</label>
+                <input type="text" placeholder="Ketikkan Request Hero" name="password" required />
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <label>Contoh Video (Link Tiktok, Instagram, DLL)</label>
+                <input type="text" placeholder="Ketikkan Contoh Video (Link Tiktok, Instagram, DLL)" name="contoh_video" required />
+            </fieldset>
+        </div>
+        <div class="content">
+            <fieldset>
+                <label>Catatan Untuk Penjoki</label>
+                <textarea class="style-1" name="notice" rows="4" placeholder="Ketikkan catatan untuk penjoki" tabindex="4"></textarea>
             </fieldset>
         </div>
 
