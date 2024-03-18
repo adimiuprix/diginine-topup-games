@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <?php foreach($favourites as $favs): ?>
-            <div class="col-6">
+            <div class="col-4">
                 <div class="widget-tabs relative">
                     <div class="top-collections style-bottom mb-40">
                         <div class="featured carousel3-type1">

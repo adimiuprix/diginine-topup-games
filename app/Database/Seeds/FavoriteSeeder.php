@@ -29,7 +29,18 @@ class FavoriteSeeder extends Seeder
                 'section'     => '11',
                 'image_fav'     => 'valorant.png',
             ],
-
+            [
+                'section'     => '3',
+                'image_fav'     => 'genshin-impact.png',
+            ],
+            [
+                'section'     => '2',
+                'image_fav'     => 'pubg-mobile.png',
+            ],
+            [
+                'section'     => '17',
+                'image_fav'     => 'call-of-duty.png',
+            ],
         ];
 
         $this->db->table('favourites')->insertBatch($data);
