@@ -24,13 +24,25 @@
 
         <div class="themesflat-container">
             <div class="row flex flex-wrap">
+                <?php if($detailProduct['id_cats'] == 2): ?>
                 <div class="side-bar col-md-6 col-12 mb-4">
                     <div class="widget widget-related-posts">
                         <h5 class="title-widget">
                             <?= $detailProduct['item_name']; ?>
                         </h5>
                         <div class="related-posts-item main">
+                            <p><?= $detailProduct['description']; ?></p>
+                        </div>
+                    </div>
+                </div>
 
+                <?php else: ?>
+                <div class="side-bar col-md-6 col-12 mb-4">
+                    <div class="widget widget-related-posts">
+                        <h5 class="title-widget">
+                            <?= $detailProduct['item_name']; ?>
+                        </h5>
+                        <div class="related-posts-item main">
                             <?php if(!$detailProduct['blog_image'] == null):?>
                             <div class="card-media">
                                 <img src="<?= base_url('public/uploads/blogs/' . $detailProduct['blog_image']); ?>" alt="image-blogs">
@@ -46,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-
+                <?php endif; ?>
                 <div class="col-md-6 col-12">
                     <?php if(session()->has('notif')): ?>
                         <?= session('notif') ?>

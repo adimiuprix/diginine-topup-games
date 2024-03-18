@@ -62,7 +62,7 @@ class Home extends BaseController
         $products = $productModel->join('items', 'items.id = products.id_item')->where('slug', $slug)->findAll();
         $detailProduct = $itemModel->where('slug', $slug)->first();
         $methods = $payMethods->findAll();
-
+        // dd($detailProduct);
         $session = session();
         $user_id = $session->get('user_id');
 
