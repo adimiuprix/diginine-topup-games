@@ -74,3 +74,5 @@ $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::
 
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
 $routes->post('admin/apis/apigame/update', 'Admin\ApiKeyController::update');
+
+$routes->post('callback', 'TripayController::index');
