@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\TransactionModel;
+use App\Models\InvoiceModel;
 
 class TripayController extends BaseController
 {
@@ -60,6 +61,24 @@ class TripayController extends BaseController
             'note' => $dataCallback['note']
         ];
         $transactionModel->insert($insertData);
+
+        $stats = "success";  // Nilai baru
+        $hash_trx = $dataCallback['merchant_ref'];  // 7YP5GK23NXNW6YQ dari callback
+
+        // Temukan query berdassarkan hash_transaction
+        $invoiceModel = new InvoiceModel();
+        $result = $invoiceModel->where('hash_transaction', $hash_trx)->first();
+
+        // Melakukan update data pending jadi success jika ketemu.
+        if ($result) {
+            $invoiceModel->update($result['id_invoice'], [
+                'order_status' => $stats
+            ]);
+        }
+
+        // $file_path = 'public/data.json';
+        // $json_data = json_encode($result, JSON_PRETTY_PRINT);   // dd datanya
+        // file_put_contents($file_path, $json_data);
 
         // Kirim respons berhasil
         http_response_code(200);
