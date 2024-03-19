@@ -81,16 +81,19 @@ class FavouriteController extends BaseController
 
     public function remove($id)
     {
-        $categoryModel = new CategoryModel();
+        $favModel = new FavouriteModel();
 
-        $data = $categoryModel->find($id);
+        $destination = ROOTPATH . 'public/uploads/favourite';
+        $data = $favModel->find($id);
+        $dataImage = $data['image_fav'];
 
-        if ($data) {
-            $categoryModel->delete($id);
-
-            return redirect()->to('admin/category/')->with('success', 'Data deleted');
+        if ($data && file_exists($destination . '/' . $dataImage)) {
+            unlink($destination . '/' . $dataImage);
+            $favModel->delete($id);
+            return redirect()->to('admin/favourite/')->with('success', 'Data deleted');
         } else {
-            return redirect()->to('admin/category/')->with('error', 'Data error, cant delete specified data');
+            return redirect()->to('admin/favourite/')->with('error', 'Data error, cant delete specified data');
         }
     }
+
 }
