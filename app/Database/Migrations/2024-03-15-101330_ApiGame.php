@@ -28,6 +28,15 @@ class ApiGame extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('api_games');
+        $initialData = [
+            [
+                'merchant_id'     => 'MERCHANT ID APIGAME',
+                'secret_key'     => 'SECRET KEY APIGAME',
+            ],
+        ];
+
+        // insert to tables
+        $this->db->table('api_games')->insertBatch($initialData);
     }
 
     public function down()
