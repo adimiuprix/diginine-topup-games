@@ -68,6 +68,13 @@ $routes->get('admin/favourite/edit/(:num)', 'Admin\FavouriteController::edit/$1'
 $routes->post('admin/favourite/update/(:num)', 'Admin\FavouriteController::update/$1');
 $routes->get('admin/favourite/delete/(:num)', 'Admin\FavouriteController::remove/$1');
 
+$routes->get('admin/sliders', 'Admin\SliderController::index');
+$routes->get('admin/sliders/add', 'Admin\SliderController::addNew');
+$routes->post('admin/sliders/store', 'Admin\SliderController::store');
+$routes->get('admin/sliders/edit/(:num)', 'Admin\SliderController::edit/$1');
+$routes->post('admin/sliders/update/(:num)', 'Admin\SliderController::update/$1');
+$routes->get('admin/sliders/delete/(:num)', 'Admin\SliderController::remove/$1');
+
 $routes->get('admin/transactions', 'Admin\TransactionController::index');
 $routes->get('admin/transactions/edit/(:num)', 'Admin\TransactionController::edit/$1');
 $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::update/$1');

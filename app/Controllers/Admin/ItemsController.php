@@ -40,7 +40,6 @@ class ItemsController extends BaseController
         } else {
             $targetPath = 'public/';
             $upload = $this->request->getFile('image_item');
-            dd($upload);
             $upload->move($targetPath);
             $data = ['image_item' => $upload->getName()];
             $productModel->insert($data);
