@@ -101,7 +101,20 @@ class Home extends BaseController
 
     }
 
-    public function privpol(){
-        return view('privacyandpolicy');
+    public function policy(){
+        $setting = $this->setting;
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('eula/policy', compact('setting', 'user_id'));
     }
+
+    public function terms(){
+        $setting = $this->setting;
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        return view('eula/terms-condition', compact('setting', 'user_id'));
+    }
+
 }

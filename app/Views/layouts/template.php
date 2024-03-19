@@ -253,7 +253,7 @@
                             <div class="widget widget-menu style-3">
                                 <h5 class="title-widget">Dukungan</h5>
                                 <ul>
-                                    <li><a href="#">WhastApp</a></li>
+                                    <li><a href="#">WhatsApp</a></li>
                                     <li><a href="#">Email</a></li>
                                     <li><a href="#">Instagram</a></li>
                                 </ul>
@@ -262,8 +262,8 @@
                                 <div class="widget-menu style-4">
                                     <h5 class="title-widget">Legalitas</h5>
                                     <ul>
-                                        <li><a href="<?= base_url('privation')?>">Kebijakan Pribadi</a></li>
-                                        <li><a href="#">Syaratr & Ketentuan</a></li>
+                                        <li><a href="<?= base_url('policy')?>">Kebijakan Pribadi</a></li>
+                                        <li><a href="<?= base_url('terms-and-condition')?>">Syarat & Ketentuan</a></li>
                                     </ul>
                                 </div>
                                 <h5 class="title-widget mt-30">Join the community</h5>

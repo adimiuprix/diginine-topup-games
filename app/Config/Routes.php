@@ -9,7 +9,8 @@ $routes->get('/', 'Home::index');
 $routes->get('price-list', 'Home::priceList');
 $routes->get('faqs', 'FaqsController::index');
 $routes->get('contact', 'ContactController::index');
-$routes->get('privation', 'Home::privpol');
+$routes->get('policy', 'Home::policy');
+$routes->get('terms-and-condition', 'Home::terms');
 
 $routes->get('register', 'Auth\Register::index');
 $routes->post('save-user', 'Auth\Register::registUser');
