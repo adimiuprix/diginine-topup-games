@@ -5,6 +5,8 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\CategoryModel;
 use App\Models\Admin\ItemModel;
+use CodeIgniter\Files\File;
+
 class ItemsController extends BaseController
 {
     public function index()
@@ -27,13 +29,25 @@ class ItemsController extends BaseController
     }
 
     public function store(){
+        $productModel = new ItemModel();
+
+        $validation = $this->validate([
+            'file_upload' => 'uploaded[file_upload]|mime_in[file_upload,image/jpg,image/jpeg,image/gif,image/png]|max_size[file_upload,4096]'
+        ]);
+
+        if ($validation == FALSE) {
+            return $this->index();
+        } else {
+            $targetPath = 'public/';
+            $upload = $this->request->getFile('image_item');
+            dd($upload);
+            $upload->move($targetPath);
+            $data = ['image_item' => $upload->getName()];
+            $productModel->insert($data);
+        }
+
         $itemName = $this->request->getPost('item_name');
         $slug = url_title($itemName, '-', true);
-
-        $imageItem = $this->request->getFile('image_item');;
-
-        $blogImage = $this->request->getPost('blog_img');
-        $breadcrumbImage = $this->request->getPost('breadcrumb_img');
 
         $dataPost = [
             // Ambil data dari form yang diposting
@@ -44,12 +58,8 @@ class ItemsController extends BaseController
             'description' => $this->request->getPost('description'),
             'vendor' => $this->request->getPost('vendor'),
             'coloum' => $this->request->getPost('coloum'),
-            'image' => $imageItem,
-            'blog_image' => '',
-            'breadcrumb' => '',
             'status' => $this->request->getPost('status'),
         ];
-        $productModel = new ItemModel();
         $productModel->insert($dataPost);
 
         return redirect()->to('admin/items/');
@@ -67,11 +77,10 @@ class ItemsController extends BaseController
 
     public function update($id)
     {
-        $itemName = $this->request->getPost('item_name');
-        $imageItem = $this->request->getFile('image_item');;
-
         // Inisiasi model
         $ItemModel = new ItemModel(); // Sesuaikan dengan nama model Anda
+
+        $itemName = $this->request->getPost('item_name');
 
         // Lakukan update ke database menggunakan model
         $ItemModel->update($id, [
@@ -82,10 +91,40 @@ class ItemsController extends BaseController
             'description' => $this->request->getPost('description'),
             'vendor' => $this->request->getPost('vendor'),
             'coloum' => $this->request->getPost('coloum'),
-            'image' => $imageItem,
-            'blog_image' => '',
-            'breadcrumb' => '',
         ]);
+
+        // Fungsi untuk memindahkan dan memperbarui gambar
+        function processImage($img, $destination, $fieldName, $ItemModel, $id) {
+            if ($img->getClientExtension() === 'png') {
+                $newName = $img->getRandomName();
+
+                // Menghapus file lama jika ada
+                $oldImage = $ItemModel->find($id)[$fieldName];
+                if ($oldImage && file_exists($destination . '/' . $oldImage)) {
+                    unlink($destination . '/' . $oldImage);
+                }
+
+                $img->move($destination, $newName);
+                $ItemModel->update($id, [
+                    $fieldName => $newName,
+                ]);
+            }
+        }
+
+        // Proses gambar pertama
+        $imgItem = $this->request->getFile('image_item');
+        $destination = ROOTPATH . 'public/uploads/items';
+        processImage($imgItem, $destination, 'image', $ItemModel, $id);
+
+        // Proses gambar kedua
+        $imgBlog = $this->request->getFile('blog_img');
+        $destination = ROOTPATH . 'public/uploads/blogs';
+        processImage($imgBlog, $destination, 'blog_image', $ItemModel, $id);
+
+        // Proses gambar ketiga
+        $imgBreadcrumb = $this->request->getFile('breadcrumb_img');
+        $destination = ROOTPATH . 'public/uploads/breadcrumb';
+        processImage($imgBreadcrumb, $destination, 'breadcrumb', $ItemModel, $id);
 
         // Redirect ke halaman lain atau tampilkan pesan sukses
         return redirect()->to(base_url('admin/items/'));

@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="card-style mb-30">
                     <h6 class="mb-25">Edit item</h6>
-                    <form action="<?= base_url('admin/items/update/' . $items['id'])?>" method="post">
+                    <form action="<?= base_url('admin/items/update/' . $items['id'])?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
                         <div class="select-style-1">
                             <label>Atur Categori</label>
                             <div class="select-position">
@@ -56,19 +56,19 @@
                         <div class="input-style-1">
                             <label>Gambar item</label>
                             <div class="mb-3">
-                            <input name="image_item" class="form-control" type="file">
+                            <input name="image_item" type="file" value="<?= $items['image']; ?>" class="form-control" >
                             </div>
                         </div>
                         <div class="input-style-1">
                             <label>Blog Gambar</label>
                             <div class="mb-3">
-                            <input name="blog_img" class="form-control" type="file">
+                            <input name="blog_img" type="file" value="<?= $items['blog_image']; ?>" class="form-control">
                             </div>
                         </div>
                         <div class="input-style-1">
                             <label>Gambar Breadcrumb</label>
                             <div class="mb-3">
-                            <input name="breadcrumb_img" class="form-control" type="file">
+                            <input name="breadcrumb_img" type="file" value="<?= $items['breadcrumb']; ?>" class="form-control">
                             </div>
                         </div>
 
