@@ -23,7 +23,7 @@
             <!-- end row -->
             <div class="col-lg-12">
                 <div class="card-style mb-30">
-                    <form action="<?= base_url('admin/favourite/store')?>" method="post">
+                    <form action="<?= base_url('admin/favourite/store')?>" enctype="multipart/form-data" method="post">
                         <div class="select-style-1">
                             <label>Favourite</label>
                             <div class="select-position">

@@ -12,7 +12,6 @@ class FavouriteController extends BaseController
     {
         $favModel = new FavouriteModel();
         $favourites = $favModel->join('items', 'items.id = favourites.section')->get()->getResult();
-        // dd($favourites);
 
         return view('adminpage/favourite/index', compact('favourites'));
     }
@@ -24,13 +23,18 @@ class FavouriteController extends BaseController
     }
 
     public function store(){
+        $favModel = new FavouriteModel();
+
+        $targetPath = 'public/uploads/favourite/';
+        $upload = $this->request->getFile('popular_image');
+        $upload->move($targetPath);
+
         $dataPost = [
             // Ambil data dari form yang diposting
             'section' => $this->request->getPost('tofav'),
-            'image_fav' => $this->request->getPost('popular_image'),
+            'image_fav' => $upload->getName()
         ];
 
-        $favModel = new FavouriteModel();
         $favModel->insert($dataPost);
 
         return redirect()->to('admin/favourite/');
@@ -49,16 +53,30 @@ class FavouriteController extends BaseController
 
     public function update($id)
     {
-        // Inisiasi model
-        $categoryModel = new CategoryModel(); // Sesuaikan dengan nama model Anda
+        $favModel = new FavouriteModel();
 
-        // Lakukan update ke database menggunakan model
-        $categoryModel->update($id, [
-            'category' => $this->request->getPost('category'),
-        ]);
+        $img = $this->request->getFile('popular_image');
+        $sectionNum = $this->request->getPost('tofav');
 
-        // Redirect ke halaman lain atau tampilkan pesan sukses
-        return redirect()->to(base_url('admin/category/'));
+        if ($img && $img->getClientExtension() == 'png') {
+            $destination = ROOTPATH . 'public/uploads/favourite';
+            $newName = $img->getRandomName();
+            $oldImage = $favModel->find($id)['image_fav'];
+            if ($oldImage && file_exists($destination . '/' . $oldImage)) {
+                unlink($destination . '/' . $oldImage);
+            }
+            $img->move($destination, $newName);
+            $favModel->update($id, ['image_fav' => $newName]);
+        }
+
+        if ($sectionNum) {
+            $favModel->update($id, [
+                'section' => $sectionNum,
+                'image_fav' => $newName,
+            ]);
+        }
+
+        return redirect()->to(base_url('admin/favourite/'));
     }
 
     public function remove($id)
