@@ -39,7 +39,6 @@ class SliderController extends BaseController
     public function edit($id){
         $sliderModel = new SliderModel();
         $slideData = $sliderModel->find($id);
-
         return view('adminpage/slider/edit', compact('slideData'));
     }
 
@@ -47,13 +46,51 @@ class SliderController extends BaseController
     {
         // Inisiasi model
         $sliderModel = new SliderModel();
+
+        function processImage($img, $destination, $fieldName, $sliderModel, $id) {
+            if ($img->getClientExtension() === 'png') {
+                $newName = $img->getRandomName();
+
+                // Menghapus file lama jika ada
+                $oldImage = $sliderModel->find($id)[$fieldName];
+                if ($oldImage && file_exists($destination . '/' . $oldImage)) {
+                    unlink($destination . '/' . $oldImage);
+                }
+
+                $img->move($destination, $newName);
+                $sliderModel->update($id, [
+                    $fieldName => $newName,
+                ]);
+            }
+        }
+
+        $img = $this->request->getFile('slide');
+        $destination = ROOTPATH . 'public/uploads/banners';
+        processImage($img, $destination, 'image', $sliderModel, $id);
+
         // Lakukan update ke database menggunakan model
         $sliderModel->update($id, [
-            'order_status' => $this->request->getPost('status'),
+            'link' => $this->request->getPost('linkto'),
         ]);
 
         // Redirect ke halaman lain atau tampilkan pesan sukses
-        return redirect()->to(base_url('admin/slider/'));
+        return redirect()->to(base_url('admin/sliders/'));
+    }
+
+    public function remove($id)
+    {
+        $sliderModel = new SliderModel();
+        $destination = ROOTPATH . 'public/uploads/banners';
+        $data = $sliderModel->find($id);
+        $dataImage = $data['image'];
+
+        if ($data && file_exists($destination . '/' . $dataImage)) {
+            unlink($destination . '/' . $dataImage);
+            $sliderModel->delete($id);
+            return redirect()->to('admin/sliders/')->with('success', 'Data deleted');
+        } else {
+            return redirect()->to('admin/sliders/')->with('error', 'Data error, cant delete specified data');
+        }
     }
 
 }
