@@ -24,6 +24,19 @@
             <div class="col-lg-12">
                 <div class="card-style mb-30">
                     <h6 class="mb-25">Edit item</h6>
+
+                    <div class="alert-box danger-alert pl-100">
+                        <div class="left">
+                            <h5 class="text-bold">Awas!</h5>
+                        </div>
+                        <div class="alert">
+                            <h4 class="alert-heading">Perhatian</h4>
+                            <p class="text-medium">
+                                Pada form berikut, edit hanya jika anda paham resikonya.
+                            </p>
+                        </div>
+                    </div>
+
                     <form action="<?= base_url('admin/items/update/' . $items['id'])?>" method="post" enctype="multipart/form-data" accept-charset="utf-8">
                         <div class="select-style-1">
                             <label>Atur Categori</label>
