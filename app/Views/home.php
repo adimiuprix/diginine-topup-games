@@ -6,7 +6,7 @@
         <div class="bg-line"></div>
     </div>
     <div class="themesflat-container w1358">
-    <?php include('partials/hero-section.php'); ?>
+    <?= $this->include('partials/hero-section.php'); ?>
     </div>
 </div>
 
@@ -63,7 +63,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
     // Memilih elemen pertama dengan kelas "item-title"
