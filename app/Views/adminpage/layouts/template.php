@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/fullcalendar.css')?>" />
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/fullcalendar.css')?>" />
         <link rel="stylesheet" href="<?= base_url('public/admin/assets/css/main.css')?>" />
+        <script src="https://cdn.quilljs.com/1.5.2/quill.min.js"></script>
+        <link href="https://cdn.quilljs.com/1.5.2/quill.snow.css" rel="stylesheet">
     </head>
     <body>
         <!-- ======== Preloader =========== -->
@@ -79,5 +81,10 @@
         <script src="<?= base_url('')?>public/admin/assets/js/world-merc.js"></script>
         <script src="<?= base_url('')?>public/admin/assets/js/polyfill.js"></script>
         <script src="<?= base_url('')?>public/admin/assets/js/main.js"></script>
+        <!-- Inisialisasi CKEditor pada elemen textarea -->
+        <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+        <script>
+        CKEDITOR.replace('editor');
+    </script>
     </body>
 </html>

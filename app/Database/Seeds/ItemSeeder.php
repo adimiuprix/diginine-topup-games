@@ -222,7 +222,7 @@ class ItemSeeder extends Seeder
                 'item_name' => 'Call of Duty: Mobile',
                 'status' => 'enable',
                 'slug' => 'call-of-duty-mobile',
-                'code_game' => 'higgs',
+                'code_game' => '',
                 'image' => 'call-of-duty-mobile.png',
                 'blog_image'     => 'call-of-duty-mobile.png',
                 'breadcrumb'     => 'call-of-duty-mobile.png',

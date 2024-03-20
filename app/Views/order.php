@@ -31,7 +31,7 @@
                             <?= $detailProduct['item_name']; ?>
                         </h5>
                         <div class="related-posts-item main">
-                            <p><?= $detailProduct['description']; ?></p>
+                            <?= $detailProduct['description']; ?>
                         </div>
                     </div>
                 </div>

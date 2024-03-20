@@ -9,6 +9,11 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url('')?>public/assets/css/responsive.css">
         <link rel="shortcut icon" href="<?= base_url('')?>public/assets/icon/Favicon.png">
         <link rel="apple-touch-icon-precomposed" href="<?= base_url('')?>public/assets/icon/Favicon.png">
+        <style>
+        ins {
+            text-decoration: underline;
+        }
+        </style>
     </head>
     <body class="body counter-scroll">
         <!-- preload -->

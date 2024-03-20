@@ -43,7 +43,10 @@
                         </div>
                         <div class="input-style-1">
                             <label>Deskripsi</label>
-                            <textarea name="description" placeholder="Atur deskripsi item" rows="5"><?= $items['description']; ?></textarea>
+                            <!-- Tambahkan elemen textarea yang akan diubah menjadi CKEditor -->
+                            <textarea name="description" id="editor" rows="10" cols="80">
+                            <?= $items['description']; ?>
+                            </textarea>
                         </div>
                         <div class="input-style-1">
                             <label>Nama Vendor</label>
