@@ -74,6 +74,38 @@ class TripayController extends BaseController
             $invoiceModel->update($result['id_invoice'], [
                 'order_status' => $stats
             ]);
+
+            // Sensitif
+            $username = "cazekoD7ELKg";
+            $apikey = "a3bd1141-63f8-5885-9d9a-c52bbcf2c97b";
+
+            // Variable
+            $buyer_sku_code = "DANA5";
+            $customer_no = "0895359738286";
+            $ref_id = $result['id_invoice'];
+            $sign = md5($username . $apikey . $ref_id);
+
+            // Data permintaan API
+            $data = [
+                'ref_id' => $ref_id,
+                'username' => $username,
+                'buyer_sku_code' => $buyer_sku_code,
+                'customer_no' => $customer_no,
+                'sign' => $sign,
+            ];
+
+            // Mengirim permintaan ke API
+            $ch = curl_init();
+
+            curl_setopt_array($ch, [
+                CURLOPT_URL => 'https://api.digiflazz.com/v1/transaction',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => json_encode($data),
+                CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+            ]);
+            curl_exec($ch);
+            curl_close($ch);
         }
 
         // $file_path = 'public/data.json';

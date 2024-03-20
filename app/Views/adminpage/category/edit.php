@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <form action="<?= base_url('admin/category/store')?>" method="post">
+                    <form action="<?= base_url('admin/category/update/' . $categories['id'])?>" method="post">
 
                         <div class="input-style-1">
                             <label>Nama Kategori</label>
