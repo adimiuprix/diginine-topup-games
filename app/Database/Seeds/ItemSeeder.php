@@ -278,7 +278,25 @@ class ItemSeeder extends Seeder
                 'image' => 'magic-chest.png',
                 'blog_image'     => 'magic-chest.png',
                 'breadcrumb'     => 'magic-chest.png',
-                'description' => 'Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.',
+                'description' => '<p><strong>Joki Magic Chess</strong>&nbsp;Mobile Legends dari Takapedia: Solusi Cepat Naik Rank Magic Chess Mu !</p>
+
+                <p>Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.<br />
+                <br />
+                Berikut adalah langkah-langkah sederhana untuk Order Jasa Joki :</p>
+
+                <p>1. Lengkapi Data Akun Joki Dengan Teliti (Pastikan data yang Anda masukkan sudah benar dan lengkap)<br />
+                2. Pilih Jenis Variant Joki&nbsp; (Sesuaikan dengan kebutuhan Anda)<br />
+                3. Masukkan Jumlah Order Sesuai Tujuan Rank (Pastikan jumlah order sesuai dengan rank yang Anda inginkan dan sesuai dengan S&amp;K Takapedia)<br />
+                4. Pilih Metode Pembayaran (Kenyamanan Anda adalah prioritas kami. Kami menyediakan berbagai metode pembayaran yang mudah dan aman)<br />
+                5. Masukkan Kode Promo Jika Ada (Gunakan kode promo untuk mendapatkan penawaran spesial dan diskon menarik)<br />
+                6. Masukkan Nomor WhatsApp dan Email yang Valid (Dapatkan konfirmasi dan notifikasi langsung ke kontak Anda)<br />
+                7. Klik Order Now &amp; Lakukan Pembayaran (Tunggu konfirmasi dari kami dan orderan Anda akan segera diproses)</p>
+
+                <p>Estimasi Waktu Proses :<br />
+                Kami berkomitmen untuk menyelesaikan jasa joki Anda dalam waktu 12-48 jam. Waktu penyelesaian dapat bervariasi tergantung pada jumlah dan kompleksitas pesanan. Kami berupaya untuk memberikan layanan secepat mungkin</p>
+
+                <p>Takapedia Sahabat Para Gamers!</p>
+                ',
                 'vendor' => 'Moonton',
                 'coloum'     => '1',
             ],
@@ -291,7 +309,24 @@ class ItemSeeder extends Seeder
                 'image' => 'joki-rank.png',
                 'blog_image'     => 'joki-rank.png',
                 'breadcrumb'     => 'joki-rank.png',
-                'description' => 'Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.',
+                'description' => '<p><strong>Joki Rank</strong>&nbsp;Mobile Legends dari Takapedia: Solusi Cepat Naik Rank !</p>
+
+                <p>Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.<br />
+                <br />
+                Berikut adalah langkah-langkah sederhana untuk Order Jasa Joki :</p>
+
+                <p>1. Lengkapi Data Akun Joki Dengan Teliti (Pastikan data yang Anda masukkan sudah benar dan lengkap)<br />
+                2. Pilih Jenis Variant Joki&nbsp; (Sesuaikan dengan kebutuhan Anda)<br />
+                3. Masukkan Jumlah Order Sesuai Tujuan Rank (Pastikan jumlah order sesuai dengan rank yang Anda inginkan dan sesuai dengan S&amp;K Takapedia)<br />
+                4. Pilih Metode Pembayaran (Kenyamanan Anda adalah prioritas kami. Kami menyediakan berbagai metode pembayaran yang mudah dan aman)<br />
+                5. Masukkan Kode Promo Jika Ada (Gunakan kode promo untuk mendapatkan penawaran spesial dan diskon menarik)<br />
+                6. Masukkan Nomor WhatsApp dan Email yang Valid (Dapatkan konfirmasi dan notifikasi langsung ke kontak Anda)<br />
+                7. Klik Order Now &amp; Lakukan Pembayaran (Tunggu konfirmasi dari kami dan orderan Anda akan segera diproses)</p>
+
+                <p>Estimasi Waktu Proses :<br />
+                Kami berkomitmen untuk menyelesaikan jasa joki Anda dalam waktu 12-48 jam. Waktu penyelesaian dapat bervariasi tergantung pada jumlah dan kompleksitas pesanan. Kami berupaya untuk memberikan layanan secepat mungkin</p>
+
+                <p>Takapedia Sahabat Para Gamers!</p>',
                 'vendor' => 'Moonton',
                 'coloum'     => '1',
             ],
@@ -304,7 +339,30 @@ class ItemSeeder extends Seeder
                 'image' => 'jasa-komen-album.png',
                 'blog_image'     => 'jasa-komen-album.png',
                 'breadcrumb'     => 'jasa-komen-album.png',
-                'description' => 'Kami mempersembahkan layanan joki Mobile Legends yang cepat, murah, serta aman dan terpercaya! Tingkatkan permainan dan rank Anda dengan bantuan dari profesional kami. Kami mengutamakan kepuasan dan keamanan akun Anda dalam setiap jasa yang kami berikan.',
+                'description' => '<p><strong>Jasa Komen Album Mobile Legends &amp; Instagram</strong>&nbsp;dari Takaaa: Transformasi Eksklusif Komentar Album MLBB oleh Takaaa !</p>
+
+                <p>Kami mempersembahkan layanan komen album Mobile Legends yang cepat, murah, serta aman dan terpercaya!<br />
+                Apakah Anda siap untuk mendominasi Land of Dawn dengan flair yang tak tertandingi? Takaaa hadir untuk mengubah cara Anda bermain Mobile Legends dengan layanan komentar album yang unik dan eksklusif! Dengan sentuhan Takaaa, album MLBB Anda bukan hanya sekedar catatan permainan, tapi menjadi galeri prestasi yang akan membuat teman-teman Anda terkesima! sorry brother takaaa lagi gabut soalnya,wkwkwk</p>
+
+                <p>Waktu Pengecekan Orderan :<br />
+                Orderan yang sudah dibayarkan akan kami cek setiap hari mulai pukul 07.00 - 22.00 WIB.<br />
+                Untuk orderan yang melewati batas waktu pengecekan, akan kami proses pada jam kerja di hari berikutnya.<br />
+                <br />
+                Berikut adalah langkah-langkah sederhana untuk Order Jasa Komen :</p>
+
+                <p>1. Lengkapi Data Akun Kamu Dengan Teliti (Pastikan data yang Anda masukkan sudah benar dan lengkap)<br />
+                2. Pilih Jenis Variant Komen&nbsp; (Sesuaikan dengan kebutuhan Anda)<br />
+                3. Pilih Metode Pembayaran (Kenyamanan Anda adalah prioritas kami. Kami menyediakan berbagai metode pembayaran yang mudah dan aman)<br />
+                4. Masukkan Kode Promo Jika Ada (Gunakan kode promo untuk mendapatkan penawaran spesial dan diskon menarik)<br />
+                5. Masukkan Nomor WhatsApp dan Email yang Valid (Dapatkan konfirmasi dan notifikasi langsung ke kontak Anda)<br />
+                6. Klik Order Now &amp; Lakukan Pembayaran (Tunggu konfirmasi dari kami dan orderan Anda akan segera diproses)</p>
+
+                <p>Estimasi Waktu Proses :<br />
+                - Kami berupaya menyelesaikan order Anda secepat mungkin, dengan batas waktu maksimal 24 jam<br />
+                - Jika orderan belum diproses Selama 6 Jam , hal ini mungkin disebabkan oleh limit komentar sesuai peraturan dari Moonton, atau karena Anda menonaktifkan fitur komentar di dalam album.</p>
+
+                <p>Takapedia Sahabat Para Gamers!</p>
+                ',
                 'vendor' => 'Moonton',
                 'coloum'     => '1',
             ],
