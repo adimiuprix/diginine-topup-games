@@ -84,25 +84,25 @@
                     <div class="col-item col-lg-2 col-md-2 col-sm-12">
                         <div class="box-wallet">
                             <h6><a href="#">Total</a></h6>
-                            <p class="item-stats text-white">0</p>
+                            <p class="item-stats text-white"><?= $totInvoice;?></p>
                         </div>
                     </div>
                     <div class="col-item col-lg-2 col-md-2 col-sm-12">
                         <div class="box-wallet">
                             <h6><a href="#">Diproses</a></h6>
-                            <p class="item-stats text-white">0</p>
+                            <p class="item-stats text-white"><?= $procesingInvoice; ?></p>
                         </div>
                     </div>
                     <div class="col-item col-lg-2 col-md-2 col-sm-12">
                         <div class="box-wallet">
                             <h6><a href="#">Berhasil</a></h6>
-                            <p class="item-stats text-white">0</p>
+                            <p class="item-stats text-white"><?= $successInvoice; ?></p>
                         </div>
                     </div>
                     <div class="col-item col-lg-2 col-md-2 col-sm-12">
                         <div class="box-wallet">
                             <h6><a href="#">Gagal</a></h6>
-                            <p class="item-stats text-white">0</p>
+                            <p class="item-stats text-white"><?= $failInvoice; ?></p>
                         </div>
                     </div>
                     <div class="col-item col-lg-2 col-md-2 col-sm-12">

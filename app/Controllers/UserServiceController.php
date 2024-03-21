@@ -26,11 +26,17 @@ class UserServiceController extends BaseController
         $wa_number = $userModel->findAll();
 
         $InvoiceModel = new InvoiceModel();
+
+        $totInvoice = $InvoiceModel->where('id_buyer', $userData)->countAllResults();
+        $procesingInvoice = $InvoiceModel->where('id_buyer', $userData)->where('order_status', 'pending')->countAllResults();
+        $successInvoice = $InvoiceModel->where('id_buyer', $userData)->where('order_status', 'success')->countAllResults();
+        $failInvoice = $InvoiceModel->where('id_buyer', $userData)->where('order_status', 'failed')->countAllResults();
+
         $invoices = $InvoiceModel
             ->where('id_buyer', $userData)
             ->join('items', 'items.id = invoices.service')
             ->findAll();
 
-        return view('userpage/user-area', compact('setting', 'username', 'wa_number', 'invoices'));
+        return view('userpage/user-area', compact('setting', 'username', 'wa_number', 'totInvoice', 'procesingInvoice', 'successInvoice', 'failInvoice', 'invoices'));
     }
 }
