@@ -21,6 +21,8 @@ $routes->get('logout', 'Auth\Login::logout');
 
 $routes->get('dashboard', 'UserServiceController::index');
 
+$routes->post('user-deposit', 'UserServiceController::topupBalance');
+
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 
 $routes->post('confirm-order', 'OrderController::confirmInvoice');

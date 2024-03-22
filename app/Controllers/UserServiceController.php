@@ -39,4 +39,8 @@ class UserServiceController extends BaseController
 
         return view('userpage/user-area', compact('setting', 'username', 'wa_number', 'totInvoice', 'procesingInvoice', 'successInvoice', 'failInvoice', 'invoices'));
     }
+
+    public function topupBalance(){
+        
+    }
 }

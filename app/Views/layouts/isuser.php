@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                         </div>
@@ -109,46 +109,31 @@
                         <div class="modal-body">
                             <h2>Topup Saldo</h2>
                             <p>Atur jumlah dan tentukan metode pembayaran.</p>
-                            <fieldset class="balance">
-                                <input type="number" class="style-1" id="balance" placeholder="Masukkan jumlah topup*" name="topup" required />
-                            </fieldset>
 
-                            <div class="widget-category-checkbox p-5 mb-5">
-                                <h5 class="name">Metode pembayaran</h5>
-                                <div class="content-wg-category-checkbox">
-
-                                    <form action="#">
-                                        <label>Dana
-                                            <input type="radio" name="rating">
-                                            <span class="btn-checkbox"></span>
-                                        </label><br>
-
-                                        <label>QRIS
-                                            <input type="radio" name="rating">
-                                            <span class="btn-checkbox"></span>
-                                        </label><br>
-
-                                        <label>Daun
-                                            <input type="radio" name="rating">
-                                            <span class="btn-checkbox"></span>
-                                        </label><br>
-
-                                        <label>Doa
-                                            <input type="radio" name="rating">
-                                            <span class="btn-checkbox"></span>
-                                        </label><br>
-
-                                        <label>Lempar
-                                            <input type="radio" name="rating">
-                                            <span class="btn-checkbox"></span>
-                                        </label><br>
-
-                                    </form>
-
+                            <form action="<?= base_url('user-deposit'); ?>" method="post">
+                                <fieldset class="balance">
+                                    <input type="number" name="topup" id="balance" class="style-1" placeholder="Masukkan jumlah topup*" required />
+                                </fieldset>
+                                <div class="widget-category-checkbox p-5 mb-5">
+                                    <h5 class="name">Metode pembayaran</h5>
+                                    <div class="content-wg-category-checkbox">
+                                        <div>
+                                            <label>Dana
+                                                <input type="radio" name="payment">
+                                                <span class="btn-checkbox"></span>
+                                            </label><br>
+                                            <label>QRIS
+                                                <input type="radio" name="payment">
+                                                <span class="btn-checkbox"></span>
+                                            </label><br>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="text-center">
+                                    <button type="submit" class="tf-button style-1 h20">Topup</button>
+                                </div>
+                            </form>
 
-                            <a href="#" class="tf-button style-1 h20">Topup</a>
                         </div>
                     </div>
                 </div>

@@ -143,6 +143,7 @@
     gap: 10px;
     flex-shrink: 0;
     background-color: #DDF247;
+    color: #1b1b1b;
 }
 
 .tf-button.style-1:hover,
