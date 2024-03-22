@@ -14,18 +14,22 @@
                         <div class="content">
                             <div class="table-heading">
                                 <div class="column">Nomor Invoice</div>
-                                <div class="column">Tanggal</div>
                                 <div class="column">Jumlah</div>
                                 <div class="column">Metode Pembayaran</div>
                                 <div class="column">Status</div>
+                                <div class="column">Aksi</div>
+                                <div class="column">Tanggal</div>
                             </div>
+                            <?php foreach($deposits as $deposit): ?>
                             <div class="table-item">
-                                <div class="column">SW-F923RM8-06PJ04</div>
-                                <div class="column">26 Apr 2026</div>
-                                <div class="column">Rp. 69.000</div>
-                                <div class="column">BRIVA</div>
+                                <div class="column"><?= $deposit['hash_id']; ?></div>
+                                <div class="column">Rp. <?= $deposit['amount']; ?></div>
+                                <div class="column"><?= $deposit['method']; ?></div>
                                 <div class="column"><span class="tf-color">Pending</span></div>
+                                <div class="column"><a href="<?= 'https://tripay.co.id/checkout/'  . $deposit['reference'];?>" class="tf-color"><b>Bayar</b></a></div>
+                                <div class="column"><?= $deposit['create_at']; ?></div>
                             </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
