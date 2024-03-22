@@ -4,7 +4,7 @@
         <!-- Basic Page Needs -->
         <meta charset="utf-8" />
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-        <title>Open9 | NFT Marketplace HTML Template</title>
+        <title><?= $setting['site_name'];?></title>
 
         <meta name="author" content="themesflat.com" />
 
