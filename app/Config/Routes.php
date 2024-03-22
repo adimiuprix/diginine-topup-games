@@ -12,6 +12,8 @@ $routes->get('contact', 'ContactController::index');
 $routes->get('policy', 'Home::policy');
 $routes->get('terms-and-condition', 'Home::terms');
 
+$routes->post('callback', 'TripayController::callback');
+
 $routes->get('register', 'Auth\Register::index');
 $routes->post('save-user', 'Auth\Register::registUser');
 
@@ -84,5 +86,3 @@ $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::
 
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
 $routes->post('admin/apis/apigame/update', 'Admin\ApiKeyController::update');
-
-$routes->post('callback', 'TripayController::index');

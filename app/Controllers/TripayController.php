@@ -8,7 +8,7 @@ use App\Models\InvoiceModel;
 
 class TripayController extends BaseController
 {
-    public function index()
+    public function callback()
     {
         // Ambil data JSON
         $json = file_get_contents('php://input');
@@ -71,10 +71,6 @@ class TripayController extends BaseController
 
         // Melakukan update data pending jadi success jika ketemu.
         if ($result) {
-            $invoiceModel->update($result['id_invoice'], [
-                'order_status' => $stats
-            ]);
-
             // Sensitif
             $username = "cazekoD7ELKg";
             $apikey = "a3bd1141-63f8-5885-9d9a-c52bbcf2c97b";
@@ -106,6 +102,10 @@ class TripayController extends BaseController
             ]);
             curl_exec($ch);
             curl_close($ch);
+
+            $invoiceModel->update($result['id_invoice'], [
+                'order_status' => $stats
+            ]);
         }
 
         // $file_path = 'public/data.json';
