@@ -85,7 +85,7 @@ class ItemsController extends BaseController
         $ItemModel->update($id, [
             'id_cats' => $this->request->getPost('items'),
             'item_name' => $itemName,
-            'status' => 'enable',
+            'status' => $this->request->getPost('status'),
             'slug' => url_title($itemName, '-', true),
             'description' => $this->request->getPost('description'),
             'vendor' => $this->request->getPost('vendor'),

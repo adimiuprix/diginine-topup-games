@@ -124,7 +124,8 @@ class UserServiceController extends BaseController
             'amount' => $amount,
             'method'  => $method,
             'hash_id'  => $randomHash,
-            'reference' => $reference
+            'reference' => $reference,
+            'deposit_status' => 'pending'
         ];
         $depositModel->insert($deposit);
 

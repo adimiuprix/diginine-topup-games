@@ -40,6 +40,10 @@ class UserDeposits extends Migration
                 'constraint'    => '255',
                 'null' => true,
             ],
+            'deposit_status' => [
+                'type'       => 'ENUM("pending", "success", "failed")',
+                'default' => 'pending',
+            ],
             'create_at DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id', true);

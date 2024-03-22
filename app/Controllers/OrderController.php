@@ -243,7 +243,7 @@ class OrderController extends BaseController
 
         $response = curl_exec($curl);
         curl_close($curl);
-        // dd($response);
+
         $decodeData = json_decode($response, true);
         $checkoutUrl = $decodeData['data']['checkout_url'];
         return redirect()->to($checkoutUrl);
