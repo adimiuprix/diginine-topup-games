@@ -32,8 +32,6 @@ $routes->post('confirm-order', 'OrderController::confirmInvoice');
 $routes->get('invoice/(:any)', 'OrderController::purchase/$1');
 $routes->post('process', 'OrderController::runPayment');
 
-$routes->post('callback', 'Home::callback');
-
 $routes->get('tracking', 'Home::trackInvoice');
 $routes->post('tracking-invoice', 'Home::trackInv');
 
