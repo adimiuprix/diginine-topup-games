@@ -52,7 +52,7 @@
                             <div class="divider"></div>
                             <div class="flex items-center justify-between pt-4">
                                 <span class="text-bid">Nomor Whatsapp</span>
-                                <h6 class="price gem"><?= $wa_number[0]['whatsapp_number'];?></h6>
+                                <h6 class="price gem"><?= $detailUser['whatsapp_number'];?></h6>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <div class="divider"></div>
                             <div class="flex items-center justify-between pt-4">
                                 <span class="text-bid">Saldo saat ini</span>
-                                <h6 class="price gem">Rp. <?= $wa_number[0]['saldo'];?></h6>
+                                <h6 class="price gem">Rp. <?= $detailUser['balance'];?></h6>
                             </div>
                         </div>
                         <div class="text-center mt-5">

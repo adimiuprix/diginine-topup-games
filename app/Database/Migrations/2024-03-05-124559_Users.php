@@ -37,7 +37,7 @@ class Users extends Migration
                 'constraint'    => 255,
                 'null' => true,
             ],
-            'saldo' => [
+            'balance' => [
                 'type' => 'DECIMAL',
                 'constraint' => '10,2',
                 'default' => '0.00',

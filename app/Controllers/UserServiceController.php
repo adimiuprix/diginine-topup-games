@@ -27,7 +27,7 @@ class UserServiceController extends BaseController
 
         $userModel = new UsersModel();
         $username = $session->get('username');
-        $wa_number = $userModel->findAll();
+        $detailUser = $userModel->find($userData);
 
         $InvoiceModel = new InvoiceModel();
 
@@ -51,7 +51,7 @@ class UserServiceController extends BaseController
         'setting',
         'username',
         'userData',
-        'wa_number',
+        'detailUser',
         'totInvoice',
         'procesingInvoice',
         'successInvoice',

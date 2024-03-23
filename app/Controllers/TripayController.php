@@ -5,11 +5,18 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\TransactionModel;
 use App\Models\InvoiceModel;
+use App\Models\UsersModel;
+use App\Models\DepositModel;
 
 class TripayController extends BaseController
 {
     public function callback()
     {
+        $transactionModel = new TransactionModel();
+        $depositModel = new DepositModel();
+        $userModel = new UsersModel();
+        $invoiceModel = new InvoiceModel();
+
         // Ambil data JSON
         $json = file_get_contents('php://input');
 
@@ -44,7 +51,6 @@ class TripayController extends BaseController
         $dataCallback = json_decode($json, true);
 
         // Simpan data ke dalam database
-        $transactionModel = new TransactionModel();
         $insertData = [
             'reference' => $dataCallback['reference'],
             'merchant_ref' => $dataCallback['merchant_ref'],
@@ -65,52 +71,45 @@ class TripayController extends BaseController
         $stats = "success";  // Nilai baru
         $hash_trx = $dataCallback['merchant_ref'];  // 7YP5GK23NXNW6YQ dari callback
 
-        // Temukan query berdassarkan hash_transaction
-        $invoiceModel = new InvoiceModel();
-        $result = $invoiceModel->where('hash_transaction', $hash_trx)->first();
+        try{
+            $db = \Config\Database::connect(); // Mengambil koneksi database
+            $db->transStart();
 
-        // Melakukan update data pending jadi success jika ketemu.
-        if ($result) {
-            // Sensitif
-            $username = "cazekoD7ELKg";
-            $apikey = "a3bd1141-63f8-5885-9d9a-c52bbcf2c97b";
+            // Melakukan proses invoice.
+            $result = $invoiceModel->where('hash_transaction', $hash_trx)->first();
+            // Melakukan update data pending jadi success jika ketemu.
+            if ($result) {
+                $invoiceModel->update($result['id_invoice'], [
+                    'order_status' => $stats
+                ]);
+            }
 
-            // Variable
-            $buyer_sku_code = "DANA5";
-            $customer_no = "0895359738286";
-            $ref_id = $result['id_invoice'];
-            $sign = md5($username . $apikey . $ref_id);
-
-            // Data permintaan API
-            $data = [
-                'ref_id' => $ref_id,
-                'username' => $username,
-                'buyer_sku_code' => $buyer_sku_code,
-                'customer_no' => $customer_no,
-                'sign' => $sign,
-            ];
-
-            // Mengirim permintaan ke API
-            $ch = curl_init();
-
-            curl_setopt_array($ch, [
-                CURLOPT_URL => 'https://api.digiflazz.com/v1/transaction',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => json_encode($data),
-                CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
-            ]);
-            curl_exec($ch);
-            curl_close($ch);
-
-            $invoiceModel->update($result['id_invoice'], [
-                'order_status' => $stats
-            ]);
+            $db->transComplete();
+        }catch (\Exception $e){
+            log_message('error', $e->getMessage());
         }
 
-        // $file_path = 'public/data.json';
-        // $json_data = json_encode($result, JSON_PRETTY_PRINT);   // dd datanya
-        // file_put_contents($file_path, $json_data);
+        try{
+            $db = \Config\Database::connect(); // Mengambil koneksi database
+            $db->transStart();
+
+            // Melakukan proses untuk deposit
+            $usrdepo = $depositModel->where('hash_id', $hash_trx)->first();
+            $depositModel->update($usrdepo['id'], [
+                'deposit_status' => $stats
+            ]);
+            $deposit = $userModel->find($usrdepo['user_id']);
+            if ($deposit) {
+                $newBalance = $deposit['balance'] + $usrdepo['amount'];
+                $userModel->update($deposit['id'], [
+                    'balance' => $newBalance
+                ]);
+            }
+
+            $db->transComplete();
+        }catch (\Exception $e){
+            log_message('error', $e->getMessage());
+        }
 
         // Kirim respons berhasil
         http_response_code(200);

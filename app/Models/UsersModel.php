@@ -12,7 +12,7 @@ class UsersModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username', 'email', 'whatsapp_number', 'password'];
+    protected $allowedFields    = ['username', 'email', 'whatsapp_number', 'password', 'balance', 'remember_token'];
 
     protected bool $allowEmptyInserts = false;
 
