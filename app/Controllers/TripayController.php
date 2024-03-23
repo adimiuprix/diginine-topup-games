@@ -12,6 +12,7 @@ class TripayController extends BaseController
 {
     public function callback()
     {
+        // instansiasi seluruh class model yang di perlukan
         $transactionModel = new TransactionModel();
         $depositModel = new DepositModel();
         $userModel = new UsersModel();
@@ -71,6 +72,7 @@ class TripayController extends BaseController
         $stats = "success";  // Nilai baru
         $hash_trx = $dataCallback['merchant_ref'];  // 7YP5GK23NXNW6YQ dari callback
 
+        // blok pemroses data invoice
         try{
             $db = \Config\Database::connect(); // Mengambil koneksi database
             $db->transStart();
@@ -89,8 +91,13 @@ class TripayController extends BaseController
             log_message('error', $e->getMessage());
         }
 
+        // blok pemroses data deposit
         try{
             $db = \Config\Database::connect(); // Mengambil koneksi database
+
+            // bagian ini transStart() merupakan fungsi bawaan CI4 untuk melakukan perhitungan
+            // independen agar tidak terjadi benturan pada kedua tugas yang berbeda
+            // penting untuk menutup blok fungsi dengan transComplete()
             $db->transStart();
 
             // Melakukan proses untuk deposit
