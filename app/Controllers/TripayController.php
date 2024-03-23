@@ -111,6 +111,10 @@ class TripayController extends BaseController
             log_message('error', $e->getMessage());
         }
 
+        // $file_path = 'public/data.json';
+        // $json_data = json_encode($user, JSON_PRETTY_PRINT);   // dd datanya
+        // file_put_contents($file_path, $json_data);
+
         // Kirim respons berhasil
         http_response_code(200);
         exit(json_encode([
