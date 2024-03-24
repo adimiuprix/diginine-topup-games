@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\SettingModel;
 use App\Models\InvoiceModel;
 use App\Models\ApiGameModel;
+use App\Models\UsersModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -31,6 +32,20 @@ class OrderController extends BaseController
 
         $session = session();
         $buyer = $session->get('user_id');
+        $balanceUsr = new UsersModel();
+
+        if($payMethod == 1){
+            if ($buyer !== null) {
+                $checkbalance = $balanceUsr->find($buyer);
+                $balance = $checkbalance['balance'];
+
+                if($balance <= $price){
+                    return redirect()->back();
+                }
+            }else{
+                return redirect()->to('login');
+            }
+        };
 
         if($categoryProduct == 1){
             helper('checkidgame');
@@ -202,6 +217,28 @@ class OrderController extends BaseController
         $methodPay = $this->request->getPost('method');
         $amountfloat       = $this->request->getPost('price');
         $amount = intval($amountfloat);
+
+        $session = session();
+        $buyer = $session->get('user_id');
+
+        if($methodPay == "Saldo Akun"){
+            if ($buyer !== null) {
+                $balanceUsr = new UsersModel();
+                $checkbalance = $balanceUsr->find($buyer);
+                $balance = $checkbalance['balance'];
+
+                if($balance >= $amountfloat){
+                    $newBalance = $balance - $amountfloat;
+                    $balanceUsr->update($buyer, ['balance' => $newBalance]);
+
+                    // Digiflazz jalankan
+
+                    return redirect()->back();
+                }
+            }else{
+                return redirect()->back();
+            }
+        };
 
         $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
         $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';

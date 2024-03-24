@@ -235,6 +235,7 @@
                                     <a href="">
                                         <img id="logo_footer" src="<?= base_url('public/assets/images/logo/logo.png'); ?>" data-retina="<?= base_url('public/assets/images/logo/logo.png'); ?>">
                                     </a>
+                                    <p>SwgGameStore adalah Platform Top Up Game Termurah di Indonesia.</p>
                                 </div>
                             </div>
                             <div class="widget widget-menu style-1">
