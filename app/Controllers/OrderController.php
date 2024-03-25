@@ -7,6 +7,7 @@ use App\Models\SettingModel;
 use App\Models\InvoiceModel;
 use App\Models\ApiGameModel;
 use App\Models\UsersModel;
+use App\Models\TripayModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -240,9 +241,12 @@ class OrderController extends BaseController
             }
         };
 
-        $apiKey = 'DEV-69p1qCV3m54d5zNcUhkciM7YphqBhE6V4I0eSrXR';
-        $privateKey   = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
-        $merchantCode = 'T15728';
+        $tripayModel = new TripayModel();
+        $triPay = $tripayModel->first();
+
+        $merchantCode = $triPay['merchant_id'];
+        $apiKey = $triPay['api_key'];
+        $privateKey   = $triPay['private_key'];
 
         $data = [
             'method'         => $methodPay,

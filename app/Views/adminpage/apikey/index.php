@@ -25,7 +25,7 @@
                         <h6>Api Games</h6>
                     </div>
 
-                    <form action="<?= base_url('admin/apis/apigame/update'); ?>" method="post">
+                    <form action="<?= base_url('admin/apis/apigame'); ?>" method="post">
                         <div class="profile-info">
                             <div class="input-style-1">
                                 <label>Merchant ID</label>
@@ -45,6 +45,38 @@
 
                 </div>
             </div>
+
+            <div class="col-lg-12">
+                <div class="card-style settings-card-1 mb-30">
+                    <div class="title mb-30 d-flex justify-content-between align-items-center">
+                        <h6>Tripay Connection</h6>
+                    </div>
+
+                    <form action="<?= base_url('admin/apis/tripay'); ?>" method="post">
+                        <div class="profile-info">
+                            <div class="input-style-1">
+                                <label>Code Merchant</label>
+                                <input type="text" name="mcode" placeholder="Masukkan Merchant Code" value="<?= $tripay['merchant_id']; ?>">
+                            </div>
+                            <div class="input-style-1">
+                                <label>Api Key</label>
+                                <input type="text" name="apikey" placeholder="Masukkan Api Key" value="<?= $tripay['api_key']; ?>">
+                            </div>
+                            <div class="input-style-1">
+                                <label>Private Key</label>
+                                <input type="text" name="privkey" placeholder="Masukkan Private Key" value="<?= $tripay['private_key']; ?>">
+                            </div>
+                            <div class="text-center">
+                                <button class="main-btn primary-btn btn-hover">
+                                    Intergrate
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

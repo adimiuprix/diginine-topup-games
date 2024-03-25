@@ -7,6 +7,7 @@ use App\Models\TransactionModel;
 use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\DepositModel;
+use App\Models\TripayModel;
 
 class TripayController extends BaseController
 {
@@ -17,6 +18,8 @@ class TripayController extends BaseController
         $depositModel = new DepositModel();
         $userModel = new UsersModel();
         $invoiceModel = new InvoiceModel();
+        $tripayModel = new TripayModel();
+        $tripay = $tripayModel->first();
 
         // Ambil data JSON
         $json = file_get_contents('php://input');
@@ -34,7 +37,7 @@ class TripayController extends BaseController
         $callbackSignature = isset($_SERVER['HTTP_X_CALLBACK_SIGNATURE']) ? $_SERVER['HTTP_X_CALLBACK_SIGNATURE'] : '';
 
         // Isi dengan private key anda
-        $privateKey = 'Mgg9k-JZxfv-8pwnV-XRAcX-dIn7M';
+        $privateKey = $tripay['private_key'];
 
         // Generate signature untuk dicocokkan dengan X-Callback-Signature
         $signature = hash_hmac('sha256', $json, $privateKey);
@@ -95,9 +98,9 @@ class TripayController extends BaseController
         try{
             $db = \Config\Database::connect(); // Mengambil koneksi database
 
-            // bagian ini transStart() merupakan fungsi bawaan CI4 untuk melakukan perhitungan
-            // independen agar tidak terjadi benturan pada kedua tugas yang berbeda
-            // penting untuk menutup blok fungsi dengan transComplete()
+            /* bagian ini transStart() merupakan fungsi bawaan CI4 untuk melakukan perhitungan
+            independen agar tidak terjadi benturan pada kedua tugas yang berbeda
+            penting untuk menutup blok fungsi dengan transComplete() */
             $db->transStart();
 
             // Melakukan proses untuk deposit
