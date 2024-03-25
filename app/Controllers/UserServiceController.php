@@ -42,6 +42,13 @@ class UserServiceController extends BaseController
             ->join('items', 'items.id = invoices.service')
             ->findAll();
 
+        // Daftar semua riwayat transaksi
+        $transactions = $InvoiceModel
+            ->where('id_buyer', $userData)
+            ->join('items', 'items.id = invoices.service')
+            ->where('order_status', 'success')
+            ->findAll();
+
         // Daftar semua deposit
         $depositModel = new DepositModel();
         $deposits = $depositModel->where('user_id', $userData)->findAll();
@@ -57,6 +64,7 @@ class UserServiceController extends BaseController
         'successInvoice',
         'failInvoice',
         'invoices',
+        'transactions',
         'deposits'
         ));
     }

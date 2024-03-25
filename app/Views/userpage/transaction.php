@@ -19,13 +19,15 @@
                                 <div class="column">Harga</div>
                                 <div class="column">Tanggal</div>
                             </div>
+                            <?php foreach($transactions as $trx): ?>
                             <div class="table-item">
-                                <div class="column">0PXDGF04BYKU67IU92</div>
-                                <div class="column">Nama itemnya apa ya</div>
-                                <div class="column">56895788756</div>
-                                <div class="column">Rp. 400.000</div>
-                                <div class="column">5 Mar 2026</div>
+                                <div class="column"><?= $trx['hash_transaction'];?></div>
+                                <div class="column"><?= $trx['item_name'];?></div>
+                                <div class="column"><?= $trx['id_player'];?></div>
+                                <div class="column">Rp. <?= $trx['price'];?></div>
+                                <div class="column"><?= $trx['create_at'];?></div>
                             </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

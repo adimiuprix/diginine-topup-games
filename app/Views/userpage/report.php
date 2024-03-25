@@ -4,7 +4,7 @@
             <div class="themesflat-container">
                 <div class="heading-section">
                     <h2 class="tf-title pb-20" style="perspective: 400px;">
-                        <div style="display: block;">Favorite collection</div>
+                        <div style="display: block;">Laporan</div>
                     </h2>
                 </div>
                 <div class="col-12 animated" style="visibility: visible;">

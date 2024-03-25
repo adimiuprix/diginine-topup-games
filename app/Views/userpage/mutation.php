@@ -21,20 +21,7 @@
                                 <div class="column">Tanggal</div>
                             </div>
                             <div class="table-item">
-                                <div class="column">PYGT098475</div>
-                                <div class="column">Beli Diamond ML</div>
-                                <div class="column">400 Diamond</div>
-                                <div class="column">Rp. 400.000</div>
-                                <div class="column">RP. 290.000</div>
-                                <div class="column"><span class="tf-color">15 Jun 2024</span></div>
-                            </div>
-                            <div class="table-item">
-                                <div class="column">G94U0U574KJ0432ASH</div>
-                                <div class="column">Beli Kondom</div>
-                                <div class="column">2 Kondom</div>
-                                <div class="column">Rp. 600.000</div>
-                                <div class="column">RP. 150.000</div>
-                                <div class="column"><span class="tf-color">15 Jun 2024</span></div>
+                                <div class="column text-center"><span class="tf-color">Tidak ada record di temukan.</span></div>
                             </div>
 
                         </div>
