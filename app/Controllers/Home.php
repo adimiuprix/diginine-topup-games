@@ -94,7 +94,11 @@ class Home extends BaseController
     }
 
     public function priceList(){
+        $setting = $this->setting;
+        $session = session();
+        $user_id = $session->get('user_id');
 
+        return view('pricelist', compact('setting', 'user_id'));
     }
 
     public function about(){
