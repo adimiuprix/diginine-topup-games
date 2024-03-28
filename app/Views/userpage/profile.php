@@ -3,7 +3,7 @@
 
 <div class="flat-tabs">
 
-    <?= $this->include('partials/menu-user'); ?>
+    <?= $this->include('partials/user-profile-menu'); ?>
 
 	<div class="content-tabs">
 

@@ -22,6 +22,9 @@ $routes->post('check-user', 'Auth\Login::userAuthorization');
 $routes->get('logout', 'Auth\Login::logout');
 
 $routes->get('dashboard', 'UserServiceController::index');
+$routes->get('dashboard/dashboard', function() {
+    return redirect()->to('dashboard');
+});
 $routes->get('dashboard/profile', 'UserServiceController::profile');
 $routes->post('change-profile', 'UserServiceController::profileChange');
 
