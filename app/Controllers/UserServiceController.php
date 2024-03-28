@@ -147,4 +147,28 @@ class UserServiceController extends BaseController
 
         return view('userpage/deposit-form', compact('setting'));
     }
+
+    public function profile(){
+        $setting = $this->setting;
+        $session = session();
+        $userData = $session->get('user_id');
+        $username = $session->get('username');
+
+        $userModel = new UsersModel();
+        $username = $session->get('username');
+        $profile = $userModel->find($userData);
+
+        return view('userpage/profile', compact('setting', 'username', 'userData', 'profile'));
+    }
+
+    public function profileChange(){
+        $setting = $this->setting;
+        $session = session();
+        $userData = $session->get('user_id');
+        $username = $session->get('username');
+
+        $userModel = new UsersModel();
+
+        return redirect()->back();
+    }
 }

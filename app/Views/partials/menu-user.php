@@ -1,6 +1,6 @@
 <div class="section-menu-left">
 		<div class="box-logo">
-			<a href="/"><img src="public/assets/images/logo/logo.png" alt="" /></a>
+			<a href="/"><img src="<?= base_url('public/assets/images/logo/logo.png'); ?>" alt="" /></a>
 		</div>
 
 		<div class="over-content">

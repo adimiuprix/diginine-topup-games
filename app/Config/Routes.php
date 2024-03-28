@@ -22,6 +22,8 @@ $routes->post('check-user', 'Auth\Login::userAuthorization');
 $routes->get('logout', 'Auth\Login::logout');
 
 $routes->get('dashboard', 'UserServiceController::index');
+$routes->get('dashboard/profile', 'UserServiceController::profile');
+$routes->post('change-profile', 'UserServiceController::profileChange');
 
 $routes->post('user-deposit', 'UserServiceController::topupBalance');
 

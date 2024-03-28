@@ -1,44 +1,45 @@
-<?php
+<?= $this->extend('layouts/isuser'); ?>
+<?= $this->section('user_valid') ?>
 
-use CodeIgniter\Filters\CSRF;
-?>
-<?= $this->extend('layouts/template');?>
-<?= $this->section('content');?>
+<div class="flat-tabs">
 
-<div class="tf-section-2 pt-60 widget-box-icon">
+    <?= $this->include('partials/menu-user'); ?>
+
+	<div class="content-tabs">
+
+	<div class="tf-section-2 pt-60 widget-box-icon">
     <div class="themesflat-container w920">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading-section-1">
-                    <h2 class="tf-title pb-16">Pendaftaran</h2>
-                    <p class="pb-40">Masukkan data di bawah ini untuk  menjadi member</p>
+                    <h2 class="tf-title pb-16">Ubah data</h2>
                 </div>
             </div>
             <div class="col-12">
                 <div class="widget-login">
-                    <form action="<?= base_url('save-user')?>" method="post" class="comment-form">
+                    <form action="<?= base_url('change-profile')?>" method="post" class="comment-form">
                         <?= csrf_field(); ?>
                         <fieldset class="name">
                             <label>Username *</label>
-                            <input type="text" id="name" placeholder="Masukkan nama anda*" name="username" value="" required>
+                            <input type="text" id="name" placeholder="Masukkan username anda*" name="username" value="<?= $profile['username']; ?>" readonly>
                         </fieldset>
 
                         <fieldset class="name">
                             <label>Email *</label>
-                            <input type="text" placeholder="Masukkan email anda*" name="email" value="" required>
+                            <input type="text" placeholder="Masukkan email anda*" name="email" value="<?= $profile['email']; ?>" required>
                         </fieldset>
-
 
                         <fieldset class="email">
                             <label>Nomor Whatsapp *</label>
-                            <input type="text" placeholder="089xxxxxxxx" name="whatsapp" value="" required>
+                            <input type="text" placeholder="089xxxxxxxx" name="whatsapp" value="<?= $profile['whatsapp_number']; ?>" required>
                         </fieldset>
 
                         <fieldset class="password">
-                            <label>Password *</label>
-                            <input class="password-input" type="password" name="password" value="" id="password" placeholder="Min. 8 character"  required>
+                            <label>Password baru*</label>
+                            <input class="password-input" type="password" name="password" id="password" placeholder="Masukkan password baru" />
                             <i class="icon-show password-addon" id="password-addon"></i>
                         </fieldset>
+
                         <script>
                             const passwordField = document.querySelector('.password-input');
                             const passwordAddon = document.getElementById('password-addon');
@@ -51,13 +52,12 @@ use CodeIgniter\Filters\CSRF;
                                 }
                             });
                         </script>
+
                         <div class="btn-submit mb-30">
-                            <button class="tf-button style-1 h50 w-100" type="submit">Daftar</button>
+                            <button class="tf-button style-1 h50 w-100" type="submit">Simpan</button>
                         </div>
 
                     </form>
-                    <div class="no-account mb-5">Sudah punya akun?  <a href="<?= base_url('login')?>" class="tf-color">masuk</a> sekarang</div>
-                    <h6 class="text-center">Dengan mendaftar otomatis anda telah menyetujui Ketentuan Layanan kami.</h6>
 
                 </div>
             </div>
@@ -65,4 +65,8 @@ use CodeIgniter\Filters\CSRF;
     </div>
 </div>
 
-<?= $this->endSection(); ?>
+
+	</div>
+</div>
+
+<?= $this->endSection() ?>
