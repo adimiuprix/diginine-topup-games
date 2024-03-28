@@ -9,19 +9,18 @@
         </div>
         <div class="product-item offers mt-3">
             <div class="content">
-                <div class="table-heading">
+                <div class="table-heading text-center">
                     <div class="column">Nama produk</div>
                     <div class="column">Harga</div>
-                    <div class="column">Kategori</div>
                     <div class="column">Kode Produk</div>
                 </div>
+                <?php foreach ($prices as $price): ?>
                 <div class="table-item">
-                    <div class="column">Gkftutu</div>
-                    <div class="column">5657567</div>
-                    <div class="column">fghftujtfy</div>
-                    <div class="column">dsgtuty</div>
+                    <div class="column"><?= $price['name_product'] . " " . $price['item']; ?></div>
+                    <div class="column text-center">Rp. <?= $price['price']; ?></div>
+                    <div class="column text-center"><?= $price['code_product']; ?></div>
                 </div>
-
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

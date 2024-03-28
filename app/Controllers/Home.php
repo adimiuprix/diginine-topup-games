@@ -97,8 +97,12 @@ class Home extends BaseController
         $setting = $this->setting;
         $session = session();
         $user_id = $session->get('user_id');
-
-        return view('pricelist', compact('setting', 'user_id'));
+        $itemModel = new ItemModel();
+        $productModel = new ProductModel();
+        
+        $prices = $productModel->findAll();
+        
+        return view('pricelist', compact('setting', 'user_id', 'prices'));
     }
 
     public function about(){
