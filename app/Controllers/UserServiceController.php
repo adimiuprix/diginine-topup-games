@@ -162,13 +162,40 @@ class UserServiceController extends BaseController
     }
 
     public function profileChange(){
-        $setting = $this->setting;
+        $request = service('request');
         $session = session();
-        $userData = $session->get('user_id');
-        $username = $session->get('username');
 
         $userModel = new UsersModel();
 
-        return redirect()->back();
+        $userId = $session->get('user_id');
+        $userData = $userModel->find($userId);
+
+        if (!$userData) {
+            // Handle user not found
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        $email = $request->getPost('chemail');
+        $whatsapp = $request->getPost('chwhatsapp');
+        $password = $request->getPost('chpassword');
+
+        // Update other fields if provided
+        if ($email) {
+            $dataUpdate['email'] = $email;
+        }
+        if ($whatsapp) {
+            $dataUpdate['whatsapp_number'] = $whatsapp;
+        }
+        if ($password) {
+            // Hash the password before saving
+            $dataUpdate['password'] = password_hash($password, PASSWORD_DEFAULT);
+        }
+
+        // Perform update only if there's something to update
+        if (!empty($dataUpdate)) {
+            $userModel->update($userId, $dataUpdate);
+        }
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 }

@@ -21,22 +21,22 @@
                                 <?= csrf_field(); ?>
                                 <fieldset class="name">
                                     <label>Username *</label>
-                                    <input type="text" id="name" placeholder="Masukkan username anda*" name="username" value="<?= $profile['username']; ?>" readonly>
+                                    <input type="text" id="chname" placeholder="Masukkan username anda*" name="username" value="<?= $profile['username']; ?>" readonly>
                                 </fieldset>
 
                                 <fieldset class="name">
                                     <label>Email *</label>
-                                    <input type="text" placeholder="Masukkan email anda*" name="email" value="<?= $profile['email']; ?>" required>
+                                    <input type="text" placeholder="Masukkan email anda*" name="chemail" value="<?= $profile['email']; ?>" required>
                                 </fieldset>
 
                                 <fieldset class="email">
                                     <label>Nomor Whatsapp *</label>
-                                    <input type="text" placeholder="089xxxxxxxx" name="whatsapp" value="<?= $profile['whatsapp_number']; ?>" required>
+                                    <input type="text" placeholder="089xxxxxxxx" name="chwhatsapp" value="<?= $profile['whatsapp_number']; ?>" required>
                                 </fieldset>
 
                                 <fieldset class="password">
                                     <label>Password baru*</label>
-                                    <input class="password-input" type="password" name="password" id="password" placeholder="Masukkan password baru" />
+                                    <input class="password-input" type="password" name="chpassword" id="password" placeholder="Masukkan password baru" />
                                     <i class="icon-show password-addon" id="password-addon"></i>
                                 </fieldset>
 
