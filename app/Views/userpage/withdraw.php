@@ -1,5 +1,5 @@
-<div id="report" class="tabcontent">
-<div class="wrapper-content">
+<div id="withdraw" class="tabcontent">
+    <div class="wrapper-content">
         <div class="inner-content">
             <div class="themesflat-container">
                 <div class="heading-section">

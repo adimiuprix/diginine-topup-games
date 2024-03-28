@@ -136,7 +136,7 @@
 						</svg>
 						Riwayat Mutasi
 					</li>
-					<li class="tablinks" data-tabs="report">
+					<li class="tablinks" data-tabs="withdraw">
 						<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g opacity="0.2">
 								<path
@@ -159,7 +159,7 @@
 								fill="#DDF247"
 							/>
 						</svg>
-						Laporan
+						Penarikan
 					</li>
 					<li>
 						<a href="<?= base_url('logout')?>">Keluar</a>

@@ -8,14 +8,14 @@
 	<div class="content-tabs">
 
 		<?= $this->include('userpage/dashboard'); ?>
-		
+
 		<?= $this->include('userpage/transaction'); ?>
 
 		<?= $this->include('userpage/deposit'); ?>
 
 		<?= $this->include('userpage/mutation'); ?>
 
-		<?= $this->include('userpage/report'); ?>
+		<?= $this->include('userpage/withdraw'); ?>
 
 	</div>
 </div>
