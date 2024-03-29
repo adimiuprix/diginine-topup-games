@@ -54,6 +54,10 @@ class UserServiceController extends BaseController
         $depositModel = new DepositModel();
         $deposits = $depositModel->where('user_id', $userData)->findAll();
 
+        // Daftar semua deposit
+        $withdrawModel = new WithdrawModel();
+        $withdraws = $withdrawModel->where('user_id', $userData)->findAll();
+
         return view('userpage/user-area',
          compact(
         'setting',
@@ -66,7 +70,8 @@ class UserServiceController extends BaseController
         'failInvoice',
         'invoices',
         'transactions',
-        'deposits'
+        'deposits',
+        'withdraws'
         ));
     }
 

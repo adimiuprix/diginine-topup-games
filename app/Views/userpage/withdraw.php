@@ -41,6 +41,14 @@
                                 <div class="column">Status</div>
                                 <div class="column">Tanggal</div>
                             </div>
+                            <?php foreach($withdraws as $withdraw): ?>
+                            <div class="table-item">
+                                <div class="column">Rp. <?= $withdraw['amount']; ?></div>
+                                <div class="column"><?= $withdraw['hash']; ?></div>
+                                <div class="column"><?= $withdraw['withdraw_status']; ?></div>
+                                <div class="column"><?= $withdraw['create_at']; ?></div>
+                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
