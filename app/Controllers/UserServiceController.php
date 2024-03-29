@@ -7,6 +7,7 @@ use App\Models\SettingModel;
 use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\DepositModel;
+use App\Models\WithdrawModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -159,6 +160,40 @@ class UserServiceController extends BaseController
         $profile = $userModel->find($userData);
 
         return view('userpage/profile', compact('setting', 'username', 'userData', 'profile'));
+    }
+
+    public function withdraws(){
+        $bankTo = $this->request->getPost('bank');
+        $amountWd = $this->request->getPost('amount');
+        $random = Random::get(15, Code::FORMAT_ALNUM_CAPITAL);
+
+        $session = session();
+        $userID = $session->get('user_id');
+        $userModel = new UsersModel();
+        $checkbalance = $userModel->find($userID);
+        $balance = $checkbalance['balance'];
+
+        if($balance <= $amountWd){
+            return redirect()->back();
+        }
+
+        $WithdrawData = [
+            'user_id' => $userID,
+            'amount' => $amountWd,
+            'bank_to' => $bankTo,
+            'hash' => $random,
+            'withdraw_status' => 'pending',
+        ];
+        $wdModel = new WithdrawModel();
+        $wdModel->insert($WithdrawData);
+
+        $userModel = new UsersModel();
+        $newBalance = $balance - $amountWd;
+        $userModel->update($userID, [
+            'balance' => $newBalance
+        ]);
+
+        return redirect('dashboard');
     }
 
     public function profileChange(){

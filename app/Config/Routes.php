@@ -30,6 +30,8 @@ $routes->post('change-profile', 'UserServiceController::profileChange');
 
 $routes->post('user-deposit', 'UserServiceController::topupBalance');
 
+$routes->post('withdraw', 'UserServiceController::withdraws');
+
 $routes->get('order/(:segment)/(:segment)', 'Home::orderProduct/$1/$2');
 
 $routes->post('confirm-order', 'OrderController::confirmInvoice');
