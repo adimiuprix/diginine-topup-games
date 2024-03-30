@@ -89,6 +89,8 @@ $routes->get('admin/transactions', 'Admin\TransactionController::index');
 $routes->get('admin/transactions/edit/(:num)', 'Admin\TransactionController::edit/$1');
 $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::update/$1');
 
+$routes->get('admin/user-manager', 'Admin\MemberController::index');
+
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
 $routes->post('admin/apis/apigames', 'Admin\ApiKeyController::apigamesupdate');
 $routes->post('admin/apis/tripay', 'Admin\ApiKeyController::tripayupdate');

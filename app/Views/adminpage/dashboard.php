@@ -27,7 +27,7 @@
                     </div>
                     <div class="content">
                         <h6 class="mb-10">Total Order</h6>
-                        <h3 class="text-bold mb-10">34567</h3>
+                        <h3 class="text-bold mb-10"><?= $totOrder; ?></h3>
                     </div>
                 </div>
                 <!-- End Icon Cart -->
@@ -41,7 +41,7 @@
                     </div>
                     <div class="content">
                         <h6 class="mb-10">Total Pemasukan</h6>
-                        <h3 class="text-bold mb-10">745546546</h3>
+                        <h3 class="text-bold mb-10">??????</h3>
                     </div>
                 </div>
                 <!-- End Icon Cart -->
@@ -55,7 +55,7 @@
                     </div>
                     <div class="content">
                         <h6 class="mb-10">Pengguna</h6>
-                        <h3 class="text-bold mb-10">34567</h3>
+                        <h3 class="text-bold mb-10"><?= $totMember; ?></h3>
                     </div>
                 </div>
                 <!-- End Icon Cart -->

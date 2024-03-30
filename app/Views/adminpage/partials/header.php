@@ -138,11 +138,11 @@
                             <div class="profile-info">
                                 <div class="info">
                                     <div class="image">
-                                        <img src="assets/images/profile/profile-image.png" alt="" />
+                                        <img src="<?= base_url('public/admin/assets/images/profile/profile-image.png'); ?>" alt="" />
                                     </div>
                                     <div>
-                                        <h6 class="fw-500">Adam Joe</h6>
-                                        <p>Admin</p>
+                                        <h6 class="fw-500">Administrator</h6>
+                                        <p><?= $admin['username'];?></p>
                                     </div>
                                 </div>
                             </div>
@@ -151,11 +151,11 @@
                             <li>
                                 <div class="author-info flex items-center !p-1">
                                     <div class="image">
-                                        <img src="assets/images/profile/profile-image.png" alt="image">
+                                        <img src="<?= base_url('public/admin/assets/images/profile/profile-image.png'); ?>" alt="image">
                                     </div>
                                     <div class="content">
-                                        <h4 class="text-sm">Adam Joe</h4>
-                                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">Email@gmail.com</a>
+                                        <h4 class="text-sm"><?= $admin['username'];?></h4>
+                                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#"><?= $admin['email'];?></a>
                                     </div>
                                 </div>
                             </li>
