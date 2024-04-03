@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\Admin\FavouriteModel;
 use App\Models\Admin\ItemModel;
-use App\Models\CategoryModel;
+
 class FavouriteController extends BaseController
 {
     public function index()

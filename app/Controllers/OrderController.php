@@ -234,6 +234,32 @@ class OrderController extends BaseController
 
                     // Digiflazz jalankan
 
+                    // Informasi sensitif
+                    $username = "cazekoD7ELKg";
+                    $apikey = "a3bd1141-63f8-5885-9d9a-c52bbcf2c97b";
+
+                    // Data permintaan API
+                    $data = array(
+                        'ref_id' => strtoupper(hash('sha256', time() * rand(1, 1000))),
+                        'username' => $username,
+                        'buyer_sku_code' => "DANA5",
+                        'customer_no' => "0895359738286",
+                    );
+
+                    // Menambahkan sign ke data permintaan
+                    $data['sign'] = md5($username . $apikey . $data['ref_id']);
+
+                    // Mengirim permintaan ke API
+                    $ch = curl_init('https://api.digiflazz.com/v1/transaction');
+                    curl_setopt_array($ch, [
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_POST => true,
+                        CURLOPT_POSTFIELDS => json_encode($data),
+                        CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+                    ]);
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+
                     return redirect()->back();
                 }
             }else{

@@ -142,7 +142,7 @@
                                     </div>
                                     <div>
                                         <h6 class="fw-500">Administrator</h6>
-                                        <p><?= $admin['username'];?></p>
+                                        <p>Admin</p>
                                     </div>
                                 </div>
                             </div>
@@ -154,8 +154,8 @@
                                         <img src="<?= base_url('public/admin/assets/images/profile/profile-image.png'); ?>" alt="image">
                                     </div>
                                     <div class="content">
-                                        <h4 class="text-sm"><?= $admin['username'];?></h4>
-                                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#"><?= $admin['email'];?></a>
+                                        <h4 class="text-sm">Admin</h4>
+                                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">admin@gmail.com</a>
                                     </div>
                                 </div>
                             </li>
