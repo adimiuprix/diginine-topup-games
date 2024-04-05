@@ -8,6 +8,7 @@ use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\DepositModel;
 use App\Models\WithdrawModel;
+use App\Models\Admin\ReviewModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -15,14 +16,21 @@ use ShortCode\Code;
 class UserServiceController extends BaseController
 {
     private $setting;
+    private $reviews;
+
     public function __construct(){
         $GeneralSetting = new SettingModel();
         $this->setting = $GeneralSetting->first();
+
+        $reviewModel = new ReviewModel();
+        $this->reviews = $reviewModel->findAll();
     }
 
     public function index()
     {
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $session = session();
         $userData = $session->get('user_id');
 

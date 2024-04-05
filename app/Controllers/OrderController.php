@@ -8,6 +8,7 @@ use App\Models\InvoiceModel;
 use App\Models\ApiGameModel;
 use App\Models\UsersModel;
 use App\Models\TripayModel;
+use App\Models\Admin\ReviewModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -15,9 +16,14 @@ use ShortCode\Code;
 class OrderController extends BaseController
 {
     private $setting;
+    private $reviews;
+
     public function __construct(){
         $GeneralSetting = new SettingModel();
         $this->setting = $GeneralSetting->first();
+
+        $reviewModel = new ReviewModel();
+        $this->reviews = $reviewModel->findAll();
     }
 
     public function confirmInvoice(){
@@ -192,6 +198,8 @@ class OrderController extends BaseController
     public function purchase($random)
     {
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $invoiceModel = new InvoiceModel();
         $invoiceResult = $invoiceModel
             ->join('categories', 'categories.id = invoices.category')
@@ -205,10 +213,10 @@ class OrderController extends BaseController
         // Periksa nilai methods_pay
         if ($invoiceResult && $invoiceResult['methods_pay'] == 7) {
             // Jika methods_pay == 7,
-            return view('manual-purchase', compact('setting', 'user_id', 'invoiceResult'));
+            return view('manual-purchase', compact('setting', 'user_id', 'invoiceResult', 'reviews'));
         } else {
             // Jika methods_pay bukan 6,
-            return view('purchase', compact('setting', 'user_id', 'invoiceResult'));
+            return view('purchase', compact('setting', 'user_id', 'invoiceResult', 'reviews'));
         }
 
     }

@@ -8,17 +8,26 @@ use App\Models\PaymentMethodModel;
 use App\Models\InvoiceModel;
 use App\Models\SliderModel;
 use App\Models\FavouriteModel;
+use App\Models\Admin\ReviewModel;
+
 class Home extends BaseController
 {
     private $setting;
+    private $reviews;
+
     public function __construct(){
         $GeneralSetting = new SettingModel();
         $this->setting = $GeneralSetting->first();
+
+        $reviewModel = new ReviewModel();
+        $this->reviews = $reviewModel->findAll();
     }
 
     public function index(): string
     {
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $itemModel = new ItemModel();
         $sliderModel = new SliderModel();
         $favouriteModel = new FavouriteModel();
@@ -49,12 +58,15 @@ class Home extends BaseController
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('home', compact('setting', 'user_id', 'sliders', 'favourites', 'dataItems'));
+
+        return view('home', compact('setting', 'user_id', 'sliders', 'favourites', 'dataItems', 'reviews'));
     }
 
     public function orderProduct($category, $slug): string
     {
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $itemModel = new ItemModel();
         $productModel = new ProductModel();
         $payMethods = new PaymentMethodModel();
@@ -66,16 +78,17 @@ class Home extends BaseController
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('order', compact('setting', 'user_id', 'detailProduct', 'products', 'methods'));
+        return view('order', compact('setting', 'user_id', 'detailProduct', 'products', 'methods', 'reviews'));
     }
 
     public function trackInvoice(){
         $setting = $this->setting;
+        $reviews = $this->reviews;
 
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('tracking', compact('setting', 'user_id'));
+        return view('tracking', compact('setting', 'user_id', 'reviews'));
     }
 
     public function trackInv(){
@@ -95,6 +108,8 @@ class Home extends BaseController
 
     public function priceList(){
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $session = session();
         $user_id = $session->get('user_id');
         $itemModel = new ItemModel();
@@ -102,7 +117,7 @@ class Home extends BaseController
 
         $prices = $productModel->findAll();
 
-        return view('pricelist', compact('setting', 'user_id', 'prices'));
+        return view('pricelist', compact('setting', 'user_id', 'prices', 'reviews'));
     }
 
     public function about(){
@@ -111,18 +126,22 @@ class Home extends BaseController
 
     public function policy(){
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('eula/policy', compact('setting', 'user_id'));
+        return view('eula/policy', compact('setting', 'user_id', 'reviews'));
     }
 
     public function terms(){
         $setting = $this->setting;
+        $reviews = $this->reviews;
+
         $session = session();
         $user_id = $session->get('user_id');
 
-        return view('eula/terms-condition', compact('setting', 'user_id'));
+        return view('eula/terms-condition', compact('setting', 'user_id', 'reviews'));
     }
 
 }
