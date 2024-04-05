@@ -112,7 +112,6 @@ class Home extends BaseController
 
         $session = session();
         $user_id = $session->get('user_id');
-        $itemModel = new ItemModel();
         $productModel = new ProductModel();
 
         $prices = $productModel->findAll();
