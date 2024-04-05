@@ -66,6 +66,7 @@ class CategoryController extends BaseController
         } else {
             return redirect()->to('admin/category/')->with('error', 'Data error, cant delete specified data');
         }
+
     }
 
 }

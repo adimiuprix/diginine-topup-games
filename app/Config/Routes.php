@@ -85,6 +85,13 @@ $routes->get('admin/sliders/edit/(:num)', 'Admin\SliderController::edit/$1');
 $routes->post('admin/sliders/update/(:num)', 'Admin\SliderController::update/$1');
 $routes->get('admin/sliders/delete/(:num)', 'Admin\SliderController::remove/$1');
 
+$routes->get('admin/faqs', 'Admin\FaqController::index');
+$routes->get('admin/faqs/add', 'Admin\FaqController::addNew');
+$routes->post('admin/faqs/store', 'Admin\FaqController::store');
+$routes->get('admin/faqs/edit/(:num)', 'Admin\FaqController::edit/$1');
+$routes->post('admin/faqs/update/(:num)', 'Admin\FaqController::update/$1');
+$routes->get('admin/faqs/delete/(:num)', 'Admin\FaqController::remove/$1');
+
 $routes->get('admin/transactions', 'Admin\TransactionController::index');
 $routes->get('admin/transactions/edit/(:num)', 'Admin\TransactionController::edit/$1');
 $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::update/$1');
