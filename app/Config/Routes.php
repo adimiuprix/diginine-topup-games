@@ -91,6 +91,13 @@ $routes->post('admin/transactions/update/(:num)', 'Admin\TransactionController::
 
 $routes->get('admin/user-manager', 'Admin\MemberController::index');
 
+$routes->get('admin/review-manager', 'Admin\ReviewController::index');
+$routes->get('admin/review/add', 'Admin\ReviewController::addNew');
+$routes->post('admin/review/store', 'Admin\ReviewController::store');
+$routes->get('admin/review/edit/(:num)', 'Admin\ReviewController::edit/$1');
+$routes->post('admin/review/update/(:num)', 'Admin\ReviewController::update/$1');
+$routes->get('admin/review/delete/(:num)', 'Admin\ReviewController::remove/$1');
+
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
 $routes->post('admin/apis/apigames', 'Admin\ApiKeyController::apigamesupdate');
 $routes->post('admin/apis/tripay', 'Admin\ApiKeyController::tripayupdate');
