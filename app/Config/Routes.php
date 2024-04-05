@@ -101,3 +101,4 @@ $routes->get('admin/review/delete/(:num)', 'Admin\ReviewController::remove/$1');
 $routes->get('admin/apis', 'Admin\ApiKeyController::index');
 $routes->post('admin/apis/apigames', 'Admin\ApiKeyController::apigamesupdate');
 $routes->post('admin/apis/tripay', 'Admin\ApiKeyController::tripayupdate');
+$routes->post('admin/apis/digiflazz', 'Admin\ApiKeyController::digiflazz');

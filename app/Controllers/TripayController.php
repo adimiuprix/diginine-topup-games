@@ -8,6 +8,7 @@ use App\Models\InvoiceModel;
 use App\Models\UsersModel;
 use App\Models\DepositModel;
 use App\Models\TripayModel;
+use App\Models\Admin\DigiflazzModel;
 
 class TripayController extends BaseController
 {
@@ -20,6 +21,7 @@ class TripayController extends BaseController
         $invoiceModel = new InvoiceModel();
         $tripayModel = new TripayModel();
         $tripay = $tripayModel->first();
+        $digiFlazz = new DigiflazzModel();
 
         // Ambil data JSON
         $json = file_get_contents('php://input');
@@ -87,6 +89,34 @@ class TripayController extends BaseController
                 $invoiceModel->update($result['id_invoice'], [
                     'order_status' => $stats
                 ]);
+
+                $digiFlazz = new DigiflazzModel();
+                $df = $digiFlazz->first();
+                // Informasi sensitif
+                $username = $df['username'];
+                $apikey = $df['api_key'];
+
+                // Data permintaan API
+                $data = [
+                    'ref_id' => $result['hash_transaction'],
+                    'username' => $username,
+                    'buyer_sku_code' => $result['sku_code'],
+                    'customer_no' => "0895359738286",
+                ];
+
+                // Menambahkan sign ke data permintaan
+                $data['sign'] = md5($username . $apikey . $data['ref_id']);
+
+                // Mengirim permintaan ke API
+                $ch = curl_init('https://api.digiflazz.com/v1/transaction');
+                curl_setopt_array($ch, [
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => json_encode($data),
+                    CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+                ]);
+                curl_close($ch);
+
             }
 
             $db->transComplete();

@@ -77,6 +77,33 @@
                 </div>
             </div>
 
+            <div class="col-lg-12">
+                <div class="card-style settings-card-1 mb-30">
+                    <div class="title mb-30 d-flex justify-content-between align-items-center">
+                        <h6>Digiflazz Connection</h6>
+                    </div>
+
+                    <form action="<?= base_url('admin/apis/digiflazz'); ?>" method="post">
+                        <div class="profile-info">
+                            <div class="input-style-1">
+                                <label>Username</label>
+                                <input type="text" name="dfusrname" placeholder="Masukkan Username" value="<?= $digiFlazz['username']; ?>">
+                            </div>
+                            <div class="input-style-1">
+                                <label>Api Key</label>
+                                <input type="text" name="dfapikey" placeholder="Masukkan Api Key" value="<?= $digiFlazz['api_key']; ?>">
+                            </div>
+                            <div class="text-center">
+                                <button class="main-btn primary-btn btn-hover">
+                                    Intergrate
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

@@ -9,6 +9,7 @@ use App\Models\ApiGameModel;
 use App\Models\UsersModel;
 use App\Models\TripayModel;
 use App\Models\Admin\ReviewModel;
+use App\Models\Admin\DigiflazzModel;
 
 use ShortCode\Random;
 use ShortCode\Code;
@@ -226,6 +227,7 @@ class OrderController extends BaseController
         $methodPay = $this->request->getPost('method');
         $amountfloat       = $this->request->getPost('price');
         $amount = intval($amountfloat);
+        $skuCode = $this->request->getPost('skucode');
 
         $session = session();
         $buyer = $session->get('user_id');
@@ -241,18 +243,20 @@ class OrderController extends BaseController
                     $balanceUsr->update($buyer, ['balance' => $newBalance]);
 
                     // Digiflazz jalankan
+                    $digiFlazz = new DigiflazzModel();
+                    $df = $digiFlazz->first();
 
                     // Informasi sensitif
-                    $username = "cazekoD7ELKg";
-                    $apikey = "a3bd1141-63f8-5885-9d9a-c52bbcf2c97b";
+                    $username = $df['username'];
+                    $apikey = $df['api_key'];
 
                     // Data permintaan API
-                    $data = array(
-                        'ref_id' => strtoupper(hash('sha256', time() * rand(1, 1000))),
+                    $data = [
+                        'ref_id' => $merchantRef,
                         'username' => $username,
-                        'buyer_sku_code' => "DANA5",
+                        'buyer_sku_code' => $skuCode,
                         'customer_no' => "0895359738286",
-                    );
+                    ];
 
                     // Menambahkan sign ke data permintaan
                     $data['sign'] = md5($username . $apikey . $data['ref_id']);
@@ -265,10 +269,9 @@ class OrderController extends BaseController
                         CURLOPT_POSTFIELDS => json_encode($data),
                         CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
                     ]);
-                    $response = curl_exec($ch);
                     curl_close($ch);
 
-                    return redirect()->back();
+                    return redirect()->to('dashboard');
                 }
             }else{
                 return redirect()->back();

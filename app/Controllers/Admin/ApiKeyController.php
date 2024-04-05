@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\ApiGameModel;
 use App\Models\TripayModel;
+use App\Models\Admin\DigiflazzModel;
 
 class ApiKeyController extends BaseController
 {
@@ -12,12 +13,14 @@ class ApiKeyController extends BaseController
     {
         $apiGameModel = new ApiGameModel();
         $tripayModel = new TripayModel();
+        $digiFlazz = new DigiflazzModel();
 
         // Ambil data dari model
         $apiGameData = $apiGameModel->getApiGameData();
         $tripay = $tripayModel->first();
+        $digiFlazz = $digiFlazz->first();
 
-        return view('adminpage/apikey/index', compact('apiGameData', 'tripay'));
+        return view('adminpage/apikey/index', compact('apiGameData', 'tripay', 'digiFlazz'));
     }
 
     // Meng update data tanpa parameter
@@ -47,6 +50,17 @@ class ApiKeyController extends BaseController
             'private_key' => $this->request->getPost('privkey'),
         ];
         $tripayModel->update($id, $data);
+        return redirect()->to('admin/apis');
+    }
+
+    public function digiflazz(){
+        $digiFlazz = new DigiflazzModel();
+        $id = 1;
+        $data = [
+            'username' => $this->request->getPost('dfusrname'),
+            'api_key' => $this->request->getPost('dfapikey'),
+        ];
+        $digiFlazz->update($id, $data);
         return redirect()->to('admin/apis');
     }
 }
